@@ -818,8 +818,8 @@ begin
     Writeln(ExtractFileName(ParamStr(0)));
     Writeln(' -configfile file_name (required) Specifies the name of the configuration file.');
     Writeln(' -overwrite (optional) 	If specified, then existing files will be overwritten if an existing file if found with the same name as a generated file. If not specified, and a file already exists with the same name as a generated file, then MBG will write the newly generated Java file to the proper directory with a unique name (e.g. target-file.1, target-file.2, etc.). Important: The generator will always merge and overwrite XML files.');
-    Writeln(' -contextids context1,context2,...(optional)');
-    Writeln(' -tables table1, table2,... (optional)');
+    //Writeln(' -contextids context1,context2,...(optional)');
+    //Writeln(' -tables table1, table2,... (optional)');
   end;
   Terminate;
 end;

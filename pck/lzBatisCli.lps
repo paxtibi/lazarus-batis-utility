@@ -8,28 +8,23 @@
       <Unit0>
         <Filename Value="lzBatisCli.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="19" Y="17"/>
+        <TopLine Value="4"/>
+        <CursorPos X="45" Y="18"/>
         <UsageCount Value="200"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="..\src\lzbatis.application.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzBatis.application"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="697"/>
-        <CursorPos X="44" Y="714"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="809"/>
+        <CursorPos X="7" Y="822"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="..\bin\i386-win32\test.xml"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="42" Y="10"/>
-        <UsageCount Value="200"/>
-        <DefaultSyntaxHighlighter Value="XML"/>
-      </Unit2>
-      <Unit3>
         <Filename Value="..\src\lzbatis.om.db.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzbatis.om.DB"/>
@@ -37,31 +32,38 @@
         <TopLine Value="30"/>
         <CursorPos X="15" Y="41"/>
         <UsageCount Value="144"/>
-      </Unit3>
-      <Unit4>
+      </Unit2>
+      <Unit3>
         <Filename Value="..\src\lzbatis.om.pascal.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="151"/>
         <CursorPos X="14" Y="167"/>
         <UsageCount Value="142"/>
-      </Unit4>
-      <Unit5>
+      </Unit3>
+      <Unit4>
         <Filename Value="..\src\lzbatis.om.config.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="287"/>
         <CursorPos X="54" Y="478"/>
         <UsageCount Value="141"/>
-      </Unit5>
-      <Unit6>
+      </Unit4>
+      <Unit5>
         <Filename Value="..\src\lzbatiz.writers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzBatiz.writers"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="358"/>
         <CursorPos X="73" Y="366"/>
         <UsageCount Value="112"/>
-        <Loaded Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\bin\i386-win32\test.xml"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="42" Y="10"/>
+        <UsageCount Value="200"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\src\lzbatis.generators.pas"/>
@@ -307,14 +309,12 @@
       </Unit39>
       <Unit40>
         <Filename Value="C:\programmi\lazarus-1.6-32\components\lazutils\winfileutil.inc"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="19" Y="21"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit40>
     </Units>
-    <JumpHistory Count="27" HistoryIndex="26">
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
         <Filename Value="..\src\lzbatis.application.pas"/>
         <Caret Line="383" Column="38" TopLine="363"/>
@@ -419,9 +419,6 @@
         <Filename Value="..\src\lzbatis.application.pas"/>
         <Caret Line="740" Column="15" TopLine="719"/>
       </Position26>
-      <Position27>
-        <Filename Value="C:\programmi\lazarus-1.6-32\components\lazutils\winfileutil.inc"/>
-      </Position27>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
