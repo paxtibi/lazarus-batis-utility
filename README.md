@@ -65,9 +65,10 @@ Example 2: More configuration
 In this example we define two custom methods for mapper called TUserMapper. We define input parameters and return type.
 The sql statemente use ${parmetername} as macro to expand in sql generation phase.
 No validity check was implemente on ${parmetername}, we trust in user. 
-The "parametername" must be valid expression for freepascal compiler. Like example before.
-username and password are valid statements for freepascl.
-user.id is valid too.
+The "parametername" must be valid expression for freepascal compiler. Like previous example:
++ username and password are valid statements for freepascal.
++ user.id is valid too.
+
 For a mapper default method are:
 - saveEntityName(value: IEntityName)
 - getEntityName(primary key)
