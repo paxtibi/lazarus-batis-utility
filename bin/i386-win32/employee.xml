@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generator-configuration>
+	<context id="dragonfly-acl" target-location="../mappers">
+		<copyright>
+			<![CDATA[ EMPLOYEE.FDB ]]>
+		</copyright>
+		<zdbc-connection connection-url="zdbc:firebirdd-3.0:employee.fdb" username="sysdba" password="masterkey" skip="(RDB|SEC|MON)\$(.*)"></zdbc-connection>
+	</context>
+</generator-configuration>
