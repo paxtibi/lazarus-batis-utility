@@ -69,8 +69,8 @@ The "parametername" must be valid expression for freepascal compiler. Like examp
 username and password are valid statements for freepascl.
 user.id is valid too.
 For a mapper default method are:
-- save<entityname>(value: I<entityname>)
-- get<entityname>(primary key definition on database)
-- delete<entityname>(value : I<entityname>)
-- create<entityname>(value : I<entityname>)
+- saveEntityName(value: IEntityName)
+- getEntityName(primary key)
+- deleteEntityName>(value : IEntityName)
+- createEntityName>(value : IEntityName)
 
