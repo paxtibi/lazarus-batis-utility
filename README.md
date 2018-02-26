@@ -52,9 +52,9 @@ Example 2: More configuration
 		<table table-name="Permission" mapper-name="TUserMapper" entity-name="IPermission" implementation-name="TPermission" target-module="module.user"/>
 		<table table-name="UserGroup" mapper-name="TUserMapper" entity-name="IGroup" implementation-name="TGroup" target-module="module.user"/>
 		<table table-name="tblxyz" skip="true"/>
-		<table table-name="ISO$3166" mapper-name="TIso3166Mapper" entity-name="IIso3166" implementation-name="TIso3166" target-module="module">
+		<table table-name="ISO$3166" mapper-name="TIso3166Mapper" entity-name="IIso3166" implementation-name="TIso3166" target-module="module.iso3166">
 			<column column-name="CODE2" model-name="Code2"/>
-			<column column-name="CODE3" model-name="Code3" skip="true"/>
+			<column column-name="CODE3" model-name="Code3"/>
 			<column column-name="NAME" model-name="Name"/>
 			<column column-name="numeric" model-name="Numeric"/>
 		</table>
