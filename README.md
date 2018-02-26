@@ -15,6 +15,7 @@ Example 1: Simple configuration
 		</copyright>
 		<zdbc-connection connection-url="zeos lib connection string" username="username" password="password" [skip="regular expression"]></zdbc-connection>
 	</context>
+<generator-configuration>
 ```
 
 The program attach database connection and load all relation entity from default schema. For each entity generate an interface, a concrete class (private for compilation unit) and a mapper.
@@ -49,7 +50,7 @@ Example 2: More configuration
 			</mapper>
 		</table>
 		<table table-name="Permission" mapper-name="TUserMapper" entity-name="IPermission" implementation-name="TPermission" target-module="module.user"/>
-		<table table-name="UserGroup" mapper-name="TUserMapper" entity-name="IGroup" implementation-name="TGroup" target-module="dragonfly.om.acl"/>
+		<table table-name="UserGroup" mapper-name="TUserMapper" entity-name="IGroup" implementation-name="TGroup" target-module="module.user"/>
 		<table table-name="tblxyz" skip="true"/>
 		<table table-name="ISO$3166" mapper-name="TIso3166Mapper" entity-name="IIso3166" implementation-name="TIso3166" target-module="module">
 			<column column-name="CODE2" model-name="Code2"/>
