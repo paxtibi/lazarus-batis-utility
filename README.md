@@ -20,9 +20,9 @@ Example 1: Simple configuration
 
 The program attach database connection and load all relation entity from default schema. For each entity generate an interface, a concrete class (private for compilation unit) and a mapper.
 Default name assigned to every entity follow this schema:
-- I<EntityName>
-- T<EntityName>
-- T<EntityName>Mapper
+- IEntityName
+- TEntityName
+- TEntityNameMapper
 
 Example 2: More configuration
 ```xml
