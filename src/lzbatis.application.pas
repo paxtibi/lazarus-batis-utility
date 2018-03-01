@@ -53,7 +53,9 @@ implementation
 
 uses
   lzBatiz.writers,
-  RegExpr, Laz2_XMLRead, lzBatis.dom.aspects, ZDbcInterbase6, LazLogger, fileutil;
+  RegExpr, Laz2_XMLRead, lzBatis.dom.aspects, ZDbcInterbase6, ZDbcAdo, ZDbcDbLib,
+  ZDbcMySql, ZDbcOracle, ZDbcPostgreSql, ZDbcSqLite,
+  LazLogger, fileutil;
 
 const
   SQLTypeName: array [TZSQLType] of string = ('Unknown', 'Boolean',
