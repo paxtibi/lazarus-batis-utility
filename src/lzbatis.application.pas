@@ -23,6 +23,12 @@ type
     function generaDeleteSQLPerPrimaryKey(tabella: TConfigurationTable): string;
     function generaInsertSQLPerPrimaryKey(tabella: TConfigurationTable): string;
   protected
+    FPrepare: record
+      active: boolean;
+      connectionString: string;
+      username: string;
+      password: string;
+    end;
     FCompliationUnits: TOMCompilationUnits;
     FTargetLocation: string;
     FSkipPattern: string;
@@ -53,7 +59,8 @@ type
 implementation
 
 uses
-  lzBatiz.writers,
+  lzBatis.configuration,
+  lzBatis.writers,
   RegExpr, Laz2_XMLRead, lzBatis.dom.aspects, ZDbcInterbase6, ZDbcAdo, ZDbcDbLib,
   ZDbcMySql, ZDbcOracle, ZDbcPostgreSql, ZDbcSqLite,
   LazLogger, fileutil;
@@ -140,8 +147,11 @@ begin
       end;
       if table <> nil then
       begin
+        if table.Skip then
+        begin
+          continue;
+        end;
         columnResultSet := FConnection.GetMetadata.GetColumns('', '', table.TableName, '%');
-        //DbgCursor(columnResultSet);
         while columnResultSet.Next do
         begin
           column := table.getColumnByName(columnResultSet.GetStringByName('COLUMN_NAME'));
@@ -598,8 +608,9 @@ var
   n: TDOMNode;
 begin
   DebugLnEnter('Config.Context.Table');
-  Result := TConfigurationTable.Create;
+  Result      := TConfigurationTable.Create;
   Result.TableName := node.attr('table-name');
+  Result.Skip := uppercase(node.attr('skip')) = 'TRUE';
   Result.MapperName := node.attr('mapper-name');
   Result.IntfName := node.attr('entity-name');
   Result.ImplName := node.attr('implementation-name');
@@ -799,28 +810,49 @@ procedure TlzBatisGenerator.DoRun;
 var
   xmlDocument: TXMLDocument;
   context: TConfigurationContext;
+  configurationHelper: TConfigurationPreparator;
 begin
   if FFileNameInput <> '' then
   begin
-    ReadXMLFile(xmlDocument, FFileNameInput);
-    leggiConfigurazione(xmlDocument);
-    FCompliationUnits := TOMCompilationUnits.Create(True);
-    for context in FConfiguration.Contextes do
+    if FPrepare.active = False then
     begin
-      if FContexts.Count > 0 then
+      ReadXMLFile(xmlDocument, FFileNameInput);
+      leggiConfigurazione(xmlDocument);
+      FCompliationUnits := TOMCompilationUnits.Create(True);
+      for context in FConfiguration.Contextes do
       begin
-        if FContexts.IndexOf(context.Id) = -1 then
+        if FContexts.Count > 0 then
         begin
-          continue;
+          if FContexts.IndexOf(context.Id) = -1 then
+          begin
+            continue;
+          end;
+        end;
+        attivaConnessione(context);
+        completaConfigurazione(context);
+        processaContesto(context);
+        scriviContesto(context);
+        disattivaConnessione;
+      end;
+      FCompliationUnits.Free;
+    end
+    else
+    begin
+      configurationHelper := TConfigurationPreparator.Create;
+      configurationHelper.ConnectionString := FPrepare.connectionString;
+      configurationHelper.UserName := FPrepare.username;
+      configurationHelper.Password := FPrepare.password;
+      configurationHelper.TargetFile := FFileNameInput;
+      try
+        configurationHelper.prepare;
+      except
+        on e: Exception do
+        begin
+          Writeln(e.Message);
         end;
       end;
-      attivaConnessione(context);
-      completaConfigurazione(context);
-      processaContesto(context);
-      scriviContesto(context);
-      disattivaConnessione;
+      FreeAndNil(configurationHelper);
     end;
-    FCompliationUnits.Free;
   end
   else
   begin
@@ -829,6 +861,7 @@ begin
     Writeln(' -configfile file_name (required) Specifies the name of the configuration file.');
     Writeln(' -overwrite (optional) If specified, override target mapper file. Else preserve older file.');
     Writeln(' -contextids context1,context2,...(optional)');
+    Writeln(' -prepare: Prepare the xml file configuration. Use -configfile parameter as target additional parmeter is required. "connectionurl" "username" "password" became mandatory if -prepare is provided as parameter.');
     //Writeln(' -tables table1, table2,... (optional)');
   end;
   Terminate;
@@ -843,6 +876,7 @@ begin
   FOverride := False;
   FTables   := TStringList.Create;
   FContexts := TStringList.Create;
+  FPrepare.active := False;
   repeat
     if ParamStr(idx) = '-configfile' then
     begin
@@ -864,6 +898,16 @@ begin
     begin
       Inc(idx);
       FContexts.CommaText := ParamStr(idx);
+    end;
+    if ParamStr(idx) = '-prepare' then
+    begin
+      Inc(idx);
+      FPrepare.active := True;
+      FPrepare.connectionString := ParamStr(idx);
+      Inc(idx);
+      FPrepare.username := ParamStr(idx);
+      Inc(idx);
+      FPrepare.password := ParamStr(idx);
     end;
     Inc(idx);
   until idx > ParamCount;

@@ -109,7 +109,7 @@ type
     FIntfName: string;
     FMapperName: string;
     FPrimaryKey: TConfigurationTablePrimaryKey;
-    FSkip: string;
+    FSkip: Boolean;
     FTableName: string;
     FMapper: TConfigurationMapper;
     function getColumns: TConfigurationColumns;
@@ -123,7 +123,7 @@ type
     procedure SetIntfName(AValue: string);
     procedure SetMapperName(AValue: string);
     procedure SetPrimaryKey(AValue: TConfigurationTablePrimaryKey);
-    procedure SetSkip(AValue: string);
+    procedure SetSkip(AValue: Boolean);
     procedure SetTableName(AValue: string);
   public
     destructor Destroy; override;
@@ -131,7 +131,7 @@ type
     property IntfName: string read FIntfName write SetIntfName;
     property ImplName: string read FImplName write SetImplName;
     property MapperName: string read FMapperName write SetMapperName;
-    property Skip: string read FSkip write SetSkip;
+    property Skip: Boolean read FSkip write SetSkip;
     property Columns: TConfigurationColumns read getColumns write SetColumns;
     property CompilationUnitName: string read FCompilationUnitName write SetCompilationUnitName;
     function getColumnByName(aColumnName: string): TConfigurationColumn;
@@ -521,7 +521,7 @@ begin
   FPrimaryKey := AValue;
 end;
 
-procedure TConfigurationTable.SetSkip(AValue: string);
+procedure TConfigurationTable.SetSkip(AValue: Boolean);
 begin
   if FSkip = AValue then
   begin

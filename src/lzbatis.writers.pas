@@ -1,4 +1,4 @@
-unit lzBatiz.writers;
+unit lzbatis.writers;
 
 {$mode objfpc}{$H+}
 
