@@ -4,12 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="44">
+    <Units Count="45">
       <Unit0>
         <Filename Value="lzBatisCli.lpr"/>
         <IsPartOfProject Value="True"/>
         <TopLine Value="4"/>
-        <CursorPos X="40" Y="20"/>
+        <CursorPos Y="29"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -19,8 +19,8 @@
         <UnitName Value="lzBatis.application"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="32"/>
-        <CursorPos X="13" Y="57"/>
+        <TopLine Value="792"/>
+        <CursorPos Y="803"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -31,7 +31,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos X="15" Y="41"/>
-        <UsageCount Value="145"/>
+        <UsageCount Value="146"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\src\lzbatis.om.pascal.pas"/>
@@ -39,7 +39,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="151"/>
         <CursorPos X="14" Y="167"/>
-        <UsageCount Value="143"/>
+        <UsageCount Value="144"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\src\lzbatis.om.config.pas"/>
@@ -47,16 +47,17 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="287"/>
         <CursorPos X="54" Y="478"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="143"/>
       </Unit4>
       <Unit5>
         <Filename Value="..\src\lzbatiz.writers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzBatiz.writers"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="358"/>
-        <CursorPos X="73" Y="366"/>
-        <UsageCount Value="113"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="510"/>
+        <CursorPos X="52" Y="525"/>
+        <UsageCount Value="114"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="..\bin\i386-win32\test.xml"/>
@@ -335,8 +336,16 @@
         <CursorPos X="43" Y="591"/>
         <UsageCount Value="11"/>
       </Unit43>
+      <Unit44>
+        <Filename Value="..\bin\employee.xml"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="70" Y="14"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit44>
     </Units>
-    <JumpHistory Count="4" HistoryIndex="3">
+    <JumpHistory Count="18" HistoryIndex="17">
       <Position1>
         <Filename Value="..\src\lzbatis.application.pas"/>
         <Caret Line="23" Column="26" TopLine="17"/>
@@ -353,6 +362,62 @@
         <Filename Value="..\src\lzbatis.application.pas"/>
         <Caret Line="740" Column="15" TopLine="719"/>
       </Position4>
+      <Position5>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="813" Column="40" TopLine="574"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="824" Column="55" TopLine="807"/>
+      </Position6>
+      <Position7>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="807" TopLine="794"/>
+      </Position7>
+      <Position8>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="866" TopLine="852"/>
+      </Position8>
+      <Position9>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="868" TopLine="852"/>
+      </Position9>
+      <Position10>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="869" TopLine="852"/>
+      </Position10>
+      <Position11>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="870" TopLine="852"/>
+      </Position11>
+      <Position12>
+        <Filename Value="lzBatisCli.lpr"/>
+        <Caret Line="27" TopLine="4"/>
+      </Position12>
+      <Position13>
+        <Filename Value="lzBatisCli.lpr"/>
+        <Caret Line="28" TopLine="4"/>
+      </Position13>
+      <Position14>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="803" TopLine="794"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="866" TopLine="852"/>
+      </Position15>
+      <Position16>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="868" TopLine="852"/>
+      </Position16>
+      <Position17>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="803" TopLine="789"/>
+      </Position17>
+      <Position18>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="805" TopLine="789"/>
+      </Position18>
     </JumpHistory>
   </ProjectSession>
   <Debugging>

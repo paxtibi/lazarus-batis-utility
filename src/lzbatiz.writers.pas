@@ -511,6 +511,7 @@ end;
 
 procedure TUnitWriter.generate(compilationUnit: TOMCompilationUnit);
 begin
+  ForceDirectories(ExtractFileDir(compilationUnit.FileName));
   FTarget := TPrintStream.Create(TFileStream.Create(compilationUnit.FileName, fmCreate));
   FTarget.print('unit ').print(compilationUnit.UnitName).print(';').println;
   FTarget.print('(*').println.print(compilationUnit.Copyright).println.print('*)').println;

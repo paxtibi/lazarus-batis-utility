@@ -28,6 +28,7 @@ type
     FSkipPattern: string;
     FConnection: IZConnection;
     FTables: TStringList;
+    FContexts: TStringList;
     FOverride: boolean;
     FFileNameInput: string;
     FConfiguration: TConfiguration;
@@ -806,6 +807,13 @@ begin
     FCompliationUnits := TOMCompilationUnits.Create(True);
     for context in FConfiguration.Contextes do
     begin
+      if FContexts.Count > 0 then
+      begin
+        if FContexts.IndexOf(context.Id) = -1 then
+        begin
+          continue;
+        end;
+      end;
       attivaConnessione(context);
       completaConfigurazione(context);
       processaContesto(context);
@@ -819,8 +827,8 @@ begin
     Writeln('Missing required parameter: -configfile');
     Writeln(ExtractFileName(ParamStr(0)));
     Writeln(' -configfile file_name (required) Specifies the name of the configuration file.');
-    Writeln(' -overwrite (optional) 	If specified, then existing files will be overwritten if an existing file if found with the same name as a generated file. If not specified, and a file already exists with the same name as a generated file, then MBG will write the newly generated Java file to the proper directory with a unique name (e.g. target-file.1, target-file.2, etc.). Important: The generator will always merge and overwrite XML files.');
-    //Writeln(' -contextids context1,context2,...(optional)');
+    Writeln(' -overwrite (optional) If specified, override target mapper file. Else preserve older file.');
+    Writeln(' -contextids context1,context2,...(optional)');
     //Writeln(' -tables table1, table2,... (optional)');
   end;
   Terminate;
@@ -834,6 +842,7 @@ begin
   StopOnException := True;
   FOverride := False;
   FTables   := TStringList.Create;
+  FContexts := TStringList.Create;
   repeat
     if ParamStr(idx) = '-configfile' then
     begin
@@ -850,12 +859,20 @@ begin
       Inc(idx);
       FTables.CommaText := ParamStr(idx);
     end;
+
+    if ParamStr(idx) = '-contextids' then
+    begin
+      Inc(idx);
+      FContexts.CommaText := ParamStr(idx);
+    end;
     Inc(idx);
   until idx > ParamCount;
 end;
 
 destructor TlzBatisGenerator.Destroy;
 begin
+  FreeAndNil(FTables);
+  FreeAndNil(FContexts);
   inherited Destroy;
 end;
 
