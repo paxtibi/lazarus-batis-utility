@@ -29,6 +29,12 @@ type
       username: string;
       password: string;
     end;
+    FReverse: record
+      active: boolean;
+      connectionString: string;
+      username: string;
+      password: string;
+    end;
     FCompliationUnits: TOMCompilationUnits;
     FTargetLocation: string;
     FSkipPattern: string;
@@ -810,11 +816,12 @@ procedure TlzBatisGenerator.DoRun;
 var
   xmlDocument: TXMLDocument;
   context: TConfigurationContext;
-  configurationHelper: TConfigurationPreparator;
+  configurationPreparator: TConfigurationPreparator;
+  configurationReverse: TConfigurationReverse;
 begin
   if FFileNameInput <> '' then
   begin
-    if FPrepare.active = False then
+    if (FPrepare.active = False) and (FReverse.active = False) then
     begin
       ReadXMLFile(xmlDocument, FFileNameInput);
       leggiConfigurazione(xmlDocument);
@@ -837,21 +844,39 @@ begin
       FCompliationUnits.Free;
     end
     else
+    if FPrepare.active = True then
     begin
-      configurationHelper := TConfigurationPreparator.Create;
-      configurationHelper.ConnectionString := FPrepare.connectionString;
-      configurationHelper.UserName := FPrepare.username;
-      configurationHelper.Password := FPrepare.password;
-      configurationHelper.TargetFile := FFileNameInput;
+      configurationPreparator := TConfigurationPreparator.Create;
+      configurationPreparator.ConnectionString := FPrepare.connectionString;
+      configurationPreparator.UserName := FPrepare.username;
+      configurationPreparator.Password := FPrepare.password;
+      configurationPreparator.TargetFile := FFileNameInput;
       try
-        configurationHelper.prepare;
+        configurationPreparator.prepare;
       except
         on e: Exception do
         begin
           Writeln(e.Message);
         end;
       end;
-      FreeAndNil(configurationHelper);
+      FreeAndNil(configurationPreparator);
+    end
+    else
+    begin
+      configurationReverse := TConfigurationReverse.Create;
+      configurationReverse.ConnectionString := FReverse.connectionString;
+      configurationReverse.UserName := FReverse.username;
+      configurationReverse.Password := FReverse.password;
+      configurationReverse.TargetFile := FFileNameInput;
+      try
+        configurationReverse.reverse;
+      except
+        on e: Exception do
+        begin
+          Writeln(e.Message);
+        end;
+      end;
+      FreeAndNil(configurationReverse);
     end;
   end
   else
@@ -877,6 +902,7 @@ begin
   FTables   := TStringList.Create;
   FContexts := TStringList.Create;
   FPrepare.active := False;
+  FReverse.active := False;
   repeat
     if ParamStr(idx) = '-configfile' then
     begin
@@ -908,6 +934,16 @@ begin
       FPrepare.username := ParamStr(idx);
       Inc(idx);
       FPrepare.password := ParamStr(idx);
+    end;
+    if ParamStr(idx) = '-reverse' then
+    begin
+      Inc(idx);
+      FReverse.active := True;
+      FReverse.connectionString := ParamStr(idx);
+      Inc(idx);
+      FReverse.username := ParamStr(idx);
+      Inc(idx);
+      FReverse.password := ParamStr(idx);
     end;
     Inc(idx);
   until idx > ParamCount;

@@ -28,7 +28,7 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
-        <CommandLineParams Value="-configfile ../employee1.xml -prepare zdbc:firebirdd-3.0:firecat.fdb sysdba masterkey"/>
+        <CommandLineParams Value="-configfile ../employee1.sql -reverse zdbc:firebirdd-3.0:/employee.fdb sysdba masterkey"/>
       </local>
     </RunParams>
     <RequiredPackages Count="1">
@@ -36,7 +36,7 @@
         <PackageName Value="zdbc"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="lzBatisCli.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -67,6 +67,10 @@
         <Filename Value="..\src\lzbatis.configuration.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="..\src\lzbatis.reverse.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -34,11 +34,90 @@ type
     property Password: string read FPassword write SetPassword;
   end;
 
+  { TConfigurationReverse }
+
+  TConfigurationReverse = class
+  private
+    FConnectionString: string;
+    FPassword: string;
+    FTargetFile: string;
+    FUserName: string;
+    FConnection: IZConnection;
+    procedure SetConnectionString(AValue: string);
+    procedure SetPassword(AValue: string);
+    procedure SetTargetFile(AValue: string);
+    procedure SetUserName(AValue: string);
+  public
+    procedure reverse;
+    property TargetFile: string read FTargetFile write SetTargetFile;
+    property ConnectionString: string read FConnectionString write SetConnectionString;
+    property UserName: string read FUserName write SetUserName;
+    property Password: string read FPassword write SetPassword;
+  end;
+
 
 implementation
 
 uses
-  laz2_XMLWrite, laz2_XMLRead, lzBatis.dom.aspects;
+  laz2_XMLWrite, laz2_XMLRead, lzBatis.dom.aspects, paxtibi.utils, lzBatis.reverse;
+
+{ TConfigurationReverse }
+
+procedure TConfigurationReverse.SetConnectionString(AValue: string);
+begin
+  if FConnectionString = AValue then
+  begin
+    Exit;
+  end;
+  FConnectionString := AValue;
+end;
+
+procedure TConfigurationReverse.SetPassword(AValue: string);
+begin
+  if FPassword = AValue then
+  begin
+    Exit;
+  end;
+  FPassword := AValue;
+end;
+
+procedure TConfigurationReverse.SetTargetFile(AValue: string);
+begin
+  if FTargetFile = AValue then
+  begin
+    Exit;
+  end;
+  FTargetFile := AValue;
+end;
+
+procedure TConfigurationReverse.SetUserName(AValue: string);
+begin
+  if FUserName = AValue then
+  begin
+    Exit;
+  end;
+  FUserName := AValue;
+end;
+
+procedure TConfigurationReverse.reverse;
+var
+  Target: TPrintStream;
+  rs: IZResultSet;
+  tableTypes: array of string;
+begin
+  SetLength(tableTypes, 1);
+  tableTypes[0] := 'TABLE';
+  Writeln(ConnectionString);
+  FConnection := DriverManager.GetConnectionWithLogin(ConnectionString, UserName, Password);
+  Target := TPrintStream.Create(TFileStream.Create(FTargetFile, fmCreate));
+  rs := FConnection.GetMetadata.GetTables('', '', '%', tableTypes);
+  while rs.Next do
+  begin
+    Target.print(showTable(FConnection, rs.getStringByName('TABLE_NAME')))
+      .println();
+  end;
+  FreeAndNil(Target);
+end;
 
 { TConfigurationPreparator }
 

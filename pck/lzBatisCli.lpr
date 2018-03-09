@@ -14,7 +14,9 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   lzbatis.om.DB,
   lzbatis.om.pascal,
   lzbatis.om.config,
-  lzbatis.writers, lzbatis.configuration;
+  lzbatis.writers,
+  lzbatis.configuration,
+  lzbatis.reverse;
 
 var
   Application: TlzBatisGenerator;

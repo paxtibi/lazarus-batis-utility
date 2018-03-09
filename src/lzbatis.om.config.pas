@@ -96,8 +96,6 @@ type
     property SetMethod: string read FSetMethod write SetSetMethod;
   end;
 
-
-
   { TConfigurationTable }
 
   TConfigurationTable = class
