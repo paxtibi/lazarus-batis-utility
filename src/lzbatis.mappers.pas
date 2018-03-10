@@ -381,118 +381,121 @@ begin
       begin
         mapper := TOMMapper.Create(cursor.MapperName);
         cu.Mappers.Add(mapper);
-        aContext.addNamedItem(mapper);
-        for configMethod in cursor.MapperConfiguration.methods do
+      end;
+      if mapper.ContextName = '' then
+      begin
+        mapper.ContextName := cursor.MapperConfiguration.GlobalName;
+      end;
+      aContext.addNamedItem(mapper);
+      for configMethod in cursor.MapperConfiguration.methods do
+      begin
+        mapperField  := TOMField.Create('F' + CapCase(configMethod.MethodName));
+        mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+        mapperField.TypeName := 'IZPreparedStatement';
+        mapperField.Visibility := vlProtected;
+        mapperField.InitializiationValue := configMethod.BodyMethod;
+        mapperMethod := TOMMethod.Create(configMethod.MethodName);
+        mapperMethod.Visibility := vlPublic;
+        mapperMethod.Body := configMethod.BodyMethod;
+        mapperMethod.ResultName := configMethod.ResultName;
+        mapperMethod.SetterOf := mapperField;
+        for configParameter in configMethod.Parameters do
         begin
-          mapperField  := TOMField.Create('F' + CapCase(configMethod.MethodName));
-          mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-          mapperField.TypeName := 'IZPreparedStatement';
-          mapperField.Visibility := vlProtected;
-          mapperField.InitializiationValue := configMethod.BodyMethod;
-          mapperMethod := TOMMethod.Create(configMethod.MethodName);
-          mapperMethod.Visibility := vlPublic;
-          mapperMethod.Body := configMethod.BodyMethod;
-          mapperMethod.ResultName := configMethod.ResultName;
-          mapperMethod.SetterOf := mapperField;
-          for configParameter in configMethod.Parameters do
-          begin
-            mapperParameter := TOMParameter.Create(configParameter.ParameterName);
-            mapperParameter.ParameterTypeName := configParameter.ParameterType;
-            mapperParameter.ParameterProtocolo := ppConst;
-
-            mapperMethod.Parameters.Add(mapperParameter);
-          end;
-          mapper.Methods.Add(mapperMethod);
-          mapper.Fields.Add(mapperField);
-        end;
-
-        if cursor.PrimaryKey.Columns.Count > 0 then
-        begin
-          mapperMethod := TOMMethod.Create('get' + CapCase(cursor.IntfName) + 'ByKey');
-          mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'ByKey');
-
-          mapper.Methods.Add(mapperMethod);
-          mapper.Fields.Add(mapperField);
-
-          mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-          mapperField.TypeName    := 'IZPreparedStatement';
-          mapperField.Visibility  := vlProtected;
-          mapperField.InitializiationValue := generaSelectSQLPerPrimaryKey(cursor);
-          mapperMethod.Visibility := vlPublic;
-          mapperMethod.SetterOf   := mapperField;
-          mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
-          for confColumn in cursor.PrimaryKey.Columns do
-          begin
-            mapperParameter := TOMParameter.Create('a' + CapCase(confColumn.ModelName));
-            mapperParameter.ParameterTypeName := confColumn.ModelType;
-            mapperParameter.ParameterProtocolo := ppConst;
-            mapperMethod.Parameters.Add(mapperParameter);
-          end;
-        end;
-
-        if cursor.PrimaryKey.Columns.Count > 0 then
-        begin
-          mapperMethod := TOMMethod.Create('save' + CapCase(cursor.IntfName));
-          mapperField  := TOMField.Create('FUpdate' + CapCase(cursor.IntfName) + 'ByKey');
-
-          mapper.Methods.Add(mapperMethod);
-          mapper.Fields.Add(mapperField);
-
-          mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-          mapperField.TypeName := 'IZPreparedStatement';
-          mapperField.Visibility := vlProtected;
-          mapperField.InitializiationValue := generaUpdateSQLPerPrimaryKey(cursor);
-          mapperMethod.Visibility := vlPublic;
-          mapperMethod.SetterOf := mapperField;
-          mapperParameter := TOMParameter.Create('entity');
-          mapperParameter.ParameterTypeName := cursor.IntfName;
+          mapperParameter := TOMParameter.Create(configParameter.ParameterName);
+          mapperParameter.ParameterTypeName := configParameter.ParameterType;
           mapperParameter.ParameterProtocolo := ppConst;
 
           mapperMethod.Parameters.Add(mapperParameter);
         end;
+        mapper.Methods.Add(mapperMethod);
+        mapper.Fields.Add(mapperField);
+      end;
 
-        if cursor.PrimaryKey.Columns.Count > 0 then
+      if cursor.PrimaryKey.Columns.Count > 0 then
+      begin
+        mapperMethod := TOMMethod.Create('getOne');
+        mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'One');
+
+        mapper.Methods.Add(mapperMethod);
+        mapper.Fields.Add(mapperField);
+
+        mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+        mapperField.TypeName    := 'IZPreparedStatement';
+        mapperField.Visibility  := vlProtected;
+        mapperField.InitializiationValue := generaSelectSQLPerPrimaryKey(cursor);
+        mapperMethod.Visibility := vlPublic;
+        mapperMethod.SetterOf   := mapperField;
+        mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
+        for confColumn in cursor.PrimaryKey.Columns do
         begin
-          mapperMethod := TOMMethod.Create('remove' + CapCase(cursor.IntfName));
-          mapperField  := TOMField.Create('FDelete' + CapCase(cursor.IntfName) + 'ByKey');
-
-          mapper.Methods.Add(mapperMethod);
-          mapper.Fields.Add(mapperField);
-
-          mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-          mapperField.TypeName := 'IZPreparedStatement';
-          mapperField.Visibility := vlProtected;
-          mapperField.InitializiationValue := generaDeleteSQLPerPrimaryKey(cursor);
-          mapperMethod.Visibility := vlPublic;
-          mapperMethod.SetterOf := mapperField;
-          mapperParameter := TOMParameter.Create('entity');
-          mapperParameter.ParameterTypeName := cursor.IntfName;
+          mapperParameter := TOMParameter.Create('a' + CapCase(confColumn.ModelName));
+          mapperParameter.ParameterTypeName := confColumn.ModelType;
           mapperParameter.ParameterProtocolo := ppConst;
-
           mapperMethod.Parameters.Add(mapperParameter);
         end;
+      end;
 
-        if cursor.PrimaryKey.Columns.Count > 0 then
-        begin
-          mapperMethod := TOMMethod.Create('create' + CapCase(cursor.IntfName));
-          mapperField  := TOMField.Create('FInsert' + CapCase(cursor.IntfName) + 'ByKey');
+      if cursor.PrimaryKey.Columns.Count > 0 then
+      begin
+        mapperMethod := TOMMethod.Create('save');
+        mapperField  := TOMField.Create('FUpdate' + CapCase(cursor.IntfName));
 
-          mapper.Methods.Add(mapperMethod);
-          mapper.Fields.Add(mapperField);
+        mapper.Methods.Add(mapperMethod);
+        mapper.Fields.Add(mapperField);
 
-          mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-          mapperField.TypeName := 'IZPreparedStatement';
-          mapperField.Visibility := vlProtected;
-          mapperField.InitializiationValue := generaInsertSQLPerPrimaryKey(cursor);
-          mapperMethod.Visibility := vlPublic;
-          mapperMethod.SetterOf := mapperField;
-          mapperParameter := TOMParameter.Create('entity');
-          mapperParameter.ParameterTypeName := cursor.IntfName;
-          mapperParameter.ParameterProtocolo := ppConst;
+        mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+        mapperField.TypeName := 'IZPreparedStatement';
+        mapperField.Visibility := vlProtected;
+        mapperField.InitializiationValue := generaUpdateSQLPerPrimaryKey(cursor);
+        mapperMethod.Visibility := vlPublic;
+        mapperMethod.SetterOf := mapperField;
+        mapperParameter := TOMParameter.Create('entity');
+        mapperParameter.ParameterTypeName := cursor.IntfName;
+        mapperParameter.ParameterProtocolo := ppConst;
 
-          mapperMethod.Parameters.Add(mapperParameter);
-        end;
+        mapperMethod.Parameters.Add(mapperParameter);
+      end;
 
+      if cursor.PrimaryKey.Columns.Count > 0 then
+      begin
+        mapperMethod := TOMMethod.Create('remove');
+        mapperField  := TOMField.Create('FDelete' + CapCase(cursor.IntfName));
+
+        mapper.Methods.Add(mapperMethod);
+        mapper.Fields.Add(mapperField);
+
+        mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+        mapperField.TypeName := 'IZPreparedStatement';
+        mapperField.Visibility := vlProtected;
+        mapperField.InitializiationValue := generaDeleteSQLPerPrimaryKey(cursor);
+        mapperMethod.Visibility := vlPublic;
+        mapperMethod.SetterOf := mapperField;
+        mapperParameter := TOMParameter.Create('entity');
+        mapperParameter.ParameterTypeName := cursor.IntfName;
+        mapperParameter.ParameterProtocolo := ppConst;
+
+        mapperMethod.Parameters.Add(mapperParameter);
+      end;
+
+      if cursor.PrimaryKey.Columns.Count > 0 then
+      begin
+        mapperMethod := TOMMethod.Create('put');
+        mapperField  := TOMField.Create('FInsert' + CapCase(cursor.IntfName));
+
+        mapper.Methods.Add(mapperMethod);
+        mapper.Fields.Add(mapperField);
+
+        mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+        mapperField.TypeName := 'IZPreparedStatement';
+        mapperField.Visibility := vlProtected;
+        mapperField.InitializiationValue := generaInsertSQLPerPrimaryKey(cursor);
+        mapperMethod.Visibility := vlPublic;
+        mapperMethod.SetterOf := mapperField;
+        mapperParameter := TOMParameter.Create('entity');
+        mapperParameter.ParameterTypeName := cursor.IntfName;
+        mapperParameter.ParameterProtocolo := ppConst;
+
+        mapperMethod.Parameters.Add(mapperParameter);
       end;
     end
     else
@@ -584,7 +587,7 @@ begin
   DebugLnEnter('Config.Context.MapperMethod');
   Result := TConfigurationMapperMethod.Create;
   Result.MethodName := node.attr('name');
-  Result.BodyMethod := node.TextContent;
+  Result.BodyMethod := Trim(node.TextContent);
   for n in node do
   begin
     if LowerCase(n.NodeName) = 'parameter' then
@@ -659,6 +662,10 @@ begin
     end
     else if LowerCase(n.NodeName) = 'mapper' then
     begin
+      if Result.MapperConfiguration.GlobalName = '' then
+      begin
+        Result.MapperConfiguration.GlobalName := node.attr('context-name');
+      end;
       LeggiConfigurazioneMapper(n, Result.MapperConfiguration);
     end;
   end;

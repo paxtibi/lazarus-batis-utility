@@ -18,8 +18,8 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzBatis.application"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="6"/>
-        <CursorPos X="15" Y="22"/>
+        <TopLine Value="64"/>
+        <CursorPos X="24" Y="90"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -30,42 +30,44 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos X="15" Y="41"/>
-        <UsageCount Value="179"/>
+        <UsageCount Value="182"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\src\lzbatis.om.pascal.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="507"/>
-        <CursorPos X="22" Y="510"/>
-        <UsageCount Value="177"/>
+        <TopLine Value="233"/>
+        <CursorPos X="26" Y="239"/>
+        <UsageCount Value="180"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\src\lzbatis.om.config.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="192"/>
-        <CursorPos X="3" Y="206"/>
-        <UsageCount Value="176"/>
+        <TopLine Value="507"/>
+        <CursorPos X="56" Y="534"/>
+        <UsageCount Value="179"/>
         <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="..\src\lzbatis.writers.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="185"/>
-        <CursorPos X="38" Y="200"/>
-        <UsageCount Value="147"/>
+        <TopLine Value="92"/>
+        <CursorPos X="19" Y="96"/>
+        <UsageCount Value="150"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="..\src\lzbatis.configuration.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="6"/>
         <TopLine Value="37"/>
-        <CursorPos X="22" Y="50"/>
-        <UsageCount Value="52"/>
+        <CursorPos X="34" Y="50"/>
+        <UsageCount Value="55"/>
+        <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="..\src\lzbatis.reverse.pas"/>
@@ -73,7 +75,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="47" Y="35"/>
-        <UsageCount Value="48"/>
+        <UsageCount Value="51"/>
       </Unit7>
       <Unit8>
         <Filename Value="..\bin\i386-win32\test.xml"/>
@@ -337,18 +339,18 @@
       </Unit43>
       <Unit44>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcMySql.pas"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="7"/>
         <TopLine Value="37"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\plain\ZPlainMySqlDriver.pas"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="1535"/>
         <CursorPos X="49" Y="1550"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="24"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit45>
@@ -371,134 +373,132 @@
       <Unit48>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="25"/>
-        <CursorPos X="29" Y="43"/>
-        <UsageCount Value="21"/>
+        <TopLine Value="367"/>
+        <CursorPos X="40" Y="388"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit48>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="174" Column="11" TopLine="161"/>
+        <Caret Line="93" Column="35" TopLine="79"/>
       </Position1>
       <Position2>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="58" TopLine="55"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="25" Column="12" TopLine="17"/>
       </Position2>
       <Position3>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="45" Column="21" TopLine="26"/>
+        <Caret Line="238" Column="11" TopLine="224"/>
       </Position3>
       <Position4>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="800" TopLine="793"/>
+        <Caret Line="236" Column="35" TopLine="222"/>
       </Position4>
       <Position5>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="251" Column="12" TopLine="238"/>
+        <Caret Line="240" Column="36" TopLine="222"/>
       </Position5>
       <Position6>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="48" Column="70" TopLine="28"/>
+        <Caret Line="538" Column="35" TopLine="524"/>
       </Position6>
       <Position7>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="528" Column="4" TopLine="522"/>
+        <Caret Line="33" TopLine="25"/>
       </Position7>
       <Position8>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="48" Column="40" TopLine="35"/>
+        <Caret Line="39" Column="15" TopLine="25"/>
       </Position8>
       <Position9>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="770" Column="48" TopLine="757"/>
+        <Caret Line="862" Column="16" TopLine="844"/>
       </Position9>
       <Position10>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="14" Column="39" TopLine="12"/>
+        <Caret Line="616" Column="20" TopLine="604"/>
       </Position10>
       <Position11>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="51" Column="79" TopLine="38"/>
+        <Caret Line="606" Column="67" TopLine="592"/>
       </Position11>
       <Position12>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="540" Column="28" TopLine="534"/>
+        <Filename Value="..\src\lzbatis.om.config.pas"/>
+        <Caret Line="185" Column="71" TopLine="161"/>
       </Position12>
       <Position13>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="54" Column="14" TopLine="41"/>
+        <Filename Value="..\src\lzbatis.om.pascal.pas"/>
+        <Caret Line="226" Column="73" TopLine="199"/>
       </Position13>
       <Position14>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="31" TopLine="6"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="35" Column="48" TopLine="24"/>
       </Position14>
       <Position15>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="15" Column="26" TopLine="8"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="36" Column="54" TopLine="23"/>
       </Position15>
       <Position16>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="657" Column="25" TopLine="642"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="544" Column="42" TopLine="524"/>
       </Position16>
       <Position17>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="842" Column="3" TopLine="836"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="103" Column="30" TopLine="97"/>
       </Position17>
       <Position18>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="21" TopLine="19"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="314" Column="3" TopLine="309"/>
       </Position18>
       <Position19>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="819" Column="12" TopLine="805"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="552" Column="17" TopLine="530"/>
       </Position19>
       <Position20>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="25" Column="38" TopLine="18"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="541" Column="43" TopLine="533"/>
       </Position20>
       <Position21>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="27" TopLine="24"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
       </Position21>
       <Position22>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="93" Column="35" TopLine="79"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="94" Column="61" TopLine="92"/>
       </Position22>
       <Position23>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="25" Column="12" TopLine="17"/>
+        <Caret Line="385" TopLine="370"/>
       </Position23>
       <Position24>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="238" Column="11" TopLine="224"/>
+        <Caret Line="386" TopLine="370"/>
       </Position24>
       <Position25>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="236" Column="35" TopLine="222"/>
+        <Caret Line="388" TopLine="370"/>
       </Position25>
       <Position26>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="240" Column="36" TopLine="222"/>
+        <Caret Line="385" TopLine="370"/>
       </Position26>
       <Position27>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="538" Column="35" TopLine="524"/>
+        <Caret Line="386" Column="11" TopLine="370"/>
       </Position27>
       <Position28>
         <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="33" TopLine="25"/>
+        <Caret Line="667" Column="64" TopLine="645"/>
       </Position28>
       <Position29>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="39" Column="15" TopLine="25"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="566" Column="3" TopLine="547"/>
       </Position29>
       <Position30>
-        <Filename Value="..\src\lzbatis.mappers.pas"/>
-        <Caret Line="862" Column="16" TopLine="844"/>
+        <Filename Value="..\src\lzbatis.writers.pas"/>
+        <Caret Line="104" Column="3" TopLine="97"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

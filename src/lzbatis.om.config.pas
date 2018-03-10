@@ -107,7 +107,7 @@ type
     FIntfName: string;
     FMapperName: string;
     FPrimaryKey: TConfigurationTablePrimaryKey;
-    FSkip: Boolean;
+    FSkip: boolean;
     FTableName: string;
     FMapper: TConfigurationMapper;
     function getColumns: TConfigurationColumns;
@@ -121,7 +121,7 @@ type
     procedure SetIntfName(AValue: string);
     procedure SetMapperName(AValue: string);
     procedure SetPrimaryKey(AValue: TConfigurationTablePrimaryKey);
-    procedure SetSkip(AValue: Boolean);
+    procedure SetSkip(AValue: boolean);
     procedure SetTableName(AValue: string);
   public
     destructor Destroy; override;
@@ -129,7 +129,7 @@ type
     property IntfName: string read FIntfName write SetIntfName;
     property ImplName: string read FImplName write SetImplName;
     property MapperName: string read FMapperName write SetMapperName;
-    property Skip: Boolean read FSkip write SetSkip;
+    property Skip: boolean read FSkip write SetSkip;
     property Columns: TConfigurationColumns read getColumns write SetColumns;
     property CompilationUnitName: string read FCompilationUnitName write SetCompilationUnitName;
     function getColumnByName(aColumnName: string): TConfigurationColumn;
@@ -174,12 +174,15 @@ type
 
   TConfigurationMapper = class
   private
+    FGlobalName: string;
     function getMethods: TConfigurationMapperMethods;
+    procedure SetGlobalName(AValue: string);
   protected
     FMethods: TConfigurationMapperMethods;
   public
     destructor Destroy; override;
     property methods: TConfigurationMapperMethods read getMethods;
+    property GlobalName: string read FGlobalName write SetGlobalName;
   end;
 
   { TConfigurationConnection }
@@ -293,6 +296,15 @@ begin
     FMethods := TConfigurationMapperMethods.Create(True);
   end;
   Result := FMethods;
+end;
+
+procedure TConfigurationMapper.SetGlobalName(AValue: string);
+begin
+  if FGlobalName = AValue then
+  begin
+    Exit;
+  end;
+  FGlobalName := AValue;
 end;
 
 destructor TConfigurationMapper.Destroy;
@@ -519,7 +531,7 @@ begin
   FPrimaryKey := AValue;
 end;
 
-procedure TConfigurationTable.SetSkip(AValue: Boolean);
+procedure TConfigurationTable.SetSkip(AValue: boolean);
 begin
   if FSkip = AValue then
   begin

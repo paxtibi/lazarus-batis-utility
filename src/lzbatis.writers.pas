@@ -32,6 +32,8 @@ type
     procedure generateInterfaces(interfaces: TOMInterfaces); overload;
     procedure generateSetterOrGetterMethod(entities: TOMClasses); overload;
     procedure generateSetterOrGetterMethod(entity: TOMClass; method: TOMMethod); overload;
+    procedure registerMapper(mapper: TOMMapper); overload;
+    procedure registerMappers(mappers: TOMMappers); overload;
   public
     procedure generate(compilationUnit: TOMCompilationUnit);
     property CurrentContext: TConfigurationContext read FCurrentContext write SetCurrentContext;
@@ -85,6 +87,28 @@ begin
     FTarget.print('  Result := ').print(method.SetterOf.Name).print(';').println();
   end;
   FTarget.print('End;').println();
+end;
+
+procedure TUnitWriter.registerMapper(mapper: TOMMapper);
+begin
+  if mapper.ContextName = '' then
+  begin
+    mapper.ContextName := mapper.Name;
+  end;
+  FTarget.print('  registerMapper(').print(QuotedStr(mapper.ContextName)).print(',').print(mapper.Name).print('.create(session));').println();
+end;
+
+procedure TUnitWriter.registerMappers(mappers: TOMMappers);
+var
+  mapper: TOMMapper;
+begin
+  FTarget.print('procedure RegisterMappers(Session : IDatabaseSession);').println();
+  FTarget.print('begin').println();
+  for mapper in mappers do
+  begin
+    registerMapper(mapper);
+  end;
+  FTarget.print('end;').println();
 end;
 
 procedure TUnitWriter.generateSetterOrGetterMethod(entities: TOMClasses);
@@ -326,6 +350,8 @@ var
   _property: TOMProperty;
   intf: TOMInterface;
   re: TRegExpr;
+  executeMethod: string;
+  isFunction: boolean = False;
   idx: integer = 1;
 begin
   re := TRegExpr.Create('\$\{(\S*)\}');
@@ -334,10 +360,14 @@ begin
     FTarget.println();
     if (method.ReturnType = nil) and (method.ResultName = '') then
     begin
+      isFunction    := False;
+      executeMethod := 'ExecuteUpdatePrepared';
       FTarget.print('procedure');
     end
     else
     begin
+      isFunction    := True;
+      executeMethod := 'ExecuteQueryPrepared';
       FTarget.print('function');
     end;
     FTarget.print(' ').print(entity.Name).print('.').print(method.Name).print('(');
@@ -361,8 +391,11 @@ begin
     end;
     FTarget.print(';');
     FTarget.println();
-    FTarget.print('var').println();
-    FTarget.print('  rs : IZResultSet;').println();
+    if isFunction then
+    begin
+      FTarget.print('var').println();
+      FTarget.print('  rs : IZResultSet;').println();
+    end;
     FTarget.print('Begin').println();
     re.InputString := method.SetterOf.InitializiationValue;
     re.Compile;
@@ -374,26 +407,32 @@ begin
         Inc(idx);
       until re.ExecNext = False;
     end;
-    FTarget.print('  rs := ').print(method.SetterOf.Name).print('.ExecuteQueryPrepared;').println();
+    FTarget.print('  ');
+    if isFunction then
+    begin
+      FTarget.print('rs := ');
+    end;
+    FTarget.print(method.SetterOf.Name).print('.').print(executeMethod).print(';').println();
     if (method.ReturnType = nil) and (method.ResultName <> '') then
     begin
       method.ReturnType := cu.getInterfaceByName(method.ResultName);
     end;
     if (method.ReturnType is TOMInterface) then
     begin
+      FTarget.print('  result := nil;').println;
+      FTarget.print('  if rs.next then').println;
+      FTarget.print('  begin').println;
       intf := method.ReturnType as TOMInterface;
       if intf.ConcreteClass <> nil then
       begin
-        FTarget.print('  result := ').print(intf.ConcreteClass.Name).print('.Create;').println();
+        FTarget.print('    result := ').print(intf.ConcreteClass.Name).print('.Create;').println();
       end
       else
       begin
-        FTarget.print('  result := ').print(intf.Name).print('.Create;').println();
+        FTarget.print('    result := ').print(intf.Name).print('.Create;').println();
       end;
-      FTarget.print('  result._addRef;').println;
-      FTarget.print('  result.state := esLoading;').println;
-      FTarget.print('  if rs.next then').println;
-      FTarget.print('  begin').println;
+      FTarget.print('    result._addRef;').println;
+      FTarget.print('    result.state := esLoading;').println;
       for _property in intf.Properties do
       begin
         FTarget.print('    result.').print(_property.Name).print(' := rs.');
@@ -413,8 +452,8 @@ begin
         end;
         FTarget.print(''');').println;
       end;
+      FTarget.print('    result.state := edSyncronized;').println;
       FTarget.print('  end;').println;
-      FTarget.print('  result.state := edSyncronized;').println;
     end;
     FTarget.print('End;').println();
     FTarget.flush();
@@ -503,7 +542,7 @@ begin
     begin
       FTarget.print(':').print(method.ResultName);
     end;
-    FTarget.print(';').println();
+    FTarget.print('; overload;').println();
   end;
 
   FTarget.print('  End;').println();
@@ -522,11 +561,16 @@ begin
   generateForWard(compilationUnit);
   generateInterfaces(compilationUnit.Interfaces);
   generateClasses(compilationUnit.Mappers);
+  FTarget.print('procedure RegisterMappers(Session : IDatabaseSession);').println();
   FTarget.println.print('implementation').println;
   generateForWard(compilationUnit.Classes);
   generateClasses(compilationUnit.Classes);
   generateSetterOrGetterMethod(compilationUnit.Classes);
   generateMapperMethods(compilationUnit);
+  FTarget.println();
+  registerMappers(compilationUnit.Mappers);
+  FTarget.print('initialization').println();
+  FTarget.println();
   FTarget.println.print('end.').println;
 end;
 

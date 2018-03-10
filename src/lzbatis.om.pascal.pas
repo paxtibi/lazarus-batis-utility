@@ -216,11 +216,28 @@ type
     property Impls: TOMInterfaces read GetImpls;
   end;
 
-  TOMMapper = class(TOMAggregateItem)
+  { TOMMapper }
 
+  TOMMapper = class(TOMAggregateItem)
+  private
+    FContextName: string;
+    procedure SetContextName(AValue: string);
+  public
+    property ContextName: string read FContextName write SetContextName;
   end;
 
 implementation
+
+{ TOMMapper }
+
+procedure TOMMapper.SetContextName(AValue: string);
+begin
+  if FContextName = AValue then
+  begin
+    Exit;
+  end;
+  FContextName := AValue;
+end;
 
 { TOMClass }
 
