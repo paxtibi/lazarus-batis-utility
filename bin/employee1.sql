@@ -1,0 +1,101 @@
+CREATE TABLE COUNTRY (
+ "COUNTRY" VARCHAR  NOT NULL  default "",
+ "CURRENCY" VARCHAR  NOT NULL  default ""
+); 
+
+CREATE TABLE CUSTOMER (
+ "CUST_NO" INTEGER (0) NOT NULL  default "",
+ "CUSTOMER" VARCHAR  NOT NULL  default "",
+ "CONTACT_FIRST" VARCHAR  default "",
+ "CONTACT_LAST" VARCHAR  default "",
+ "PHONE_NO" VARCHAR  default "",
+ "ADDRESS_LINE1" VARCHAR  default "",
+ "ADDRESS_LINE2" VARCHAR  default "",
+ "CITY" VARCHAR  default "",
+ "STATE_PROVINCE" VARCHAR  default "",
+ "COUNTRY" VARCHAR  default "",
+ "POSTAL_CODE" VARCHAR  default "",
+ "ON_HOLD" TEXT (1) default "NULL"
+); 
+
+CREATE TABLE DEPARTMENT (
+ "DEPT_NO" TEXT (3) NOT NULL  default "",
+ "DEPARTMENT" VARCHAR  NOT NULL  default "",
+ "HEAD_DEPT" TEXT (3) default "",
+ "MNGR_NO" SMALLINT (0) default "",
+ "BUDGET" DECIMAL (12,2) default "50000",
+ "LOCATION" VARCHAR  default "",
+ "PHONE_NO" VARCHAR  default "'555-1234'"
+); 
+
+CREATE TABLE EMPLOYEE (
+ "EMP_NO" SMALLINT (0) NOT NULL  default "",
+ "FIRST_NAME" VARCHAR  NOT NULL  default "",
+ "LAST_NAME" VARCHAR  NOT NULL  default "",
+ "PHONE_EXT" VARCHAR  default "",
+ "HIRE_DATE" TIMESTAMP  NOT NULL  default "CURRENT_TIMESTAMP",
+ "DEPT_NO" TEXT (3) NOT NULL  default "",
+ "JOB_CODE" VARCHAR  NOT NULL  default "",
+ "JOB_GRADE" SMALLINT (0) NOT NULL  default "",
+ "JOB_COUNTRY" VARCHAR  NOT NULL  default "",
+ "SALARY" NUMERIC (10,2) NOT NULL  default "0",
+ "FULL_NAME" VARCHAR  default ""
+); 
+
+CREATE TABLE EMPLOYEE_PROJECT (
+ "EMP_NO" SMALLINT (0) NOT NULL  default "",
+ "PROJ_ID" TEXT (5) NOT NULL  default ""
+); 
+
+CREATE TABLE JOB (
+ "JOB_CODE" VARCHAR  NOT NULL  default "",
+ "JOB_GRADE" SMALLINT (0) NOT NULL  default "",
+ "JOB_COUNTRY" VARCHAR  NOT NULL  default "",
+ "JOB_TITLE" VARCHAR  NOT NULL  default "",
+ "MIN_SALARY" NUMERIC (10,2) NOT NULL  default "0",
+ "MAX_SALARY" NUMERIC (10,2) NOT NULL  default "0",
+ "JOB_REQUIREMENT" BLOB  default "",
+ "LANGUAGE_REQ" VARCHAR  default ""
+); 
+
+CREATE TABLE PROJECT (
+ "PROJ_ID" TEXT (5) NOT NULL  default "",
+ "PROJ_NAME" VARCHAR  NOT NULL  default "",
+ "PROJ_DESC" BLOB  default "",
+ "TEAM_LEADER" SMALLINT (0) default "",
+ "PRODUCT" VARCHAR  default "'software'"
+); 
+
+CREATE TABLE PROJ_DEPT_BUDGET (
+ "FISCAL_YEAR" INTEGER (0) NOT NULL  default "",
+ "PROJ_ID" TEXT (5) NOT NULL  default "",
+ "DEPT_NO" TEXT (3) NOT NULL  default "",
+ "QUART_HEAD_CNT" INTEGER (0) default "",
+ "PROJECTED_BUDGET" DECIMAL (12,2) default "50000"
+); 
+
+CREATE TABLE SALARY_HISTORY (
+ "EMP_NO" SMALLINT (0) NOT NULL  default "",
+ "CHANGE_DATE" TIMESTAMP  NOT NULL  default "CURRENT_TIMESTAMP",
+ "UPDATER_ID" VARCHAR  NOT NULL  default "",
+ "OLD_SALARY" NUMERIC (10,2) NOT NULL  default "0",
+ "PERCENT_CHANGE" DOUBLE (8) NOT NULL  default "0",
+ "NEW_SALARY" DOUBLE (8) default ""
+); 
+
+CREATE TABLE SALES (
+ "PO_NUMBER" TEXT (8) NOT NULL  default "",
+ "CUST_NO" INTEGER (0) NOT NULL  default "",
+ "SALES_REP" SMALLINT (0) default "",
+ "ORDER_STATUS" VARCHAR  NOT NULL  default "'new'",
+ "ORDER_DATE" TIMESTAMP  NOT NULL  default "CURRENT_TIMESTAMP",
+ "SHIP_DATE" TIMESTAMP  default "",
+ "DATE_NEEDED" TIMESTAMP  default "",
+ "PAID" TEXT (1) default "'n'",
+ "QTY_ORDERED" INTEGER (0) NOT NULL  default "1",
+ "TOTAL_VALUE" DECIMAL (9,2) NOT NULL  default "",
+ "DISCOUNT" FLOAT (4) NOT NULL  default "0",
+ "ITEM_TYPE" VARCHAR  default "'software'",
+ "AGED" NUMERIC (18,9) default ""
+); 
+

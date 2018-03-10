@@ -4,13 +4,12 @@
     <PathDelim Value="\"/>
     <Version Value="10"/>
     <BuildModes Active="Default"/>
-    <Units Count="56">
+    <Units Count="49">
       <Unit0>
         <Filename Value="lzBatisCli.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
         <TopLine Value="3"/>
-        <CursorPos X="17" Y="25"/>
+        <CursorPos Y="10"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit0>
@@ -18,9 +17,9 @@
         <Filename Value="..\src\lzbatis.application.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="lzBatis.application"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="52"/>
-        <CursorPos X="8" Y="71"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="6"/>
+        <CursorPos X="15" Y="22"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit1>
@@ -31,541 +30,479 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos X="15" Y="41"/>
-        <UsageCount Value="153"/>
+        <UsageCount Value="179"/>
       </Unit2>
       <Unit3>
         <Filename Value="..\src\lzbatis.om.pascal.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="151"/>
-        <CursorPos X="14" Y="167"/>
-        <UsageCount Value="151"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="507"/>
+        <CursorPos X="22" Y="510"/>
+        <UsageCount Value="177"/>
+        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="..\src\lzbatis.om.config.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="107"/>
-        <CursorPos X="47" Y="107"/>
-        <UsageCount Value="150"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="192"/>
+        <CursorPos X="3" Y="206"/>
+        <UsageCount Value="176"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="..\src\lzbatis.writers.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="439"/>
-        <CursorPos X="41" Y="456"/>
-        <UsageCount Value="121"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="185"/>
+        <CursorPos X="38" Y="200"/>
+        <UsageCount Value="147"/>
+        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="..\src\lzbatis.configuration.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="42"/>
-        <CursorPos X="31" Y="62"/>
-        <UsageCount Value="26"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="22" Y="50"/>
+        <UsageCount Value="52"/>
       </Unit6>
       <Unit7>
+        <Filename Value="..\src\lzbatis.reverse.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="19"/>
+        <CursorPos X="47" Y="35"/>
+        <UsageCount Value="48"/>
+      </Unit7>
+      <Unit8>
         <Filename Value="..\bin\i386-win32\test.xml"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="42" Y="10"/>
-        <UsageCount Value="200"/>
+        <UsageCount Value="198"/>
         <DefaultSyntaxHighlighter Value="XML"/>
-      </Unit7>
-      <Unit8>
+      </Unit8>
+      <Unit9>
         <Filename Value="..\src\lzbatis.generators.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="47" Y="8"/>
-        <UsageCount Value="187"/>
-      </Unit8>
-      <Unit9>
+        <UsageCount Value="185"/>
+      </Unit9>
+      <Unit10>
         <Filename Value="..\src\lzbatis.lib.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="21"/>
         <CursorPos X="36" Y="34"/>
-        <UsageCount Value="184"/>
-      </Unit9>
-      <Unit10>
+        <UsageCount Value="182"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="..\src\lzbatis.db.om.pas"/>
         <UnitName Value="lzbatis.DB.om"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="39"/>
         <CursorPos X="23" Y="56"/>
-        <UsageCount Value="182"/>
-      </Unit10>
-      <Unit11>
+        <UsageCount Value="180"/>
+      </Unit11>
+      <Unit12>
         <Filename Value="..\src\lzbatis.loaders.pas"/>
         <UnitName Value="lzBatis.loaders"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="31" Y="63"/>
-        <UsageCount Value="170"/>
-      </Unit11>
-      <Unit12>
+        <UsageCount Value="168"/>
+      </Unit12>
+      <Unit13>
         <Filename Value="..\src\lzbatis.pas.om.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="708"/>
         <CursorPos X="25" Y="714"/>
-        <UsageCount Value="168"/>
-      </Unit12>
-      <Unit13>
+        <UsageCount Value="166"/>
+      </Unit13>
+      <Unit14>
         <Filename Value="..\src\lzbatis.pas.processors.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="381"/>
         <CursorPos X="50" Y="410"/>
-        <UsageCount Value="167"/>
-      </Unit13>
-      <Unit14>
+        <UsageCount Value="165"/>
+      </Unit14>
+      <Unit15>
         <Filename Value="..\src\lzbatis.pas.codewriters.pas"/>
         <UnitName Value="lzbatis.pas.codeWriters"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos X="26" Y="41"/>
-        <UsageCount Value="162"/>
-      </Unit14>
-      <Unit15>
+        <UsageCount Value="160"/>
+      </Unit15>
+      <Unit16>
         <Filename Value="..\src\libs\SynMustache.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="366"/>
         <CursorPos X="26" Y="382"/>
-        <UsageCount Value="87"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcIntfs.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="711"/>
-        <CursorPos X="21" Y="732"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <UsageCount Value="85"/>
       </Unit16>
       <Unit17>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcConnection.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="1378"/>
-        <CursorPos Y="1395"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcMetadata.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="535"/>
-        <CursorPos X="3" Y="549"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit18>
-      <Unit19>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\classes\classesh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="968"/>
         <CursorPos X="36" Y="978"/>
-        <UsageCount Value="10"/>
-      </Unit19>
-      <Unit20>
+        <UsageCount Value="8"/>
+      </Unit17>
+      <Unit18>
         <Filename Value="..\bin\mappers\dragonfly.om.iso.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="59"/>
         <CursorPos X="48" Y="74"/>
-        <UsageCount Value="26"/>
-      </Unit20>
-      <Unit21>
+        <UsageCount Value="24"/>
+      </Unit18>
+      <Unit19>
         <Filename Value="..\bin\mappers\dragonfly.om.anagrafica.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="422"/>
         <CursorPos X="52" Y="431"/>
-        <UsageCount Value="16"/>
-      </Unit21>
-      <Unit22>
+        <UsageCount Value="14"/>
+      </Unit19>
+      <Unit20>
         <Filename Value="..\src\libs\SynCommons.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="45354"/>
         <CursorPos X="47" Y="45365"/>
-        <UsageCount Value="3"/>
-      </Unit22>
-      <Unit23>
+        <UsageCount Value="1"/>
+      </Unit20>
+      <Unit21>
         <Filename Value="..\bin\mappers\dragonfly.om.contabilita.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="102"/>
         <CursorPos X="60" Y="104"/>
-        <UsageCount Value="8"/>
-      </Unit23>
-      <Unit24>
+        <UsageCount Value="6"/>
+      </Unit21>
+      <Unit22>
         <Filename Value="..\bin\mappers\dragonfly.om.acl.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="53"/>
         <CursorPos X="15" Y="58"/>
-        <UsageCount Value="11"/>
-      </Unit24>
-      <Unit25>
+        <UsageCount Value="9"/>
+      </Unit22>
+      <Unit23>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\inc\objpash.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="232"/>
         <CursorPos X="26" Y="248"/>
-        <UsageCount Value="10"/>
-      </Unit25>
-      <Unit26>
+        <UsageCount Value="8"/>
+      </Unit23>
+      <Unit24>
         <Filename Value="..\src\lzbatis.config.pas"/>
         <UnitName Value="lzBatis.config"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos X="40" Y="15"/>
-        <UsageCount Value="11"/>
-      </Unit26>
-      <Unit27>
+        <UsageCount Value="9"/>
+      </Unit24>
+      <Unit25>
         <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcResultSet.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2220"/>
         <CursorPos Y="2234"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit27>
-      <Unit28>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcInterbase6.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="355"/>
-        <CursorPos X="82" Y="220"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit28>
-      <Unit29>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcInterbase6Metadata.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="87"/>
-        <CursorPos X="59" Y="100"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit29>
-      <Unit30>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcInterbase6Utils.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="757"/>
-        <CursorPos X="28" Y="781"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit30>
-      <Unit31>
-        <Filename Value="..\..\..\librerie installate\zeosdbo\src\plain\ZPlainFirebirdInterbaseConstants.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="74"/>
-        <CursorPos X="3" Y="89"/>
-        <UsageCount Value="2"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit31>
-      <Unit32>
-        <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\sysutils\intfh.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="10"/>
-        <CursorPos X="10" Y="34"/>
-        <UsageCount Value="2"/>
-      </Unit32>
-      <Unit33>
-        <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\sysutils\sysuintf.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="138"/>
-        <CursorPos X="3" Y="157"/>
-        <UsageCount Value="2"/>
-      </Unit33>
-      <Unit34>
+      </Unit25>
+      <Unit26>
         <Filename Value="..\src\paxtibi.utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1304"/>
         <CursorPos X="13" Y="1319"/>
-        <UsageCount Value="37"/>
-      </Unit34>
-      <Unit35>
+        <UsageCount Value="35"/>
+      </Unit26>
+      <Unit27>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\classes\writer.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="508"/>
         <CursorPos X="3" Y="510"/>
-        <UsageCount Value="3"/>
-      </Unit35>
-      <Unit36>
+        <UsageCount Value="1"/>
+      </Unit27>
+      <Unit28>
         <Filename Value="..\src\lzbatis.dom.aspects.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="283"/>
         <CursorPos Y="306"/>
-        <UsageCount Value="3"/>
-      </Unit36>
-      <Unit37>
+        <UsageCount Value="1"/>
+      </Unit28>
+      <Unit29>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\sysutils\sysunih.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="10"/>
-        <UsageCount Value="3"/>
-      </Unit37>
-      <Unit38>
+        <UsageCount Value="1"/>
+      </Unit29>
+      <Unit30>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\sysutils\sysstrh.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="57"/>
         <CursorPos Y="72"/>
-        <UsageCount Value="3"/>
-      </Unit38>
-      <Unit39>
+        <UsageCount Value="1"/>
+      </Unit30>
+      <Unit31>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\packages\regexpr\src\regexpr.pas"/>
         <UnitName Value="RegExpr"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="445"/>
         <CursorPos X="14" Y="456"/>
-        <UsageCount Value="4"/>
-      </Unit39>
-      <Unit40>
+        <UsageCount Value="2"/>
+      </Unit31>
+      <Unit32>
         <Filename Value="..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcResultSetMetadata.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="498"/>
         <CursorPos Y="512"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit40>
-      <Unit41>
+      </Unit32>
+      <Unit33>
         <Filename Value="C:\programmi\lazarus-1.6-32\components\lazutils\winfileutil.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="19" Y="21"/>
-        <UsageCount Value="12"/>
-      </Unit41>
-      <Unit42>
+        <UsageCount Value="10"/>
+      </Unit33>
+      <Unit34>
         <Filename Value="..\..\..\firecat\firecat_1.0\src\md\win\md_code.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos X="46" Y="77"/>
-        <UsageCount Value="11"/>
-      </Unit42>
-      <Unit43>
+        <UsageCount Value="9"/>
+      </Unit34>
+      <Unit35>
         <Filename Value="..\..\..\firecat\firecat_1.0\src\md\win\iphlpapi.pas"/>
         <UnitName Value="IPHlpApi"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="297"/>
         <CursorPos X="22" Y="320"/>
-        <UsageCount Value="11"/>
-      </Unit43>
-      <Unit44>
+        <UsageCount Value="9"/>
+      </Unit35>
+      <Unit36>
         <Filename Value="..\..\..\firecat\firecat_1.0\src\md\win\ipHelper.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="573"/>
         <CursorPos X="43" Y="591"/>
-        <UsageCount Value="11"/>
-      </Unit44>
-      <Unit45>
+        <UsageCount Value="9"/>
+      </Unit36>
+      <Unit37>
         <Filename Value="..\bin\employee.xml"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="70" Y="14"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="XML"/>
-      </Unit45>
-      <Unit46>
+      </Unit37>
+      <Unit38>
         <Filename Value="C:\programmi\lazarus-1.6-32\components\lazutils\laz2_xmlwrite.pas"/>
         <UnitName Value="laz2_XMLWrite"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="20"/>
         <CursorPos X="26" Y="32"/>
-        <UsageCount Value="11"/>
-      </Unit46>
-      <Unit47>
+        <UsageCount Value="9"/>
+      </Unit38>
+      <Unit39>
         <Filename Value="C:\programmi\lazarus-1.6-32\components\lazutils\laz2_dom.pas"/>
         <UnitName Value="Laz2_DOM"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1670"/>
         <CursorPos Y="1683"/>
-        <UsageCount Value="11"/>
-      </Unit47>
-      <Unit48>
+        <UsageCount Value="9"/>
+      </Unit39>
+      <Unit40>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcInterbase6Utils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="833"/>
         <CursorPos X="52" Y="852"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit48>
-      <Unit49>
+      </Unit40>
+      <Unit41>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\fgl.pp"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos X="14" Y="171"/>
-        <UsageCount Value="10"/>
-      </Unit49>
-      <Unit50>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="19"/>
-        <CursorPos X="26" Y="39"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-      </Unit50>
-      <Unit51>
+        <UsageCount Value="8"/>
+      </Unit41>
+      <Unit42>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcIntfs.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="4" Y="101"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="22"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit51>
-      <Unit52>
+      </Unit42>
+      <Unit43>
         <Filename Value="C:\programmi\lazarus-1.6-32\fpc\3.0.2\source\rtl\objpas\classes\streams.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="620"/>
         <CursorPos X="3" Y="623"/>
-        <UsageCount Value="10"/>
-      </Unit52>
-      <Unit53>
+        <UsageCount Value="8"/>
+      </Unit43>
+      <Unit44>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcMySql.pas"/>
         <EditorIndex Value="6"/>
         <TopLine Value="37"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit53>
-      <Unit54>
+      </Unit44>
+      <Unit45>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\plain\ZPlainMySqlDriver.pas"/>
         <EditorIndex Value="7"/>
         <TopLine Value="1535"/>
         <CursorPos X="49" Y="1550"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit54>
-      <Unit55>
+      </Unit45>
+      <Unit46>
         <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcUtils.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="93"/>
         <CursorPos X="30" Y="107"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="22"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
-      </Unit55>
+      </Unit46>
+      <Unit47>
+        <Filename Value="..\..\..\dragonfly-erp-engine\src\om\dragonfly.xml"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="38"/>
+        <CursorPos X="141" Y="65"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="25"/>
+        <CursorPos X="29" Y="43"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit48>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="945" TopLine="923"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="174" Column="11" TopLine="161"/>
       </Position1>
       <Position2>
         <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="946" TopLine="924"/>
+        <Caret Line="58" TopLine="55"/>
       </Position2>
       <Position3>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="948" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="45" Column="21" TopLine="26"/>
       </Position3>
       <Position4>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="940" Column="17" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="800" TopLine="793"/>
       </Position4>
       <Position5>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="941" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="251" Column="12" TopLine="238"/>
       </Position5>
       <Position6>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="942" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="48" Column="70" TopLine="28"/>
       </Position6>
       <Position7>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="943" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="528" Column="4" TopLine="522"/>
       </Position7>
       <Position8>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="944" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="48" Column="40" TopLine="35"/>
       </Position8>
       <Position9>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="945" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="770" Column="48" TopLine="757"/>
       </Position9>
       <Position10>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="946" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="14" Column="39" TopLine="12"/>
       </Position10>
       <Position11>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="948" TopLine="926"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="51" Column="79" TopLine="38"/>
       </Position11>
       <Position12>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="949" TopLine="927"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="540" Column="28" TopLine="534"/>
       </Position12>
       <Position13>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="950" TopLine="928"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="54" Column="14" TopLine="41"/>
       </Position13>
       <Position14>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="110" Column="12" TopLine="101"/>
+        <Filename Value="..\src\lzbatis.application.pas"/>
+        <Caret Line="31" TopLine="6"/>
       </Position14>
       <Position15>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="113" Column="68" TopLine="96"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="15" Column="26" TopLine="8"/>
       </Position15>
       <Position16>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="940" TopLine="928"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="657" Column="25" TopLine="642"/>
       </Position16>
       <Position17>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="108" TopLine="96"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="842" Column="3" TopLine="836"/>
       </Position17>
       <Position18>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="109" TopLine="96"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="21" TopLine="19"/>
       </Position18>
       <Position19>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="110" TopLine="96"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="819" Column="12" TopLine="805"/>
       </Position19>
       <Position20>
-        <Filename Value="..\src\lzbatis.configuration.pas"/>
-        <Caret Line="120" Column="23" TopLine="96"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="25" Column="38" TopLine="18"/>
       </Position20>
       <Position21>
-        <Filename Value="lzBatisCli.lpr"/>
-        <Caret Line="19" Column="37" TopLine="6"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="27" TopLine="24"/>
       </Position21>
       <Position22>
-        <Filename Value="..\src\lzbatis.application.pas"/>
-        <Caret Line="71" Column="8" TopLine="52"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="93" Column="35" TopLine="79"/>
       </Position22>
       <Position23>
-        <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcMySql.pas"/>
-        <Caret TopLine="151"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="25" Column="12" TopLine="17"/>
       </Position23>
       <Position24>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="40" Column="21" TopLine="30"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="238" Column="11" TopLine="224"/>
       </Position24>
       <Position25>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="32" Column="24" TopLine="19"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="236" Column="35" TopLine="222"/>
       </Position25>
       <Position26>
-        <Filename Value="..\..\..\..\librerie installate\zeosdbo\src\dbc\ZDbcIntfs.pas"/>
-        <Caret Line="13" Column="100"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="240" Column="36" TopLine="222"/>
       </Position26>
       <Position27>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="28" Column="34"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="538" Column="35" TopLine="524"/>
       </Position27>
       <Position28>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="31" Column="67" TopLine="13"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="33" TopLine="25"/>
       </Position28>
       <Position29>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="36" Column="9" TopLine="19"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="39" Column="15" TopLine="25"/>
       </Position29>
       <Position30>
-        <Filename Value="..\src\lzbatis.reverse.pas"/>
-        <Caret Line="37" Column="25" TopLine="19"/>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <Caret Line="862" Column="16" TopLine="844"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
-    <BreakPoints Count="1">
-      <Item1>
-        <Kind Value="bpkSource"/>
-        <WatchScope Value="wpsLocal"/>
-        <WatchKind Value="wpkWrite"/>
-        <Source Value="..\src\lzbatis.configuration.pas"/>
-        <Line Value="108"/>
-      </Item1>
-    </BreakPoints>
     <Watches Count="1">
       <Item1>
         <Expression Value="columnResultSet"/>

@@ -28,7 +28,7 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
-        <CommandLineParams Value="-configfile ../employee1.sql -reverse zdbc:firebirdd-3.0:/employee.fdb sysdba masterkey"/>
+        <CommandLineParams Value="-configfile c:\lavoro\lazarus\projects\dragonfly-erp-engine\pck\dragonfly.xml -override"/>
       </local>
     </RunParams>
     <RequiredPackages Count="1">
@@ -36,7 +36,7 @@
         <PackageName Value="zdbc"/>
       </Item1>
     </RequiredPackages>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="lzBatisCli.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -71,6 +71,10 @@
         <Filename Value="..\src\lzbatis.reverse.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="..\src\lzbatis.mappers.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

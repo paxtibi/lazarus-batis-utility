@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generator-configuration>
+  <context>
+    <zdbc-connection connection-url="zdbc:firebirdd-3.0:firecat.fdb" username="sysdba" password="masterkey" skip="(RDB|SEC|MON)\$(.*)"/>
+    <table table-name="AA_FILES" mapper-name="TAA_FILESMapper" entity-name="IAA_FILES" implementation-name="TAA_FILES" target-module="AA_FILES">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="VARCHAR" column-default="" model-name="ID" model-type="VARCHAR"/>
+      <column column-name="DATA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA" model-type="TIMESTAMP"/>
+      <column column-name="NUM_INC" column-type="INTEGER" column-default="0" model-name="NUM_INC" model-type="INTEGER"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="ID_RECORD" column-type="INTEGER" column-default="0" model-name="ID_RECORD" model-type="INTEGER"/>
+      <column column-name="NOME_ORIGINALE" column-type="VARCHAR" column-default="''" model-name="NOME_ORIGINALE" model-type="VARCHAR"/>
+      <column column-name="ESTENSIONE" column-type="VARCHAR" column-default="''" model-name="ESTENSIONE" model-type="VARCHAR"/>
+      <column column-name="DIMENSIONE" column-type="INT64" column-default="0" model-name="DIMENSIONE" model-type="INT64"/>
+      <column column-name="NOME_MODIFICABILE" column-type="VARCHAR" column-default="''" model-name="NOME_MODIFICABILE" model-type="VARCHAR"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_ELIMINAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_ELIMINAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_ELIMINAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_ELIMINAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="AA_MODULI" mapper-name="TAA_MODULIMapper" entity-name="IAA_MODULI" implementation-name="TAA_MODULI" target-module="AA_MODULI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="IS_SEPARATOR" column-type="INTEGER" column-default="0" model-name="IS_SEPARATOR" model-type="INTEGER"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="MODULO_PADRE" column-type="INTEGER" column-default="-1" model-name="MODULO_PADRE" model-type="INTEGER"/>
+      <column column-name="PATH_IMG" column-type="BLOB" column-default="" model-name="PATH_IMG" model-type="BLOB"/>
+      <column column-name="VISIBILE" column-type="INTEGER" column-default="1" model-name="VISIBILE" model-type="INTEGER"/>
+      <column column-name="FETCHROW" column-type="INTEGER" column-default="0" model-name="FETCHROW" model-type="INTEGER"/>
+      <column column-name="TAB_PRINCIPALE" column-type="VARCHAR" column-default="''" model-name="TAB_PRINCIPALE" model-type="VARCHAR"/>
+      <column column-name="ORDER_BY" column-type="VARCHAR" column-default="''" model-name="ORDER_BY" model-type="VARCHAR"/>
+      <column column-name="FIELD_JOIN_MODULO" column-type="VARCHAR" column-default="''" model-name="FIELD_JOIN_MODULO" model-type="VARCHAR"/>
+      <column column-name="TAB_LISTVIEW" column-type="VARCHAR" column-default="''" model-name="TAB_LISTVIEW" model-type="VARCHAR"/>
+      <column column-name="KEY_LISTVIEW" column-type="VARCHAR" column-default="''" model-name="KEY_LISTVIEW" model-type="VARCHAR"/>
+      <column column-name="FIELD_LISTVIEV" column-type="VARCHAR" column-default="''" model-name="FIELD_LISTVIEV" model-type="VARCHAR"/>
+      <column column-name="TAB_J_LISTVIEW" column-type="VARCHAR" column-default="''" model-name="TAB_J_LISTVIEW" model-type="VARCHAR"/>
+      <column column-name="FIELD_TAB_J_LISTVIEW" column-type="VARCHAR" column-default="''" model-name="FIELD_TAB_J_LISTVIEW" model-type="VARCHAR"/>
+      <column column-name="FIELD_TAB_J_PRINCIPALE" column-type="VARCHAR" column-default="''" model-name="FIELD_TAB_J_PRINCIPALE" model-type="VARCHAR"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="COLORE" column-type="VARCHAR" column-default="''" model-name="COLORE" model-type="VARCHAR"/>
+      <column column-name="MULTISELECT" column-type="INTEGER" column-default="0" model-name="MULTISELECT" model-type="INTEGER"/>
+      <column column-name="TAB_PRINCIPALE_PK" column-type="VARCHAR" column-default="''" model-name="TAB_PRINCIPALE_PK" model-type="VARCHAR"/>
+      <column column-name="PERMETTI_ALLEGATI" column-type="INTEGER" column-default="0" model-name="PERMETTI_ALLEGATI" model-type="INTEGER"/>
+      <column column-name="INSERT_CONSENTITO" column-type="INTEGER" column-default="0" model-name="INSERT_CONSENTITO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="TAB_PRINCIPALE_FIRST" column-type="INTEGER" column-default="0" model-name="TAB_PRINCIPALE_FIRST" model-type="INTEGER"/>
+      <column column-name="TAB_PRINCIPALE_SKIP" column-type="INTEGER" column-default="0" model-name="TAB_PRINCIPALE_SKIP" model-type="INTEGER"/>
+      <column column-name="TAB_PRINCIPALE_WHERE" column-type="BLOB" column-default="" model-name="TAB_PRINCIPALE_WHERE" model-type="BLOB"/>
+      <column column-name="RANGE_TEMP_VISIBLE" column-type="INTEGER" column-default="0" model-name="RANGE_TEMP_VISIBLE" model-type="INTEGER"/>
+      <column column-name="RANGE_TEMP_TYPE" column-type="INTEGER" column-default="0" model-name="RANGE_TEMP_TYPE" model-type="INTEGER"/>
+      <column column-name="SQL_RICERCA" column-type="BLOB" column-default="" model-name="SQL_RICERCA" model-type="BLOB"/>
+      <column column-name="MAX_LEN_RICERCA" column-type="INTEGER" column-default="0" model-name="MAX_LEN_RICERCA" model-type="INTEGER"/>
+      <column column-name="MOLTIPLICATORE_ALTEZZA_COLONNA" column-type="INTEGER" column-default="1" model-name="MOLTIPLICATORE_ALTEZZA_COLONNA" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_MODULI_CALCULATED" mapper-name="TAA_MODULI_CALCULATEDMapper" entity-name="IAA_MODULI_CALCULATED" implementation-name="TAA_MODULI_CALCULATED" target-module="AA_MODULI_CALCULATED">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="NOME_CAMPO" column-type="VARCHAR" column-default="''" model-name="NOME_CAMPO" model-type="VARCHAR"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="CALCOLO" column-type="VARCHAR" column-default="''" model-name="CALCOLO" model-type="VARCHAR"/>
+      <column column-name="FOOTER_FUNCTION" column-type="VARCHAR" column-default="'fvtNon'" model-name="FOOTER_FUNCTION" model-type="VARCHAR"/>
+      <column column-name="FOOTER_VALUE" column-type="VARCHAR" column-default="''" model-name="FOOTER_VALUE" model-type="VARCHAR"/>
+    </table>
+    <table table-name="AA_MODULI_GRAFICI" mapper-name="TAA_MODULI_GRAFICIMapper" entity-name="IAA_MODULI_GRAFICI" implementation-name="TAA_MODULI_GRAFICI" target-module="AA_MODULI_GRAFICI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="TITOLO" column-type="VARCHAR" column-default="''" model-name="TITOLO" model-type="VARCHAR"/>
+      <column column-name="SQL_GRAFICO" column-type="BLOB" column-default="" model-name="SQL_GRAFICO" model-type="BLOB"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="ESCLUDI" column-type="INTEGER" column-default="0" model-name="ESCLUDI" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="RANGE_TEMPORALE" column-type="INTEGER" column-default="0" model-name="RANGE_TEMPORALE" model-type="INTEGER"/>
+      <column column-name="TIPO_GRAFICO" column-type="INTEGER" column-default="0" model-name="TIPO_GRAFICO" model-type="INTEGER"/>
+      <column column-name="GRAFICO_LABEL" column-type="VARCHAR" column-default="''" model-name="GRAFICO_LABEL" model-type="VARCHAR"/>
+      <column column-name="GRAFICO_QTA" column-type="VARCHAR" column-default="''" model-name="GRAFICO_QTA" model-type="VARCHAR"/>
+      <column column-name="GRAFICO_COLORE" column-type="VARCHAR" column-default="''" model-name="GRAFICO_COLORE" model-type="VARCHAR"/>
+    </table>
+    <table table-name="AA_MODULI_GRID" mapper-name="TAA_MODULI_GRIDMapper" entity-name="IAA_MODULI_GRID" implementation-name="TAA_MODULI_GRID" target-module="AA_MODULI_GRID">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="MODULO" column-type="INTEGER" column-default="" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="NOME_COLONNA" column-type="VARCHAR" column-default="" model-name="NOME_COLONNA" model-type="VARCHAR"/>
+      <column column-name="TITLE_COLONNA" column-type="VARCHAR" column-default="''" model-name="TITLE_COLONNA" model-type="VARCHAR"/>
+      <column column-name="IS_READONLY" column-type="INTEGER" column-default="0" model-name="IS_READONLY" model-type="INTEGER"/>
+      <column column-name="IS_VISIBLE" column-type="INTEGER" column-default="1" model-name="IS_VISIBLE" model-type="INTEGER"/>
+      <column column-name="IS_COLOR" column-type="INTEGER" column-default="0" model-name="IS_COLOR" model-type="INTEGER"/>
+      <column column-name="IS_CHECKBOX" column-type="INTEGER" column-default="0" model-name="IS_CHECKBOX" model-type="INTEGER"/>
+      <column column-name="VALUE_CHECK" column-type="VARCHAR" column-default="'1'" model-name="VALUE_CHECK" model-type="VARCHAR"/>
+      <column column-name="VALUE_UNCHECK" column-type="VARCHAR" column-default="'0'" model-name="VALUE_UNCHECK" model-type="VARCHAR"/>
+      <column column-name="IS_COMBOBOX" column-type="INTEGER" column-default="0" model-name="IS_COMBOBOX" model-type="INTEGER"/>
+      <column column-name="SQL_COMBOBOX" column-type="VARCHAR" column-default="''" model-name="SQL_COMBOBOX" model-type="VARCHAR"/>
+      <column column-name="COMBOBOX_KEY" column-type="VARCHAR" column-default="''" model-name="COMBOBOX_KEY" model-type="VARCHAR"/>
+      <column column-name="COMBOBOX_DISPLAYFIELD" column-type="VARCHAR" column-default="''" model-name="COMBOBOX_DISPLAYFIELD" model-type="VARCHAR"/>
+      <column column-name="NUMERICDISPLAYFORMAT" column-type="VARCHAR" column-default="'#,##0.00'" model-name="NUMERICDISPLAYFORMAT" model-type="VARCHAR"/>
+      <column column-name="FOOTER_FUNCTION" column-type="VARCHAR" column-default="'fvtNon'" model-name="FOOTER_FUNCTION" model-type="VARCHAR"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="FOOTER_VALUE" column-type="VARCHAR" column-default="''" model-name="FOOTER_VALUE" model-type="VARCHAR"/>
+      <column column-name="IS_MEMO" column-type="INTEGER" column-default="0" model-name="IS_MEMO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="COMBO_FILTRABILE" column-type="INTEGER" column-default="0" model-name="COMBO_FILTRABILE" model-type="INTEGER"/>
+      <column column-name="FILTRO_DS_COMBO" column-type="BLOB" column-default="" model-name="FILTRO_DS_COMBO" model-type="BLOB"/>
+      <column column-name="ESCLUSO_DA_GRID" column-type="INTEGER" column-default="0" model-name="ESCLUSO_DA_GRID" model-type="INTEGER"/>
+      <column column-name="VALORE_INSERT_DEFAULT" column-type="VARCHAR" column-default="''" model-name="VALORE_INSERT_DEFAULT" model-type="VARCHAR"/>
+      <column column-name="ID" column-type="INTEGER" column-default="0" model-name="ID" model-type="INTEGER"/>
+      <column column-name="CAST_VARCHAR" column-type="INTEGER" column-default="0" model-name="CAST_VARCHAR" model-type="INTEGER"/>
+      <column column-name="IS_SPINEDIT" column-type="INTEGER" column-default="0" model-name="IS_SPINEDIT" model-type="INTEGER"/>
+      <column column-name="SPINEDIT_MINVALUE" column-type="NUMERIC" column-default="0" model-name="SPINEDIT_MINVALUE" model-type="NUMERIC"/>
+      <column column-name="SPINEDIT_MAXVALUE" column-type="NUMERIC" column-default="0" model-name="SPINEDIT_MAXVALUE" model-type="NUMERIC"/>
+      <column column-name="SPINEDIT_INCREMENT" column-type="NUMERIC" column-default="0" model-name="SPINEDIT_INCREMENT" model-type="NUMERIC"/>
+      <column column-name="SPINEDIT_DECIMAL" column-type="INTEGER" column-default="0" model-name="SPINEDIT_DECIMAL" model-type="INTEGER"/>
+      <column column-name="COLOR_BACKGROUND" column-type="VARCHAR" column-default="'clDefault'" model-name="COLOR_BACKGROUND" model-type="VARCHAR"/>
+      <column column-name="COLOR_BORDER" column-type="VARCHAR" column-default="'clSilver'" model-name="COLOR_BORDER" model-type="VARCHAR"/>
+      <column column-name="VISUALIZZA_VALORE_IN_TOOLTIP" column-type="INTEGER" column-default="0" model-name="VISUALIZZA_VALORE_IN_TOOLTIP" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_MODULI_GRID_ECC" mapper-name="TAA_MODULI_GRID_ECCMapper" entity-name="IAA_MODULI_GRID_ECC" implementation-name="TAA_MODULI_GRID_ECC" target-module="AA_MODULI_GRID_ECC">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_GRID" column-type="INTEGER" column-default="" model-name="ID_GRID" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ID_UTENTE" column-type="INTEGER" column-default="0" model-name="ID_UTENTE" model-type="INTEGER"/>
+      <column column-name="TIPO_ECCEZIONE" column-type="INTEGER" column-default="0" model-name="TIPO_ECCEZIONE" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_MODULI_PERMESSI" mapper-name="TAA_MODULI_PERMESSIMapper" entity-name="IAA_MODULI_PERMESSI" implementation-name="TAA_MODULI_PERMESSI" target-module="AA_MODULI_PERMESSI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="VISUALIZZA" column-type="INTEGER" column-default="0" model-name="VISUALIZZA" model-type="INTEGER"/>
+      <column column-name="MODIFICA" column-type="INTEGER" column-default="0" model-name="MODIFICA" model-type="INTEGER"/>
+      <column column-name="INSERISCI" column-type="INTEGER" column-default="0" model-name="INSERISCI" model-type="INTEGER"/>
+      <column column-name="ELIMINA" column-type="INTEGER" column-default="0" model-name="ELIMINA" model-type="INTEGER"/>
+      <column column-name="AGG_ALLEGATO" column-type="INTEGER" column-default="0" model-name="AGG_ALLEGATO" model-type="INTEGER"/>
+      <column column-name="STAMPA_REPORT" column-type="INTEGER" column-default="0" model-name="STAMPA_REPORT" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="ID_UTENTE" column-type="INTEGER" column-default="" model-name="ID_UTENTE" model-type="INTEGER"/>
+      <column column-name="DWN_ALLEGATO" column-type="INTEGER" column-default="0" model-name="DWN_ALLEGATO" model-type="INTEGER"/>
+      <column column-name="DEL_ALLEGATO" column-type="INTEGER" column-default="0" model-name="DEL_ALLEGATO" model-type="INTEGER"/>
+      <column column-name="MOD_ALLEGATO" column-type="INTEGER" column-default="0" model-name="MOD_ALLEGATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="DESIGN_REPORT" column-type="INTEGER" column-default="0" model-name="DESIGN_REPORT" model-type="INTEGER"/>
+      <column column-name="DWN_EXCEL" column-type="INTEGER" column-default="0" model-name="DWN_EXCEL" model-type="INTEGER"/>
+      <column column-name="DWN_CSV" column-type="INTEGER" column-default="0" model-name="DWN_CSV" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_MODULI_POSTEVENTS" mapper-name="TAA_MODULI_POSTEVENTSMapper" entity-name="IAA_MODULI_POSTEVENTS" implementation-name="TAA_MODULI_POSTEVENTS" target-module="AA_MODULI_POSTEVENTS">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOME_EVENTO" column-type="VARCHAR" column-default="''" model-name="NOME_EVENTO" model-type="VARCHAR"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_MODULI_TRASFERIMENTO" mapper-name="TAA_MODULI_TRASFERIMENTOMapper" entity-name="IAA_MODULI_TRASFERIMENTO" implementation-name="TAA_MODULI_TRASFERIMENTO" target-module="AA_MODULI_TRASFERIMENTO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DA_MODULO" column-type="INTEGER" column-default="0" model-name="DA_MODULO" model-type="INTEGER"/>
+      <column column-name="A_MODULO" column-type="INTEGER" column-default="0" model-name="A_MODULO" model-type="INTEGER"/>
+      <column column-name="CAMPO_PROVENIENZA" column-type="VARCHAR" column-default="''" model-name="CAMPO_PROVENIENZA" model-type="VARCHAR"/>
+      <column column-name="CAMPO_DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="CAMPO_DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="CAMPO_QTA" column-type="VARCHAR" column-default="'qta'" model-name="CAMPO_QTA" model-type="VARCHAR"/>
+      <column column-name="CAMPO_QTA_EVASA" column-type="VARCHAR" column-default="'qta_evasa'" model-name="CAMPO_QTA_EVASA" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="SQL_TRASFERIMENTO_RECORD" column-type="BLOB" column-default="" model-name="SQL_TRASFERIMENTO_RECORD" model-type="BLOB"/>
+      <column column-name="DICITURA_DA_A" column-type="VARCHAR" column-default="''" model-name="DICITURA_DA_A" model-type="VARCHAR"/>
+      <column column-name="DICITURA_A_DA" column-type="VARCHAR" column-default="''" model-name="DICITURA_A_DA" model-type="VARCHAR"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="FIELD_JOIN_MODULO" column-type="VARCHAR" column-default="''" model-name="FIELD_JOIN_MODULO" model-type="VARCHAR"/>
+      <column column-name="TAB_PRINCIPALE_PK" column-type="VARCHAR" column-default="''" model-name="TAB_PRINCIPALE_PK" model-type="VARCHAR"/>
+      <column column-name="TAB_SECONDARIA_PK" column-type="VARCHAR" column-default="''" model-name="TAB_SECONDARIA_PK" model-type="VARCHAR"/>
+      <column column-name="ID_CLIFOR_DA" column-type="VARCHAR" column-default="''" model-name="ID_CLIFOR_DA" model-type="VARCHAR"/>
+      <column column-name="ID_CLIFOR_A" column-type="VARCHAR" column-default="''" model-name="ID_CLIFOR_A" model-type="VARCHAR"/>
+      <column column-name="SQL_TRASFERIMENTO_TESTATA" column-type="BLOB" column-default="" model-name="SQL_TRASFERIMENTO_TESTATA" model-type="BLOB"/>
+      <column column-name="SQL_RICALCOLO_TESTATA" column-type="BLOB" column-default="" model-name="SQL_RICALCOLO_TESTATA" model-type="BLOB"/>
+    </table>
+    <table table-name="AA_PASCAL_SCRIPT" mapper-name="TAA_PASCAL_SCRIPTMapper" entity-name="IAA_PASCAL_SCRIPT" implementation-name="TAA_PASCAL_SCRIPT" target-module="AA_PASCAL_SCRIPT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOME_FUNZIONE" column-type="VARCHAR" column-default="''" model-name="NOME_FUNZIONE" model-type="VARCHAR"/>
+      <column column-name="POSIZIONE" column-type="INTEGER" column-default="0" model-name="POSIZIONE" model-type="INTEGER"/>
+      <column column-name="SCRIPT" column-type="BLOB" column-default="" model-name="SCRIPT" model-type="BLOB"/>
+      <column column-name="ATTIVO" column-type="INTEGER" column-default="0" model-name="ATTIVO" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="AA_REPORT" mapper-name="TAA_REPORTMapper" entity-name="IAA_REPORT" implementation-name="TAA_REPORT" target-module="AA_REPORT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="''" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="MODULO" column-type="INTEGER" column-default="0" model-name="MODULO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="TUTTI_RECORD" column-type="INTEGER" column-default="0" model-name="TUTTI_RECORD" model-type="INTEGER"/>
+    </table>
+    <table table-name="AA_REPORT_QUERY" mapper-name="TAA_REPORT_QUERYMapper" entity-name="IAA_REPORT_QUERY" implementation-name="TAA_REPORT_QUERY" target-module="AA_REPORT_QUERY">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_REPORT" column-type="INTEGER" column-default="0" model-name="ID_REPORT" model-type="INTEGER"/>
+      <column column-name="QUERY" column-type="BLOB" column-default="" model-name="QUERY" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="ORDINE" column-type="INTEGER" column-default="0" model-name="ORDINE" model-type="INTEGER"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="''" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="AN_ANAGRAFICHE" mapper-name="TAN_ANAGRAFICHEMapper" entity-name="IAN_ANAGRAFICHE" implementation-name="TAN_ANAGRAFICHE" target-module="AN_ANAGRAFICHE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="CODICE" column-type="VARCHAR" column-default="" model-name="CODICE" model-type="VARCHAR"/>
+      <column column-name="RAGIONE_SOCIALE" column-type="VARCHAR" column-default="" model-name="RAGIONE_SOCIALE" model-type="VARCHAR"/>
+      <column column-name="PIVA" column-type="VARCHAR" column-default="''" model-name="PIVA" model-type="VARCHAR"/>
+      <column column-name="CODICE_FISCALE" column-type="VARCHAR" column-default="''" model-name="CODICE_FISCALE" model-type="VARCHAR"/>
+      <column column-name="CAPITALE_SOCIALE" column-type="VARCHAR" column-default="''" model-name="CAPITALE_SOCIALE" model-type="VARCHAR"/>
+      <column column-name="DATA_NASCITA" column-type="DATE" column-default="current_date" model-name="DATA_NASCITA" model-type="DATE"/>
+      <column column-name="LUOGO_NASCITA" column-type="VARCHAR" column-default="''" model-name="LUOGO_NASCITA" model-type="VARCHAR"/>
+      <column column-name="INDIRIZZO" column-type="VARCHAR" column-default="''" model-name="INDIRIZZO" model-type="VARCHAR"/>
+      <column column-name="INDIRIZZO2" column-type="VARCHAR" column-default="''" model-name="INDIRIZZO2" model-type="VARCHAR"/>
+      <column column-name="CITTA" column-type="VARCHAR" column-default="''" model-name="CITTA" model-type="VARCHAR"/>
+      <column column-name="CAP" column-type="VARCHAR" column-default="''" model-name="CAP" model-type="VARCHAR"/>
+      <column column-name="PROVINCIA" column-type="VARCHAR" column-default="''" model-name="PROVINCIA" model-type="VARCHAR"/>
+      <column column-name="KM" column-type="NUMERIC" column-default="0" model-name="KM" model-type="NUMERIC"/>
+      <column column-name="NAZIONE" column-type="VARCHAR" column-default="''" model-name="NAZIONE" model-type="VARCHAR"/>
+      <column column-name="TELEFONO" column-type="VARCHAR" column-default="''" model-name="TELEFONO" model-type="VARCHAR"/>
+      <column column-name="FAX" column-type="VARCHAR" column-default="''" model-name="FAX" model-type="VARCHAR"/>
+      <column column-name="CELLULARE" column-type="VARCHAR" column-default="''" model-name="CELLULARE" model-type="VARCHAR"/>
+      <column column-name="EMAIL" column-type="VARCHAR" column-default="''" model-name="EMAIL" model-type="VARCHAR"/>
+      <column column-name="SITOWEB" column-type="VARCHAR" column-default="''" model-name="SITOWEB" model-type="VARCHAR"/>
+      <column column-name="CODICEERI" column-type="VARCHAR" column-default="''" model-name="CODICEERI" model-type="VARCHAR"/>
+      <column column-name="CODICEREA" column-type="VARCHAR" column-default="''" model-name="CODICEREA" model-type="VARCHAR"/>
+      <column column-name="APPOGGIOBANCARIO" column-type="VARCHAR" column-default="''" model-name="APPOGGIOBANCARIO" model-type="VARCHAR"/>
+      <column column-name="FILIALE" column-type="VARCHAR" column-default="''" model-name="FILIALE" model-type="VARCHAR"/>
+      <column column-name="CODICEIBAN" column-type="VARCHAR" column-default="''" model-name="CODICEIBAN" model-type="VARCHAR"/>
+      <column column-name="DICITURAFISSAFATTURA" column-type="VARCHAR" column-default="''" model-name="DICITURAFISSAFATTURA" model-type="VARCHAR"/>
+      <column column-name="IDPAGAMENTO" column-type="INTEGER" column-default="0" model-name="IDPAGAMENTO" model-type="INTEGER"/>
+      <column column-name="IDLISTINO" column-type="INTEGER" column-default="0" model-name="IDLISTINO" model-type="INTEGER"/>
+      <column column-name="IDIVA" column-type="INTEGER" column-default="0" model-name="IDIVA" model-type="INTEGER"/>
+      <column column-name="IDSEDE_FATTURAZIONE" column-type="INTEGER" column-default="0" model-name="IDSEDE_FATTURAZIONE" model-type="INTEGER"/>
+      <column column-name="IDCONTO_CLIENTE" column-type="INTEGER" column-default="0" model-name="IDCONTO_CLIENTE" model-type="INTEGER"/>
+      <column column-name="IDCONTO_FORNITORE" column-type="INTEGER" column-default="0" model-name="IDCONTO_FORNITORE" model-type="INTEGER"/>
+      <column column-name="SETTORE" column-type="VARCHAR" column-default="''" model-name="SETTORE" model-type="VARCHAR"/>
+      <column column-name="MARCHE" column-type="VARCHAR" column-default="''" model-name="MARCHE" model-type="VARCHAR"/>
+      <column column-name="DIPENDENTI" column-type="INTEGER" column-default="0" model-name="DIPENDENTI" model-type="INTEGER"/>
+      <column column-name="MACCHINE" column-type="INTEGER" column-default="0" model-name="MACCHINE" model-type="INTEGER"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IDRELAZIONE" column-type="INTEGER" column-default="0" model-name="IDRELAZIONE" model-type="INTEGER"/>
+      <column column-name="AGENTEMASTER" column-type="INTEGER" column-default="0" model-name="AGENTEMASTER" model-type="INTEGER"/>
+      <column column-name="IDZONA" column-type="INTEGER" column-default="0" model-name="IDZONA" model-type="INTEGER"/>
+      <column column-name="FORO_COMPETENZA" column-type="VARCHAR" column-default="''" model-name="FORO_COMPETENZA" model-type="VARCHAR"/>
+      <column column-name="NOME_COGNOME" column-type="VARCHAR" column-default="''" model-name="NOME_COGNOME" model-type="VARCHAR"/>
+      <column column-name="ISCRIZIONE_TRIBUNALE" column-type="VARCHAR" column-default="''" model-name="ISCRIZIONE_TRIBUNALE" model-type="VARCHAR"/>
+      <column column-name="CCIAA" column-type="VARCHAR" column-default="''" model-name="CCIAA" model-type="VARCHAR"/>
+      <column column-name="CCIAA_CITTA" column-type="VARCHAR" column-default="''" model-name="CCIAA_CITTA" model-type="VARCHAR"/>
+      <column column-name="N_ALBOARTIGIANI" column-type="VARCHAR" column-default="''" model-name="N_ALBOARTIGIANI" model-type="VARCHAR"/>
+      <column column-name="COLORE" column-type="VARCHAR" column-default="''" model-name="COLORE" model-type="VARCHAR"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ANAG_SEDE_MAG" column-type="INTEGER" column-default="0" model-name="ANAG_SEDE_MAG" model-type="INTEGER"/>
+      <column column-name="ID_SEDE_MAG" column-type="INTEGER" column-default="0" model-name="ID_SEDE_MAG" model-type="INTEGER"/>
+      <column column-name="ID_RIVALSA_INPS" column-type="INTEGER" column-default="0" model-name="ID_RIVALSA_INPS" model-type="INTEGER"/>
+      <column column-name="MARCA_BOLLO" column-type="NUMERIC" column-default="0" model-name="MARCA_BOLLO" model-type="NUMERIC"/>
+      <column column-name="ID_RITENUTA_ACCONTO" column-type="INTEGER" column-default="0" model-name="ID_RITENUTA_ACCONTO" model-type="INTEGER"/>
+      <column column-name="SOGLIA_MINIMA_MARCA_BOLLO" column-type="NUMERIC" column-default="0" model-name="SOGLIA_MINIMA_MARCA_BOLLO" model-type="NUMERIC"/>
+    </table>
+    <table table-name="AN_CENTRI_COSTO" mapper-name="TAN_CENTRI_COSTOMapper" entity-name="IAN_CENTRI_COSTO" implementation-name="TAN_CENTRI_COSTO" target-module="AN_CENTRI_COSTO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="AN_IVE" mapper-name="TAN_IVEMapper" entity-name="IAN_IVE" implementation-name="TAN_IVE" target-module="AN_IVE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="PERCENTUALE" column-type="NUMERIC" column-default="0" model-name="PERCENTUALE" model-type="NUMERIC"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="DESCRIZIONE2" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE2" model-type="VARCHAR"/>
+      <column column-name="INDETRAIBILE" column-type="NUMERIC" column-default="0" model-name="INDETRAIBILE" model-type="NUMERIC"/>
+      <column column-name="ESENTE" column-type="INTEGER" column-default="0" model-name="ESENTE" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="AN_PAGAMENTI" mapper-name="TAN_PAGAMENTIMapper" entity-name="IAN_PAGAMENTI" implementation-name="TAN_PAGAMENTI" target-module="AN_PAGAMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="GIORNO" column-type="INTEGER" column-default="0" model-name="GIORNO" model-type="INTEGER"/>
+      <column column-name="NUM_GIORNI" column-type="INTEGER" column-default="0" model-name="NUM_GIORNI" model-type="INTEGER"/>
+      <column column-name="PRC" column-type="INTEGER" column-default="0" model-name="PRC" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="AN_REFERENTI" mapper-name="TAN_REFERENTIMapper" entity-name="IAN_REFERENTI" implementation-name="TAN_REFERENTI" target-module="AN_REFERENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="''" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="MANSIONE" column-type="VARCHAR" column-default="''" model-name="MANSIONE" model-type="VARCHAR"/>
+      <column column-name="TELEFONO" column-type="VARCHAR" column-default="''" model-name="TELEFONO" model-type="VARCHAR"/>
+      <column column-name="EMAIL" column-type="VARCHAR" column-default="''" model-name="EMAIL" model-type="VARCHAR"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDSEDE" column-type="INTEGER" column-default="0" model-name="IDSEDE" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="AN_RELAZIONI" mapper-name="TAN_RELAZIONIMapper" entity-name="IAN_RELAZIONI" implementation-name="TAN_RELAZIONI" target-module="AN_RELAZIONI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="COLORE" column-type="VARCHAR" column-default="" model-name="COLORE" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="AN_SEDI" mapper-name="TAN_SEDIMapper" entity-name="IAN_SEDI" implementation-name="TAN_SEDI" target-module="AN_SEDI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOMESEDE" column-type="VARCHAR" column-default="''" model-name="NOMESEDE" model-type="VARCHAR"/>
+      <column column-name="PIVA" column-type="VARCHAR" column-default="''" model-name="PIVA" model-type="VARCHAR"/>
+      <column column-name="CODICE_FISCALE" column-type="VARCHAR" column-default="''" model-name="CODICE_FISCALE" model-type="VARCHAR"/>
+      <column column-name="INDIRIZZO" column-type="VARCHAR" column-default="''" model-name="INDIRIZZO" model-type="VARCHAR"/>
+      <column column-name="INDIRIZZO2" column-type="VARCHAR" column-default="''" model-name="INDIRIZZO2" model-type="VARCHAR"/>
+      <column column-name="CITTA" column-type="VARCHAR" column-default="''" model-name="CITTA" model-type="VARCHAR"/>
+      <column column-name="CAP" column-type="VARCHAR" column-default="''" model-name="CAP" model-type="VARCHAR"/>
+      <column column-name="PROVINCIA" column-type="VARCHAR" column-default="''" model-name="PROVINCIA" model-type="VARCHAR"/>
+      <column column-name="KM" column-type="NUMERIC" column-default="0" model-name="KM" model-type="NUMERIC"/>
+      <column column-name="NAZIONE" column-type="VARCHAR" column-default="''" model-name="NAZIONE" model-type="VARCHAR"/>
+      <column column-name="TELEFONO" column-type="VARCHAR" column-default="''" model-name="TELEFONO" model-type="VARCHAR"/>
+      <column column-name="FAX" column-type="VARCHAR" column-default="''" model-name="FAX" model-type="VARCHAR"/>
+      <column column-name="CELLULARE" column-type="VARCHAR" column-default="''" model-name="CELLULARE" model-type="VARCHAR"/>
+      <column column-name="EMAIL" column-type="VARCHAR" column-default="''" model-name="EMAIL" model-type="VARCHAR"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="0" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDZONA" column-type="INTEGER" column-default="0" model-name="IDZONA" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="AN_TIPIANAGRAFICHE" mapper-name="TAN_TIPIANAGRAFICHEMapper" entity-name="IAN_TIPIANAGRAFICHE" implementation-name="TAN_TIPIANAGRAFICHE" target-module="AN_TIPIANAGRAFICHE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="IDTIPOANAGRAFICA" column-type="INTEGER" column-default="" model-name="IDTIPOANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="TIPO" column-type="TEXT" column-default="' '" model-name="TIPO" model-type="TEXT"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="COLORE" column-type="VARCHAR" column-default="'$FFFFFF'" model-name="COLORE" model-type="VARCHAR"/>
+    </table>
+    <table table-name="AN_TIPIANAGRAFICHE_ANAGRAFICHE" mapper-name="TAN_TIPIANAGRAFICHE_ANAGRAFICHEMapper" entity-name="IAN_TIPIANAGRAFICHE_ANAGRAFICHE" implementation-name="TAN_TIPIANAGRAFICHE_ANAGRAFICHE" target-module="AN_TIPIANAGRAFICHE_ANAGRAFICHE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="IDTIPOANAGRAFICA" column-type="INTEGER" column-default="" model-name="IDTIPOANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+    </table>
+    <table table-name="AN_ZONE" mapper-name="TAN_ZONEMapper" entity-name="IAN_ZONE" implementation-name="TAN_ZONE" target-module="AN_ZONE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="CO_DOCUMENTI" mapper-name="TCO_DOCUMENTIMapper" entity-name="ICO_DOCUMENTI" implementation-name="TCO_DOCUMENTI" target-module="CO_DOCUMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NUMERO" column-type="VARCHAR" column-default="''" model-name="NUMERO" model-type="VARCHAR"/>
+      <column column-name="NUMERO_ESTERNO" column-type="VARCHAR" column-default="''" model-name="NUMERO_ESTERNO" model-type="VARCHAR"/>
+      <column column-name="DATA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA" model-type="TIMESTAMP"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="0" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDSEDE" column-type="INTEGER" column-default="0" model-name="IDSEDE" model-type="INTEGER"/>
+      <column column-name="IDTIPODOCUMENTO" column-type="INTEGER" column-default="0" model-name="IDTIPODOCUMENTO" model-type="INTEGER"/>
+      <column column-name="IDSTATODOCUMENTO" column-type="INTEGER" column-default="0" model-name="IDSTATODOCUMENTO" model-type="INTEGER"/>
+      <column column-name="IDPAGAMENTO" column-type="INTEGER" column-default="0" model-name="IDPAGAMENTO" model-type="INTEGER"/>
+      <column column-name="IDCONTO" column-type="INTEGER" column-default="0" model-name="IDCONTO" model-type="INTEGER"/>
+      <column column-name="IDRIVALSAINPS" column-type="INTEGER" column-default="0" model-name="IDRIVALSAINPS" model-type="INTEGER"/>
+      <column column-name="IDRITENUTAACCONTO" column-type="INTEGER" column-default="0" model-name="IDRITENUTAACCONTO" model-type="INTEGER"/>
+      <column column-name="RIVALSAINPS" column-type="NUMERIC" column-default="0" model-name="RIVALSAINPS" model-type="NUMERIC"/>
+      <column column-name="RITENUTAACCONTO" column-type="NUMERIC" column-default="0" model-name="RITENUTAACCONTO" model-type="NUMERIC"/>
+      <column column-name="BOLLO" column-type="NUMERIC" column-default="0" model-name="BOLLO" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="NOTA_AGGIUNTIVA" column-type="BLOB" column-default="" model-name="NOTA_AGGIUNTIVA" model-type="BLOB"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="TOTALE" column-type="NUMERIC" column-default="0" model-name="TOTALE" model-type="NUMERIC"/>
+      <column column-name="NETTO_PAGARE" column-type="NUMERIC" column-default="0" model-name="NETTO_PAGARE" model-type="NUMERIC"/>
+      <column column-name="IDCAUSALET" column-type="INTEGER" column-default="0" model-name="IDCAUSALET" model-type="INTEGER"/>
+      <column column-name="IDSPEDIZIONE" column-type="INTEGER" column-default="0" model-name="IDSPEDIZIONE" model-type="INTEGER"/>
+      <column column-name="IDPORTO" column-type="INTEGER" column-default="0" model-name="IDPORTO" model-type="INTEGER"/>
+      <column column-name="IDASPETTOBENI" column-type="INTEGER" column-default="0" model-name="IDASPETTOBENI" model-type="INTEGER"/>
+      <column column-name="IDVETTORE" column-type="INTEGER" column-default="0" model-name="IDVETTORE" model-type="INTEGER"/>
+      <column column-name="N_COLLI" column-type="INTEGER" column-default="0" model-name="N_COLLI" model-type="INTEGER"/>
+      <column column-name="TOT_PAGATO" column-type="NUMERIC" column-default="0" model-name="TOT_PAGATO" model-type="NUMERIC"/>
+    </table>
+    <table table-name="CO_PREVENTIVI" mapper-name="TCO_PREVENTIVIMapper" entity-name="ICO_PREVENTIVI" implementation-name="TCO_PREVENTIVI" target-module="CO_PREVENTIVI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NUMERO" column-type="VARCHAR" column-default="''" model-name="NUMERO" model-type="VARCHAR"/>
+      <column column-name="NUMERO_ESTERNO" column-type="VARCHAR" column-default="''" model-name="NUMERO_ESTERNO" model-type="VARCHAR"/>
+      <column column-name="DATA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA" model-type="TIMESTAMP"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="0" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDSEDE" column-type="INTEGER" column-default="0" model-name="IDSEDE" model-type="INTEGER"/>
+      <column column-name="IDTIPOPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDTIPOPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="IDSTATOPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDSTATOPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="IDPAGAMENTO" column-type="INTEGER" column-default="0" model-name="IDPAGAMENTO" model-type="INTEGER"/>
+      <column column-name="IDCONTO" column-type="INTEGER" column-default="0" model-name="IDCONTO" model-type="INTEGER"/>
+      <column column-name="IDRIVALSAINPS" column-type="INTEGER" column-default="0" model-name="IDRIVALSAINPS" model-type="INTEGER"/>
+      <column column-name="IDRITENUTAACCONTO" column-type="INTEGER" column-default="0" model-name="IDRITENUTAACCONTO" model-type="INTEGER"/>
+      <column column-name="RIVALSAINPS" column-type="NUMERIC" column-default="0" model-name="RIVALSAINPS" model-type="NUMERIC"/>
+      <column column-name="RITENUTAACCONTO" column-type="NUMERIC" column-default="0" model-name="RITENUTAACCONTO" model-type="NUMERIC"/>
+      <column column-name="BOLLO" column-type="NUMERIC" column-default="0" model-name="BOLLO" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="TOTALE" column-type="NUMERIC" column-default="0" model-name="TOTALE" model-type="NUMERIC"/>
+      <column column-name="NETTO_PAGARE" column-type="NUMERIC" column-default="0" model-name="NETTO_PAGARE" model-type="NUMERIC"/>
+      <column column-name="DATA_ACCETTAZIONE" column-type="TIMESTAMP" column-default="" model-name="DATA_ACCETTAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="DATA_CONCLUSIONE" column-type="TIMESTAMP" column-default="" model-name="DATA_CONCLUSIONE" model-type="TIMESTAMP"/>
+      <column column-name="DATA_RIFIUTO" column-type="TIMESTAMP" column-default="" model-name="DATA_RIFIUTO" model-type="TIMESTAMP"/>
+      <column column-name="TEMPI_CONSEGNA" column-type="VARCHAR" column-default="''" model-name="TEMPI_CONSEGNA" model-type="VARCHAR"/>
+      <column column-name="GIORNI_VALIDITA" column-type="INTEGER" column-default="0" model-name="GIORNI_VALIDITA" model-type="INTEGER"/>
+      <column column-name="ESCLUSIONI" column-type="BLOB" column-default="" model-name="ESCLUSIONI" model-type="BLOB"/>
+    </table>
+    <table table-name="CO_RIGHE_DOCUMENTI" mapper-name="TCO_RIGHE_DOCUMENTIMapper" entity-name="ICO_RIGHE_DOCUMENTI" implementation-name="TCO_RIGHE_DOCUMENTI" target-module="CO_RIGHE_DOCUMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="IDDOCUMENTO" column-type="INTEGER" column-default="0" model-name="IDDOCUMENTO" model-type="INTEGER"/>
+      <column column-name="IDARTICOLO" column-type="INTEGER" column-default="0" model-name="IDARTICOLO" model-type="INTEGER"/>
+      <column column-name="IDIVA" column-type="INTEGER" column-default="0" model-name="IDIVA" model-type="INTEGER"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="LOTTO" column-type="VARCHAR" column-default="''" model-name="LOTTO" model-type="VARCHAR"/>
+      <column column-name="SERIAL" column-type="VARCHAR" column-default="''" model-name="SERIAL" model-type="VARCHAR"/>
+      <column column-name="ALTRO" column-type="VARCHAR" column-default="''" model-name="ALTRO" model-type="VARCHAR"/>
+      <column column-name="SUBTOTALE" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IDUM" column-type="INTEGER" column-default="0" model-name="IDUM" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="QTA_EVASA" column-type="NUMERIC" column-default="0" model-name="QTA_EVASA" model-type="NUMERIC"/>
+      <column column-name="IDPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="IDORDINE" column-type="INTEGER" column-default="0" model-name="IDORDINE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="SUBTOTALE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="PERC_IVA" column-type="NUMERIC" column-default="0" model-name="PERC_IVA" model-type="NUMERIC"/>
+      <column column-name="PERC_SCONTO" column-type="NUMERIC" column-default="0" model-name="PERC_SCONTO" model-type="NUMERIC"/>
+      <column column-name="QTA_TRASFERITA" column-type="NUMERIC" column-default="0" model-name="QTA_TRASFERITA" model-type="NUMERIC"/>
+      <column column-name="IDDDT" column-type="INTEGER" column-default="0" model-name="IDDDT" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="BLOB" column-default="" model-name="DESCRIZIONE" model-type="BLOB"/>
+    </table>
+    <table table-name="CO_RIGHE_PREVENTIVI" mapper-name="TCO_RIGHE_PREVENTIVIMapper" entity-name="ICO_RIGHE_PREVENTIVI" implementation-name="TCO_RIGHE_PREVENTIVI" target-module="CO_RIGHE_PREVENTIVI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="IDPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="IDARTICOLO" column-type="INTEGER" column-default="0" model-name="IDARTICOLO" model-type="INTEGER"/>
+      <column column-name="IDIVA" column-type="INTEGER" column-default="0" model-name="IDIVA" model-type="INTEGER"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="LOTTO" column-type="VARCHAR" column-default="''" model-name="LOTTO" model-type="VARCHAR"/>
+      <column column-name="SERIAL" column-type="VARCHAR" column-default="''" model-name="SERIAL" model-type="VARCHAR"/>
+      <column column-name="ALTRO" column-type="VARCHAR" column-default="''" model-name="ALTRO" model-type="VARCHAR"/>
+      <column column-name="SUBTOTALE" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IDUM" column-type="INTEGER" column-default="0" model-name="IDUM" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="QTA_EVASA" column-type="NUMERIC" column-default="0" model-name="QTA_EVASA" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="SUBTOTALE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="PERC_IVA" column-type="NUMERIC" column-default="0" model-name="PERC_IVA" model-type="NUMERIC"/>
+      <column column-name="PERC_SCONTO" column-type="NUMERIC" column-default="0" model-name="PERC_SCONTO" model-type="NUMERIC"/>
+      <column column-name="DESCRIZIONE" column-type="BLOB" column-default="" model-name="DESCRIZIONE" model-type="BLOB"/>
+    </table>
+    <table table-name="CO_RITENUTAACCONTO" mapper-name="TCO_RITENUTAACCONTOMapper" entity-name="ICO_RITENUTAACCONTO" implementation-name="TCO_RITENUTAACCONTO" target-module="CO_RITENUTAACCONTO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="PERCENTUALE" column-type="NUMERIC" column-default="0" model-name="PERCENTUALE" model-type="NUMERIC"/>
+      <column column-name="INDETRAIBILE" column-type="NUMERIC" column-default="0" model-name="INDETRAIBILE" model-type="NUMERIC"/>
+      <column column-name="ESENTE" column-type="INTEGER" column-default="0" model-name="ESENTE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="CO_RIVALSAINPS" mapper-name="TCO_RIVALSAINPSMapper" entity-name="ICO_RIVALSAINPS" implementation-name="TCO_RIVALSAINPS" target-module="CO_RIVALSAINPS">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="PERCENTUALE" column-type="NUMERIC" column-default="0" model-name="PERCENTUALE" model-type="NUMERIC"/>
+      <column column-name="INDETRAIBILE" column-type="NUMERIC" column-default="0" model-name="INDETRAIBILE" model-type="NUMERIC"/>
+      <column column-name="ESENTE" column-type="INTEGER" column-default="0" model-name="ESENTE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="CO_SCADENZIARIO" mapper-name="TCO_SCADENZIARIOMapper" entity-name="ICO_SCADENZIARIO" implementation-name="TCO_SCADENZIARIO" target-module="CO_SCADENZIARIO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_DOCUMENTO" column-type="INTEGER" column-default="0" model-name="ID_DOCUMENTO" model-type="INTEGER"/>
+      <column column-name="DATA_EMISSIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_EMISSIONE" model-type="TIMESTAMP"/>
+      <column column-name="SCADENZA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="SCADENZA" model-type="TIMESTAMP"/>
+      <column column-name="DA_PAGARE" column-type="NUMERIC" column-default="0" model-name="DA_PAGARE" model-type="NUMERIC"/>
+      <column column-name="PAGATO" column-type="NUMERIC" column-default="0" model-name="PAGATO" model-type="NUMERIC"/>
+      <column column-name="DATA_PAGAMENTO" column-type="TIMESTAMP" column-default="" model-name="DATA_PAGAMENTO" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ID_ANAGRAFICA" column-type="INTEGER" column-default="0" model-name="ID_ANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="ID_TIPO_PAGAMENTO" column-type="INTEGER" column-default="0" model-name="ID_TIPO_PAGAMENTO" model-type="INTEGER"/>
+    </table>
+    <table table-name="CO_STATIDOCUMENTI" mapper-name="TCO_STATIDOCUMENTIMapper" entity-name="ICO_STATIDOCUMENTI" implementation-name="TCO_STATIDOCUMENTI" target-module="CO_STATIDOCUMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ABILITA_SCADENZIARIO" column-type="INTEGER" column-default="0" model-name="ABILITA_SCADENZIARIO" model-type="INTEGER"/>
+    </table>
+    <table table-name="CO_STATIPREVENTIVI" mapper-name="TCO_STATIPREVENTIVIMapper" entity-name="ICO_STATIPREVENTIVI" implementation-name="TCO_STATIPREVENTIVI" target-module="CO_STATIPREVENTIVI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="COMPLETATO" column-type="INTEGER" column-default="0" model-name="COMPLETATO" model-type="INTEGER"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="TRASFERIBILE" column-type="INTEGER" column-default="0" model-name="TRASFERIBILE" model-type="INTEGER"/>
+    </table>
+    <table table-name="CO_TIPIDOCUMENTI" mapper-name="TCO_TIPIDOCUMENTIMapper" entity-name="ICO_TIPIDOCUMENTI" implementation-name="TCO_TIPIDOCUMENTI" target-module="CO_TIPIDOCUMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="DIREZIONE" column-type="INTEGER" column-default="1" model-name="DIREZIONE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="MOVIMENTA_MAGAZZINO" column-type="INTEGER" column-default="1" model-name="MOVIMENTA_MAGAZZINO" model-type="INTEGER"/>
+      <column column-name="GRUPPO_NUMERAZIONE" column-type="INTEGER" column-default="0" model-name="GRUPPO_NUMERAZIONE" model-type="INTEGER"/>
+      <column column-name="TIPO" column-type="VARCHAR" column-default="''" model-name="TIPO" model-type="VARCHAR"/>
+    </table>
+    <table table-name="CO_TIPIPREVENTIVO" mapper-name="TCO_TIPIPREVENTIVOMapper" entity-name="ICO_TIPIPREVENTIVO" implementation-name="TCO_TIPIPREVENTIVO" target-module="CO_TIPIPREVENTIVO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="DIREZIONE" column-type="INTEGER" column-default="1" model-name="DIREZIONE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_ASPETTOBENI" mapper-name="TDT_ASPETTOBENIMapper" entity-name="IDT_ASPETTOBENI" implementation-name="TDT_ASPETTOBENI" target-module="DT_ASPETTOBENI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_CAUSALET" mapper-name="TDT_CAUSALETMapper" entity-name="IDT_CAUSALET" implementation-name="TDT_CAUSALET" target-module="DT_CAUSALET">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_DDT" mapper-name="TDT_DDTMapper" entity-name="IDT_DDT" implementation-name="TDT_DDT" target-module="DT_DDT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NUMERO" column-type="VARCHAR" column-default="''" model-name="NUMERO" model-type="VARCHAR"/>
+      <column column-name="NUMERO_ESTERNO" column-type="VARCHAR" column-default="''" model-name="NUMERO_ESTERNO" model-type="VARCHAR"/>
+      <column column-name="DATA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA" model-type="TIMESTAMP"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="0" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDSEDE" column-type="INTEGER" column-default="0" model-name="IDSEDE" model-type="INTEGER"/>
+      <column column-name="IDTIPODDT" column-type="INTEGER" column-default="0" model-name="IDTIPODDT" model-type="INTEGER"/>
+      <column column-name="IDSTATODDT" column-type="INTEGER" column-default="0" model-name="IDSTATODDT" model-type="INTEGER"/>
+      <column column-name="IDPAGAMENTO" column-type="INTEGER" column-default="0" model-name="IDPAGAMENTO" model-type="INTEGER"/>
+      <column column-name="IDCONTO" column-type="INTEGER" column-default="0" model-name="IDCONTO" model-type="INTEGER"/>
+      <column column-name="IDRIVALSAINPS" column-type="INTEGER" column-default="0" model-name="IDRIVALSAINPS" model-type="INTEGER"/>
+      <column column-name="IDRITENUTAACCONTO" column-type="INTEGER" column-default="0" model-name="IDRITENUTAACCONTO" model-type="INTEGER"/>
+      <column column-name="RIVALSAINPS" column-type="NUMERIC" column-default="0" model-name="RIVALSAINPS" model-type="NUMERIC"/>
+      <column column-name="RITENUTAACCONTO" column-type="NUMERIC" column-default="0" model-name="RITENUTAACCONTO" model-type="NUMERIC"/>
+      <column column-name="BOLLO" column-type="NUMERIC" column-default="0" model-name="BOLLO" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="TOTALE" column-type="NUMERIC" column-default="0" model-name="TOTALE" model-type="NUMERIC"/>
+      <column column-name="NETTO_PAGARE" column-type="NUMERIC" column-default="0" model-name="NETTO_PAGARE" model-type="NUMERIC"/>
+      <column column-name="IDCAUSALET" column-type="INTEGER" column-default="0" model-name="IDCAUSALET" model-type="INTEGER"/>
+      <column column-name="IDSPEDIZIONE" column-type="INTEGER" column-default="0" model-name="IDSPEDIZIONE" model-type="INTEGER"/>
+      <column column-name="IDPORTO" column-type="INTEGER" column-default="0" model-name="IDPORTO" model-type="INTEGER"/>
+      <column column-name="IDASPETTOBENI" column-type="INTEGER" column-default="0" model-name="IDASPETTOBENI" model-type="INTEGER"/>
+      <column column-name="IDVETTORE" column-type="INTEGER" column-default="0" model-name="IDVETTORE" model-type="INTEGER"/>
+      <column column-name="N_COLLI" column-type="INTEGER" column-default="0" model-name="N_COLLI" model-type="INTEGER"/>
+    </table>
+    <table table-name="DT_PORTO" mapper-name="TDT_PORTOMapper" entity-name="IDT_PORTO" implementation-name="TDT_PORTO" target-module="DT_PORTO">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_RIGHE_DDT" mapper-name="TDT_RIGHE_DDTMapper" entity-name="IDT_RIGHE_DDT" implementation-name="TDT_RIGHE_DDT" target-module="DT_RIGHE_DDT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="IDDDT" column-type="INTEGER" column-default="0" model-name="IDDDT" model-type="INTEGER"/>
+      <column column-name="IDARTICOLO" column-type="INTEGER" column-default="0" model-name="IDARTICOLO" model-type="INTEGER"/>
+      <column column-name="IDIVA" column-type="INTEGER" column-default="0" model-name="IDIVA" model-type="INTEGER"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="LOTTO" column-type="VARCHAR" column-default="''" model-name="LOTTO" model-type="VARCHAR"/>
+      <column column-name="SERIAL" column-type="VARCHAR" column-default="''" model-name="SERIAL" model-type="VARCHAR"/>
+      <column column-name="ALTRO" column-type="VARCHAR" column-default="''" model-name="ALTRO" model-type="VARCHAR"/>
+      <column column-name="SUBTOTALE" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IDUM" column-type="INTEGER" column-default="0" model-name="IDUM" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="QTA_EVASA" column-type="NUMERIC" column-default="0" model-name="QTA_EVASA" model-type="NUMERIC"/>
+      <column column-name="IDPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="IDORDINE" column-type="INTEGER" column-default="0" model-name="IDORDINE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="SUBTOTALE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="PERC_IVA" column-type="NUMERIC" column-default="0" model-name="PERC_IVA" model-type="NUMERIC"/>
+      <column column-name="PERC_SCONTO" column-type="NUMERIC" column-default="0" model-name="PERC_SCONTO" model-type="NUMERIC"/>
+      <column column-name="QTA_TRASFERITA" column-type="NUMERIC" column-default="0" model-name="QTA_TRASFERITA" model-type="NUMERIC"/>
+      <column column-name="DESCRIZIONE" column-type="BLOB" column-default="" model-name="DESCRIZIONE" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_SPEDIZIONE" mapper-name="TDT_SPEDIZIONEMapper" entity-name="IDT_SPEDIZIONE" implementation-name="TDT_SPEDIZIONE" target-module="DT_SPEDIZIONE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ESTERNO" column-type="INTEGER" column-default="0" model-name="ESTERNO" model-type="INTEGER"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_STATIDDT" mapper-name="TDT_STATIDDTMapper" entity-name="IDT_STATIDDT" implementation-name="TDT_STATIDDT" target-module="DT_STATIDDT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="DT_TIPIDDT" mapper-name="TDT_TIPIDDTMapper" entity-name="IDT_TIPIDDT" implementation-name="TDT_TIPIDDT" target-module="DT_TIPIDDT">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="DIREZIONE" column-type="INTEGER" column-default="1" model-name="DIREZIONE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="MG_ARTICOLI" mapper-name="TMG_ARTICOLIMapper" entity-name="IMG_ARTICOLI" implementation-name="TMG_ARTICOLI" target-module="MG_ARTICOLI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="CODICE" column-type="VARCHAR" column-default="''" model-name="CODICE" model-type="VARCHAR"/>
+      <column column-name="TAGLIA" column-type="VARCHAR" column-default="''" model-name="TAGLIA" model-type="VARCHAR"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="IDUM" column-type="INTEGER" column-default="0" model-name="IDUM" model-type="INTEGER"/>
+      <column column-name="MARCA" column-type="VARCHAR" column-default="''" model-name="MARCA" model-type="VARCHAR"/>
+      <column column-name="CATEGORIA" column-type="VARCHAR" column-default="''" model-name="CATEGORIA" model-type="VARCHAR"/>
+      <column column-name="AREA" column-type="VARCHAR" column-default="''" model-name="AREA" model-type="VARCHAR"/>
+      <column column-name="SETTORE" column-type="VARCHAR" column-default="''" model-name="SETTORE" model-type="VARCHAR"/>
+      <column column-name="REPARTO" column-type="VARCHAR" column-default="''" model-name="REPARTO" model-type="VARCHAR"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="PREZZO_VEN" column-type="NUMERIC" column-default="0" model-name="PREZZO_VEN" model-type="NUMERIC"/>
+      <column column-name="ID_IVA_VEN" column-type="INTEGER" column-default="0" model-name="ID_IVA_VEN" model-type="INTEGER"/>
+      <column column-name="GG_GARANZIA" column-type="INTEGER" column-default="0" model-name="GG_GARANZIA" model-type="INTEGER"/>
+      <column column-name="ID_ANAGRAFICA_PRODUTTORE" column-type="INTEGER" column-default="0" model-name="ID_ANAGRAFICA_PRODUTTORE" model-type="INTEGER"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="QTA_SEDE" column-type="NUMERIC" column-default="0" model-name="QTA_SEDE" model-type="NUMERIC"/>
+      <column column-name="QTA_TOT" column-type="NUMERIC" column-default="0" model-name="QTA_TOT" model-type="NUMERIC"/>
+    </table>
+    <table table-name="MG_ARTICOLI_CC" mapper-name="TMG_ARTICOLI_CCMapper" entity-name="IMG_ARTICOLI_CC" implementation-name="TMG_ARTICOLI_CC" target-module="MG_ARTICOLI_CC">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="ID_CENTRO_COSTO" column-type="INTEGER" column-default="" model-name="ID_CENTRO_COSTO" model-type="INTEGER"/>
+      <column column-name="PERCENTUALE" column-type="NUMERIC" column-default="0" model-name="PERCENTUALE" model-type="NUMERIC"/>
+      <column column-name="DA_DATA" column-type="TIMESTAMP" column-default="" model-name="DA_DATA" model-type="TIMESTAMP"/>
+      <column column-name="A_DATA" column-type="TIMESTAMP" column-default="" model-name="A_DATA" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+    </table>
+    <table table-name="MG_ARTICOLI_FORNITORI" mapper-name="TMG_ARTICOLI_FORNITORIMapper" entity-name="IMG_ARTICOLI_FORNITORI" implementation-name="TMG_ARTICOLI_FORNITORI" target-module="MG_ARTICOLI_FORNITORI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INT64" column-default="" model-name="ID" model-type="INT64"/>
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="ID_ANAGRAFICA_FORNITORE" column-type="INTEGER" column-default="0" model-name="ID_ANAGRAFICA_FORNITORE" model-type="INTEGER"/>
+      <column column-name="PREZZO_ACQ" column-type="NUMERIC" column-default="0" model-name="PREZZO_ACQ" model-type="NUMERIC"/>
+      <column column-name="ID_IVA_ACQ" column-type="INTEGER" column-default="0" model-name="ID_IVA_ACQ" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+    </table>
+    <table table-name="MG_ARTICOLI_MAGAZZINI" mapper-name="TMG_ARTICOLI_MAGAZZINIMapper" entity-name="IMG_ARTICOLI_MAGAZZINI" implementation-name="TMG_ARTICOLI_MAGAZZINI" target-module="MG_ARTICOLI_MAGAZZINI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="ID_ANAGRAFICA" column-type="INTEGER" column-default="0" model-name="ID_ANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+    </table>
+    <table table-name="MG_ARTICOLI_SOSPESI_GRUPPI" mapper-name="TMG_ARTICOLI_SOSPESI_GRUPPIMapper" entity-name="IMG_ARTICOLI_SOSPESI_GRUPPI" implementation-name="TMG_ARTICOLI_SOSPESI_GRUPPI" target-module="MG_ARTICOLI_SOSPESI_GRUPPI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="TITOLO" column-type="VARCHAR" column-default="''" model-name="TITOLO" model-type="VARCHAR"/>
+      <column column-name="BLOCCATO" column-type="INTEGER" column-default="0" model-name="BLOCCATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="MG_ARTICOLI_SOSPESI_RIGHE" mapper-name="TMG_ARTICOLI_SOSPESI_RIGHEMapper" entity-name="IMG_ARTICOLI_SOSPESI_RIGHE" implementation-name="TMG_ARTICOLI_SOSPESI_RIGHE" target-module="MG_ARTICOLI_SOSPESI_RIGHE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_GRUPPO" column-type="INTEGER" column-default="0" model-name="ID_GRUPPO" model-type="INTEGER"/>
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="MG_DISTINTE_BASE" mapper-name="TMG_DISTINTE_BASEMapper" entity-name="IMG_DISTINTE_BASE" implementation-name="TMG_DISTINTE_BASE" target-module="MG_DISTINTE_BASE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INT64" column-default="" model-name="ID" model-type="INT64"/>
+      <column column-name="ID_ARTICOLO_DB" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO_DB" model-type="INTEGER"/>
+      <column column-name="ID_ARTICOLO_COMP" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO_COMP" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+    </table>
+    <table table-name="MG_LISTINI" mapper-name="TMG_LISTINIMapper" entity-name="IMG_LISTINI" implementation-name="TMG_LISTINI" target-module="MG_LISTINI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="''" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="PRC_GUADAGNO" column-type="NUMERIC" column-default="0" model-name="PRC_GUADAGNO" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="MG_MAGAZZINI" mapper-name="TMG_MAGAZZINIMapper" entity-name="IMG_MAGAZZINI" implementation-name="TMG_MAGAZZINI" target-module="MG_MAGAZZINI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="ID_ANAGRAFICA_MAG" column-type="INTEGER" column-default="" model-name="ID_ANAGRAFICA_MAG" model-type="INTEGER"/>
+      <column column-name="QTA_DISPONIBILE" column-type="NUMERIC" column-default="0" model-name="QTA_DISPONIBILE" model-type="NUMERIC"/>
+      <column column-name="QTA_MINIMA" column-type="NUMERIC" column-default="0" model-name="QTA_MINIMA" model-type="NUMERIC"/>
+      <column column-name="DATA_ULTIMO_INSERIMENTO" column-type="TIMESTAMP" column-default="" model-name="DATA_ULTIMO_INSERIMENTO" model-type="TIMESTAMP"/>
+      <column column-name="DATA_ULTIMO_PRELIEVO" column-type="TIMESTAMP" column-default="" model-name="DATA_ULTIMO_PRELIEVO" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="MG_MOVIMENTI" mapper-name="TMG_MOVIMENTIMapper" entity-name="IMG_MOVIMENTI" implementation-name="TMG_MOVIMENTI" target-module="MG_MOVIMENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INT64" column-default="" model-name="ID" model-type="INT64"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="QUANDO" column-type="TIMESTAMP" column-default="current_timestamp" model-name="QUANDO" model-type="TIMESTAMP"/>
+      <column column-name="ID_UTENTE" column-type="INTEGER" column-default="" model-name="ID_UTENTE" model-type="INTEGER"/>
+      <column column-name="NOTE" column-type="BLOB" column-default="" model-name="NOTE" model-type="BLOB"/>
+      <column column-name="ID_RIGA_DDT_DOC" column-type="INTEGER" column-default="0" model-name="ID_RIGA_DDT_DOC" model-type="INTEGER"/>
+      <column column-name="DIREZIONE" column-type="INTEGER" column-default="1" model-name="DIREZIONE" model-type="INTEGER"/>
+      <column column-name="ID_ARTICOLO" column-type="INTEGER" column-default="0" model-name="ID_ARTICOLO" model-type="INTEGER"/>
+      <column column-name="SORGENTE" column-type="VARCHAR" column-default="''" model-name="SORGENTE" model-type="VARCHAR"/>
+      <column column-name="ID_TIPO_DDT_DOC" column-type="INTEGER" column-default="0" model-name="ID_TIPO_DDT_DOC" model-type="INTEGER"/>
+    </table>
+    <table table-name="MG_MOVIMENTI_TIPI" mapper-name="TMG_MOVIMENTI_TIPIMapper" entity-name="IMG_MOVIMENTI_TIPI" implementation-name="TMG_MOVIMENTI_TIPI" target-module="MG_MOVIMENTI_TIPI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+    </table>
+    <table table-name="MG_MULTIPLI_UM" mapper-name="TMG_MULTIPLI_UMMapper" entity-name="IMG_MULTIPLI_UM" implementation-name="TMG_MULTIPLI_UM" target-module="MG_MULTIPLI_UM">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="ID_UM" column-type="INTEGER" column-default="" model-name="ID_UM" model-type="INTEGER"/>
+      <column column-name="MOLTIPLICATORE" column-type="NUMERIC" column-default="1" model-name="MOLTIPLICATORE" model-type="NUMERIC"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="MG_UNITAMISURA" mapper-name="TMG_UNITAMISURAMapper" entity-name="IMG_UNITAMISURA" implementation-name="TMG_UNITAMISURA" target-module="MG_UNITAMISURA">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="OR_ORDINI" mapper-name="TOR_ORDINIMapper" entity-name="IOR_ORDINI" implementation-name="TOR_ORDINI" target-module="OR_ORDINI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="NUMERO" column-type="VARCHAR" column-default="''" model-name="NUMERO" model-type="VARCHAR"/>
+      <column column-name="NUMERO_ESTERNO" column-type="VARCHAR" column-default="''" model-name="NUMERO_ESTERNO" model-type="VARCHAR"/>
+      <column column-name="DATA" column-type="TIMESTAMP" column-default="" model-name="DATA" model-type="TIMESTAMP"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IDANAGRAFICA" column-type="INTEGER" column-default="0" model-name="IDANAGRAFICA" model-type="INTEGER"/>
+      <column column-name="IDSEDE" column-type="INTEGER" column-default="0" model-name="IDSEDE" model-type="INTEGER"/>
+      <column column-name="IDTIPOORDINE" column-type="INTEGER" column-default="0" model-name="IDTIPOORDINE" model-type="INTEGER"/>
+      <column column-name="IDSTATOORDINE" column-type="INTEGER" column-default="0" model-name="IDSTATOORDINE" model-type="INTEGER"/>
+      <column column-name="IDPAGAMENTO" column-type="INTEGER" column-default="0" model-name="IDPAGAMENTO" model-type="INTEGER"/>
+      <column column-name="IDCONTO" column-type="INTEGER" column-default="0" model-name="IDCONTO" model-type="INTEGER"/>
+      <column column-name="IDRIVALSAINPS" column-type="INTEGER" column-default="0" model-name="IDRIVALSAINPS" model-type="INTEGER"/>
+      <column column-name="IDRITENUTAACCONTO" column-type="INTEGER" column-default="0" model-name="IDRITENUTAACCONTO" model-type="INTEGER"/>
+      <column column-name="RIVALSAINPS" column-type="NUMERIC" column-default="0" model-name="RIVALSAINPS" model-type="NUMERIC"/>
+      <column column-name="RITENUTAACCONTO" column-type="NUMERIC" column-default="0" model-name="RITENUTAACCONTO" model-type="NUMERIC"/>
+      <column column-name="BOLLO" column-type="NUMERIC" column-default="0" model-name="BOLLO" model-type="NUMERIC"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="TOTALE" column-type="NUMERIC" column-default="0" model-name="TOTALE" model-type="NUMERIC"/>
+      <column column-name="NETTO_PAGARE" column-type="NUMERIC" column-default="0" model-name="NETTO_PAGARE" model-type="NUMERIC"/>
+    </table>
+    <table table-name="OR_RIGHE_ORDINI" mapper-name="TOR_RIGHE_ORDINIMapper" entity-name="IOR_RIGHE_ORDINI" implementation-name="TOR_RIGHE_ORDINI" target-module="OR_RIGHE_ORDINI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="IDORDINE" column-type="INTEGER" column-default="0" model-name="IDORDINE" model-type="INTEGER"/>
+      <column column-name="IDARTICOLO" column-type="INTEGER" column-default="0" model-name="IDARTICOLO" model-type="INTEGER"/>
+      <column column-name="IDIVA" column-type="INTEGER" column-default="0" model-name="IDIVA" model-type="INTEGER"/>
+      <column column-name="IDAGENTE" column-type="INTEGER" column-default="0" model-name="IDAGENTE" model-type="INTEGER"/>
+      <column column-name="IVA" column-type="NUMERIC" column-default="0" model-name="IVA" model-type="NUMERIC"/>
+      <column column-name="LOTTO" column-type="VARCHAR" column-default="''" model-name="LOTTO" model-type="VARCHAR"/>
+      <column column-name="SERIAL" column-type="VARCHAR" column-default="''" model-name="SERIAL" model-type="VARCHAR"/>
+      <column column-name="ALTRO" column-type="VARCHAR" column-default="''" model-name="ALTRO" model-type="VARCHAR"/>
+      <column column-name="SUBTOTALE" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE" model-type="NUMERIC"/>
+      <column column-name="SCONTO" column-type="NUMERIC" column-default="0" model-name="SCONTO" model-type="NUMERIC"/>
+      <column column-name="IDUM" column-type="INTEGER" column-default="0" model-name="IDUM" model-type="INTEGER"/>
+      <column column-name="QTA" column-type="NUMERIC" column-default="0" model-name="QTA" model-type="NUMERIC"/>
+      <column column-name="QTA_EVASA" column-type="NUMERIC" column-default="0" model-name="QTA_EVASA" model-type="NUMERIC"/>
+      <column column-name="IDPREVENTIVO" column-type="INTEGER" column-default="0" model-name="IDPREVENTIVO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+      <column column-name="SUBTOTALE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="SUBTOTALE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE" model-type="NUMERIC"/>
+      <column column-name="IMPONIBILE_SCONTATO" column-type="NUMERIC" column-default="0" model-name="IMPONIBILE_SCONTATO" model-type="NUMERIC"/>
+      <column column-name="PERC_IVA" column-type="NUMERIC" column-default="0" model-name="PERC_IVA" model-type="NUMERIC"/>
+      <column column-name="PERC_SCONTO" column-type="NUMERIC" column-default="0" model-name="PERC_SCONTO" model-type="NUMERIC"/>
+      <column column-name="QTA_TRASFERITA" column-type="NUMERIC" column-default="0" model-name="QTA_TRASFERITA" model-type="NUMERIC"/>
+      <column column-name="DESCRIZIONE" column-type="BLOB" column-default="" model-name="DESCRIZIONE" model-type="BLOB"/>
+      <column column-name="ID_MULTIPLO_UM" column-type="INTEGER" column-default="0" model-name="ID_MULTIPLO_UM" model-type="INTEGER"/>
+      <column column-name="QTA_MULTIPLO_UM" column-type="NUMERIC" column-default="0" model-name="QTA_MULTIPLO_UM" model-type="NUMERIC"/>
+    </table>
+    <table table-name="OR_STATIORDINE" mapper-name="TOR_STATIORDINEMapper" entity-name="IOR_STATIORDINE" implementation-name="TOR_STATIORDINE" target-module="OR_STATIORDINE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="ANNULLATO" column-type="INTEGER" column-default="0" model-name="ANNULLATO" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="OR_TIPIORDINE" mapper-name="TOR_TIPIORDINEMapper" entity-name="IOR_TIPIORDINE" implementation-name="TOR_TIPIORDINE" target-module="OR_TIPIORDINE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="''" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="DIREZIONE" column-type="INTEGER" column-default="1" model-name="DIREZIONE" model-type="INTEGER"/>
+      <column column-name="UTENTE_CREAZIONE" column-type="INTEGER" column-default="0" model-name="UTENTE_CREAZIONE" model-type="INTEGER"/>
+      <column column-name="DATA_CREAZIONE" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_CREAZIONE" model-type="TIMESTAMP"/>
+      <column column-name="UTENTE_MODIFICA" column-type="INTEGER" column-default="0" model-name="UTENTE_MODIFICA" model-type="INTEGER"/>
+      <column column-name="DATA_MODIFICA" column-type="TIMESTAMP" column-default="CURRENT_TIMESTAMP" model-name="DATA_MODIFICA" model-type="TIMESTAMP"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="NOTA" column-type="BLOB" column-default="" model-name="NOTA" model-type="BLOB"/>
+    </table>
+    <table table-name="T_CONFIGURAZIONI" mapper-name="TT_CONFIGURAZIONIMapper" entity-name="IT_CONFIGURAZIONI" implementation-name="TT_CONFIGURAZIONI" target-module="T_CONFIGURAZIONI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="CONFIGURAZIONE" column-type="VARCHAR" column-default="" model-name="CONFIGURAZIONE" model-type="VARCHAR"/>
+      <column column-name="VALORE" column-type="VARCHAR" column-default="" model-name="VALORE" model-type="VARCHAR"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+    </table>
+    <table table-name="T_LOCALITA" mapper-name="TT_LOCALITAMapper" entity-name="IT_LOCALITA" implementation-name="TT_LOCALITA" target-module="T_LOCALITA">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ISTAT" column-type="VARCHAR" column-default="" model-name="ISTAT" model-type="VARCHAR"/>
+      <column column-name="COMUNE" column-type="VARCHAR" column-default="" model-name="COMUNE" model-type="VARCHAR"/>
+      <column column-name="PROVINCIA" column-type="VARCHAR" column-default="" model-name="PROVINCIA" model-type="VARCHAR"/>
+      <column column-name="REGIONE" column-type="VARCHAR" column-default="" model-name="REGIONE" model-type="VARCHAR"/>
+      <column column-name="PREFISSO" column-type="VARCHAR" column-default="" model-name="PREFISSO" model-type="VARCHAR"/>
+      <column column-name="CAP" column-type="VARCHAR" column-default="" model-name="CAP" model-type="VARCHAR"/>
+      <column column-name="CODFISCO" column-type="VARCHAR" column-default="" model-name="CODFISCO" model-type="VARCHAR"/>
+      <column column-name="STATO" column-type="VARCHAR" column-default="" model-name="STATO" model-type="VARCHAR"/>
+    </table>
+    <table table-name="T_POSTAZIONI_ATTIVE" mapper-name="TT_POSTAZIONI_ATTIVEMapper" entity-name="IT_POSTAZIONI_ATTIVE" implementation-name="TT_POSTAZIONI_ATTIVE" target-module="T_POSTAZIONI_ATTIVE">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="MACADDRESS" column-type="VARCHAR" column-default="" model-name="MACADDRESS" model-type="VARCHAR"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="AGENDA" column-type="INTEGER" column-default="0" model-name="AGENDA" model-type="INTEGER"/>
+      <column column-name="GESTIONALE" column-type="INTEGER" column-default="0" model-name="GESTIONALE" model-type="INTEGER"/>
+      <column column-name="MAGAZZINO" column-type="INTEGER" column-default="0" model-name="MAGAZZINO" model-type="INTEGER"/>
+      <column column-name="LICENZA" column-type="VARCHAR" column-default="" model-name="LICENZA" model-type="VARCHAR"/>
+      <column column-name="LAST_DBSESSION" column-type="INTEGER" column-default="0" model-name="LAST_DBSESSION" model-type="INTEGER"/>
+      <column column-name="LAST_REMOTE_ADDRESS" column-type="VARCHAR" column-default="'127.0.0.1'" model-name="LAST_REMOTE_ADDRESS" model-type="VARCHAR"/>
+    </table>
+    <table table-name="T_SERVER_FTP_ERP" mapper-name="TT_SERVER_FTP_ERPMapper" entity-name="IT_SERVER_FTP_ERP" implementation-name="TT_SERVER_FTP_ERP" target-module="T_SERVER_FTP_ERP">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="DESCRIZIONE" column-type="VARCHAR" column-default="" model-name="DESCRIZIONE" model-type="VARCHAR"/>
+      <column column-name="HOSTNAME" column-type="VARCHAR" column-default="" model-name="HOSTNAME" model-type="VARCHAR"/>
+      <column column-name="PORT" column-type="INTEGER" column-default="" model-name="PORT" model-type="INTEGER"/>
+      <column column-name="USERNAME" column-type="VARCHAR" column-default="" model-name="USERNAME" model-type="VARCHAR"/>
+      <column column-name="PASSWORD" column-type="VARCHAR" column-default="" model-name="PASSWORD" model-type="VARCHAR"/>
+      <column column-name="DIR_PARTENZA" column-type="VARCHAR" column-default="" model-name="DIR_PARTENZA" model-type="VARCHAR"/>
+      <column column-name="ISDEFAULT" column-type="INTEGER" column-default="0" model-name="ISDEFAULT" model-type="INTEGER"/>
+    </table>
+    <table table-name="T_UTENTI" mapper-name="TT_UTENTIMapper" entity-name="IT_UTENTI" implementation-name="TT_UTENTI" target-module="T_UTENTI">
+      <!--if you want skip then table add skip=true to table definition and remove columns below-->
+      <column column-name="ID" column-type="INTEGER" column-default="" model-name="ID" model-type="INTEGER"/>
+      <column column-name="UTENTE" column-type="VARCHAR" column-default="" model-name="UTENTE" model-type="VARCHAR"/>
+      <column column-name="PWD" column-type="VARCHAR" column-default="" model-name="PWD" model-type="VARCHAR"/>
+      <column column-name="ELIMINATO" column-type="INTEGER" column-default="0" model-name="ELIMINATO" model-type="INTEGER"/>
+      <column column-name="ABBREVIAZIONE" column-type="VARCHAR" column-default="" model-name="ABBREVIAZIONE" model-type="VARCHAR"/>
+      <column column-name="ISOPERATORE" column-type="INTEGER" column-default="0" model-name="ISOPERATORE" model-type="INTEGER"/>
+      <column column-name="COLORE_UTENTE" column-type="VARCHAR" column-default="'$FFFFFF'" model-name="COLORE_UTENTE" model-type="VARCHAR"/>
+      <column column-name="COGNOME" column-type="VARCHAR" column-default="" model-name="COGNOME" model-type="VARCHAR"/>
+      <column column-name="NOME" column-type="VARCHAR" column-default="" model-name="NOME" model-type="VARCHAR"/>
+      <column column-name="ID_LABORATORIO" column-type="INTEGER" column-default="0" model-name="ID_LABORATORIO" model-type="INTEGER"/>
+      <column column-name="TESSERA_RFID" column-type="VARCHAR" column-default="" model-name="TESSERA_RFID" model-type="VARCHAR"/>
+      <column column-name="LAB_VISIBILE" column-type="INTEGER" column-default="0" model-name="LAB_VISIBILE" model-type="INTEGER"/>
+    </table>
+  </context>
+</generator-configuration>

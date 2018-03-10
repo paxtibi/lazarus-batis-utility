@@ -31,6 +31,13 @@ type
     property state: TBaseEntityState read GetState write SetState;
   end;
 
+  IDatabaseSession = interface
+    ['{42B60A6C-6116-4501-99AD-DD03655F4743}']
+    function createPreparedStatement(const sql: string): IZPreparedStatement;
+    function createCallableStatement(const sql: string): IZCallableStatement;
+    function connection: IZConnection;
+  end;
+
   { TBaseEntity }
 
   TBaseEntity = class(TInterfacedPersistent, IBaseEntity, IFPObserved, IFPObserver)
@@ -52,8 +59,8 @@ type
 
   TBaseMapper = class(TPersistent)
   private
-    FConnection: IZConnection;
-    procedure SetConnection(AValue: IZConnection);
+    FSession: IDatabaseSession;
+    procedure SetSession(AValue: IDatabaseSession);
   protected
     function createPreparedStatement(sqlStatement: string): IZPreparedStatement;
     function createCallableStatement(sqlStatement: string): IZCallableStatement;
@@ -68,31 +75,99 @@ type
     constructor Create;
     destructor Destroy; override;
   published
-    property Connection: IZConnection read FConnection write SetConnection;
+    property Session: IDatabaseSession read FSession write SetSession;
   end;
 
+procedure registerMapper(Name: string; mapper: TBaseMapper);
+function getMapper(Name: string): TBaseMapper;
 
 implementation
 
+type
+  { TMapperRepository }
+
+  TMapperRepository = class
+  protected
+    FRepository: TStringList;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    procedure RegisterMapper(Name: string; mapper: TBaseMapper);
+    function getMapper(Name: string): TBaseMapper;
+  end;
+
+var
+  singletonRegistry: TMapperRepository = nil;
+
+procedure registerMapper(Name: string; mapper: TBaseMapper);
+begin
+  if singletonRegistry = nil then
+  begin
+    singletonRegistry := TMapperRepository.Create;
+  end;
+  singletonRegistry.RegisterMapper(Name, mapper);
+end;
+
+function getMapper(Name: string): TBaseMapper;
+begin
+  if singletonRegistry = nil then
+  begin
+    singletonRegistry := TMapperRepository.Create;
+  end;
+  Result := singletonRegistry.getMapper(Name);
+end;
+
+{ TMapperRepository }
+
+constructor TMapperRepository.Create;
+begin
+  FRepository := TStringList.Create;
+end;
+
+destructor TMapperRepository.Destroy;
+var
+  idx: integer;
+  o: TObject;
+begin
+  for idx := FRepository.Count - 1 downto 0 do
+  begin
+    O := FRepository.Objects[idx];
+    FreeAndNil(o);
+    FRepository.Delete(idx);
+  end;
+  FreeAndNil(FRepository);
+  inherited Destroy;
+end;
+
+procedure TMapperRepository.RegisterMapper(Name: string; mapper: TBaseMapper);
+begin
+  FRepository.AddObject(Name, mapper);
+end;
+
+function TMapperRepository.getMapper(Name: string): TBaseMapper;
+begin
+  Result := FRepository.Objects[FRepository.IndexOf(Name)] as TBaseMapper;
+end;
+
 { TLZBatisMapper }
 
-procedure TBaseMapper.SetConnection(AValue: IZConnection);
+procedure TBaseMapper.SetSession(AValue: IDatabaseSession);
 begin
-  if FConnection = AValue then
+  if FSession = AValue then
   begin
     Exit;
   end;
-  FConnection := AValue;
+  FSession := AValue;
 end;
 
 function TBaseMapper.createPreparedStatement(sqlStatement: string): IZPreparedStatement;
 begin
-  Result := FConnection.PrepareStatement(sqlStatement);
+  Result := FSession.createPreparedStatement(sqlStatement);
 end;
 
 function TBaseMapper.createCallableStatement(sqlStatement: string): IZCallableStatement;
 begin
-  Result := FConnection.PrepareCall(sqlStatement);
+  Result := FSession.createCallableStatement(sqlStatement);
 end;
 
 procedure TBaseMapper.InitStatements;
@@ -192,5 +267,5 @@ end;
 initialization
 
 finalization
-
+  FreeAndNil(singletonRegistry);
 end.

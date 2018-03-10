@@ -7,6 +7,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   Classes,
   SysUtils,
   lzBatis.application,
+  lzbatis.mappers,
   zdbc,
   LazLogger,
   ZDbcIntfs,
