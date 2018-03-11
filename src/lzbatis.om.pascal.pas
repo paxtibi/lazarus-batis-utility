@@ -95,12 +95,14 @@ type
   TOMMethod = class(TOMVisibleItem)
   private
     FBody: string;
+    FVector: boolean;
     FParameters: TOMParameters;
     FResultName: string;
     FReturnTypes: TOMNamedItem;
     FSetterOf: TOMField;
     function GetParameters: TOMParameters;
     procedure SetBody(AValue: string);
+    procedure SetVector(AValue: boolean);
     procedure SetParameters(AValue: TOMParameters);
     procedure SetResultName(AValue: string);
     procedure SetReturnTypes(AValue: TOMNamedItem);
@@ -113,6 +115,7 @@ type
     property ResultName: string read FResultName write SetResultName;
     property SetterOf: TOMField read FSetterOf write SetSetterOf;
     property Body: string read FBody write SetBody;
+    property isVector: boolean read FVector write SetVector;
   end;
 
   { TOMProperty }
@@ -191,11 +194,13 @@ type
   TOMInterface = class(TOMAggregateItem)
   private
     FConcreteClass: TOMNamedItem;
+    FGenericName: string;
     FGUID: string;
     FProperties: TOMProperties;
     function GenerateGuid: string;
     function GetProperties: TOMProperties;
     procedure SetConcreteClass(AValue: TOMNamedItem);
+    procedure SetGenericName(AValue: string);
   public
     constructor Create(aName: string = ''); overload;
     constructor Create; overload;
@@ -203,6 +208,7 @@ type
     property GUID: string read GenerateGuid;
     property Properties: TOMProperties read GetProperties;
     property ConcreteClass: TOMNamedItem read FConcreteClass write SetConcreteClass;
+    property GenericName: string read FGenericName write SetGenericName;
   end;
 
   { TOMClass }
@@ -308,9 +314,23 @@ begin
   FConcreteClass := AValue;
 end;
 
+procedure TOMInterface.SetGenericName(AValue: string);
+begin
+  if FGenericName = AValue then
+  begin
+    Exit;
+  end;
+  FGenericName := AValue;
+end;
+
 constructor TOMInterface.Create(aName: string);
 begin
   inherited Create(aName);
+  FGenericName := 'T' + aName + 'List';
+  if aName[1] = 'I' then
+  begin
+    Delete(FGenericName, 2, 1);
+  end;
 end;
 
 constructor TOMInterface.Create;
@@ -460,6 +480,15 @@ begin
   FBody := AValue;
 end;
 
+procedure TOMMethod.SetVector(AValue: boolean);
+begin
+  if FVector = AValue then
+  begin
+    Exit;
+  end;
+  FVector := AValue;
+end;
+
 procedure TOMMethod.SetReturnTypes(AValue: TOMNamedItem);
 begin
   if FReturnTypes = AValue then
@@ -489,6 +518,7 @@ end;
 constructor TOMMethod.Create;
 begin
   FParameters := nil;
+  FVector     := False;
 end;
 
 destructor TOMMethod.Destroy;

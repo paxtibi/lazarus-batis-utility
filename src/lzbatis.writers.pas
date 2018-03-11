@@ -5,7 +5,7 @@ unit lzbatis.writers;
 interface
 
 uses
-  paxtibi.utils,
+  paxtibi.utils, fgl,
   Classes, SysUtils, lzBatis.om.config, lzBatis.om.pascal;
 
 type
@@ -143,6 +143,12 @@ begin
     begin
       FTarget.print('  ').print(intf.Name).print(' = Interface;').println();
     end;
+    FTarget.println;
+    for intf in compilationUnit.Interfaces do
+    begin
+      FTarget.print('  ').print(intf.GenericName).print(' = specialize TFPGList<').print(intf.Name).print('>;').println();
+    end;
+    FTarget.println;
   end;
   if compilationUnit.Mappers.Count > 0 then
   begin
@@ -350,14 +356,23 @@ var
   _property: TOMProperty;
   intf: TOMInterface;
   re: TRegExpr;
-  executeMethod: string;
+  resultName, executeMethod: string;
   isFunction: boolean = False;
   idx: integer = 1;
+  entityVariableName: string = 'result';
 begin
   re := TRegExpr.Create('\$\{(\S*)\}');
   for method in entity.Methods do
   begin
     FTarget.println();
+    if (method.ReturnType = nil) and (method.ResultName <> '') then
+    begin
+      method.ReturnType := cu.getInterfaceByName(method.ResultName);
+    end;
+    if (method.ReturnType = nil) and (method.ResultName <> '') then
+    begin
+      method.ReturnType := cu.getClassByName(method.ResultName);
+    end;
     if (method.ReturnType = nil) and (method.ResultName = '') then
     begin
       isFunction    := False;
@@ -380,14 +395,23 @@ begin
       end;
     end;
     FTarget.print(')');
-    if method.ReturnType <> nil then
+    if (method.ReturnType <> nil) or (method.ResultName <> '') then
     begin
-      FTarget.print(':').print(method.ReturnType.Name);
-    end
-    else
-    if method.ResultName <> '' then
-    begin
-      FTarget.print(':').print(method.ResultName);
+      if method.ReturnType <> nil then
+      begin
+        resultName := method.ReturnType.Name;
+      end
+      else
+      if (method.ResultName <> '') then
+      begin
+        resultName := method.ResultName;
+      end;
+      if method.isVector then
+      begin
+        Delete(resultName, 1, 1);
+        resultName := 'T' + resultName + 'List';
+      end;
+      FTarget.print(':').print(ResultName);
     end;
     FTarget.print(';');
     FTarget.println();
@@ -395,8 +419,16 @@ begin
     begin
       FTarget.print('var').println();
       FTarget.print('  rs : IZResultSet;').println();
+      if method.isVector then
+      begin
+        FTarget.print('  entity: ').print(method.ReturnType.Name).print(';').println();
+      end;
     end;
     FTarget.print('Begin').println();
+    if method.isVector then
+    begin
+
+    end;
     re.InputString := method.SetterOf.InitializiationValue;
     re.Compile;
     idx := 1;
@@ -419,23 +451,37 @@ begin
     end;
     if (method.ReturnType is TOMInterface) then
     begin
-      FTarget.print('  result := nil;').println;
-      FTarget.print('  if rs.next then').println;
+      if (method.isVector) then
+      begin
+        FTarget.print('  result := ').print(resultName).print('.Create;').println;
+        FTarget.print('  while rs.next do').println;
+        entityVariableName := 'entity';
+      end
+      else
+      begin
+        FTarget.print('  result := nil;').println;
+        FTarget.print('  if rs.next then').println;
+        entityVariableName := 'result';
+      end;
       FTarget.print('  begin').println;
       intf := method.ReturnType as TOMInterface;
       if intf.ConcreteClass <> nil then
       begin
-        FTarget.print('    result := ').print(intf.ConcreteClass.Name).print('.Create;').println();
+        FTarget.print('    ').print(entityVariableName).print(' := ').print(intf.ConcreteClass.Name).print('.Create;').println();
       end
       else
       begin
-        FTarget.print('    result := ').print(intf.Name).print('.Create;').println();
+        FTarget.print('    ').print(entityVariableName).print(' := ').print(intf.Name).print('.Create;').println();
       end;
-      FTarget.print('    result._addRef;').println;
-      FTarget.print('    result.state := esLoading;').println;
+      if method.isVector then
+      begin
+        FTarget.print('    result.add(entity);').println;
+      end;
+      FTarget.print('    ').print(entityVariableName).print('._addRef;').println;
+      FTarget.print('    ').print(entityVariableName).print('.state := esLoading;').println;
       for _property in intf.Properties do
       begin
-        FTarget.print('    result.').print(_property.Name).print(' := rs.');
+        FTarget.print('    ').print(entityVariableName).print('.').print(_property.Name).print(' := rs.');
         try
           FTarget.print(FCurrentContext.findTypeHandler(_property.Getter.ResultName).GetMethod);
         except
@@ -452,7 +498,7 @@ begin
         end;
         FTarget.print(''');').println;
       end;
-      FTarget.print('    result.state := edSyncronized;').println;
+      FTarget.print('    ').print(entityVariableName).print('.state := edSyncronized;').println;
       FTarget.print('  end;').println;
     end;
     FTarget.print('End;').println();
@@ -477,6 +523,7 @@ var
   method: TOMMethod;
   field: TOMField;
   parameter: TOMParameter;
+  resultName: string;
 begin
   FTarget.println();
   FTarget.print('  ').print(entity.Name).print(' = class(TBaseMapper)').println();
@@ -533,14 +580,23 @@ begin
       end;
     end;
     FTarget.print(')');
-    if (method.ReturnType <> nil) then
+    if (method.ReturnType <> nil) or (method.ResultName <> '') then
     begin
-      FTarget.print(':').print(method.ReturnType.Name);
-    end
-    else
-    if (method.ResultName <> '') then
-    begin
-      FTarget.print(':').print(method.ResultName);
+      if method.ReturnType <> nil then
+      begin
+        resultName := method.ReturnType.Name;
+      end
+      else
+      if (method.ResultName <> '') then
+      begin
+        resultName := method.ResultName;
+      end;
+      if method.isVector then
+      begin
+        Delete(resultName, 1, 1);
+        resultName := 'T' + resultName + 'List';
+      end;
+      FTarget.print(':').print(ResultName);
     end;
     FTarget.print('; overload;').println();
   end;
@@ -557,7 +613,7 @@ begin
   FTarget.print('{$mode objfpc}{$H+}').println;
   FTarget.println.print('interface').println;
   FTarget.println.print('uses').println;
-  FTarget.println.print('  Classes, SysUtils, ZDbcIntfs, lzbatis.lib;').println;
+  FTarget.println.print('  Classes, SysUtils, ZDbcIntfs, lzbatis.lib, fgl;').println;
   generateForWard(compilationUnit);
   generateInterfaces(compilationUnit.Interfaces);
   generateClasses(compilationUnit.Mappers);

@@ -158,10 +158,12 @@ type
     FBodyMethod: string;
     FMethodName: string;
     FParameters: TConfigurationParameters;
+    FResultGenerics: boolean;
     FResultName: string;
     function GetParameters: TConfigurationParameters;
     procedure SetBodyMethod(AValue: string);
     procedure SetMethodName(AValue: string);
+    procedure SetResultGenerics(AValue: boolean);
     procedure SetResultName(AValue: string);
   public
     constructor Create;
@@ -170,6 +172,7 @@ type
     property Parameters: TConfigurationParameters read GetParameters;
     property BodyMethod: string read FBodyMethod write SetBodyMethod;
     property ResultName: string read FResultName write SetResultName;
+    property ResultGenerics: boolean read FResultGenerics write SetResultGenerics;
   end;
 
   TConfigurationMapper = class
@@ -362,6 +365,15 @@ begin
   FMethodName := AValue;
 end;
 
+procedure TConfigurationMapperMethod.SetResultGenerics(AValue: boolean);
+begin
+  if FResultGenerics = AValue then
+  begin
+    Exit;
+  end;
+  FResultGenerics := AValue;
+end;
+
 procedure TConfigurationMapperMethod.SetResultName(AValue: string);
 begin
   if FResultName = AValue then
@@ -373,7 +385,7 @@ end;
 
 constructor TConfigurationMapperMethod.Create;
 begin
-
+  FResultGenerics := False;
 end;
 
 destructor TConfigurationMapperMethod.Destroy;

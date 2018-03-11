@@ -317,6 +317,7 @@ begin
         cu.Interfaces.Add(intf);
         processaColonne(aContext, cursor, intf);
         aContext.addNamedItem(intf);
+        aContext.addNamedItem(intf.GenericName);
       end;
     end
     else
@@ -404,9 +405,9 @@ begin
           mapperParameter := TOMParameter.Create(configParameter.ParameterName);
           mapperParameter.ParameterTypeName := configParameter.ParameterType;
           mapperParameter.ParameterProtocolo := ppConst;
-
           mapperMethod.Parameters.Add(mapperParameter);
         end;
+        mapperMethod.isVector := configMethod.ResultGenerics;
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
       end;
@@ -600,7 +601,8 @@ begin
     else
     if LowerCase(n.NodeName) = 'return' then
     begin
-      Result.ResultName := n.attr('type');
+      Result.ResultName     := n.attr('type');
+      Result.ResultGenerics := n.hasAttr('generics');
     end;
   end;
   DebugLnExit('Config.Context.MapperMethod');

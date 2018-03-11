@@ -71,8 +71,9 @@ type
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: double); overload;
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: extended); overload;
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: boolean); overload;
+    procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: TDateTime); overload;
   public
-    constructor Create;
+    constructor Create(aSession: IDatabaseSession);
     destructor Destroy; override;
   published
     property Session: IDatabaseSession read FSession write SetSession;
@@ -127,12 +128,9 @@ end;
 destructor TMapperRepository.Destroy;
 var
   idx: integer;
-  o: TObject;
 begin
   for idx := FRepository.Count - 1 downto 0 do
   begin
-    O := FRepository.Objects[idx];
-    FreeAndNil(o);
     FRepository.Delete(idx);
   end;
   FreeAndNil(FRepository);
@@ -205,8 +203,14 @@ begin
   targetStatement.SetBoolean(index, Value);
 end;
 
-constructor TBaseMapper.Create;
+procedure TBaseMapper.setParameter(targetStatement: IZPreparedStatement; index: integer; Value: TDateTime);
 begin
+  targetStatement.SetTimestamp(index, Value);
+end;
+
+constructor TBaseMapper.Create(aSession: IDatabaseSession);
+begin
+  FSession := aSession;
   InitStatements;
 end;
 
