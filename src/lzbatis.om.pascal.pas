@@ -326,10 +326,13 @@ end;
 constructor TOMInterface.Create(aName: string);
 begin
   inherited Create(aName);
-  FGenericName := 'T' + aName + 'List';
-  if aName[1] = 'I' then
+  if aName <> '' then
   begin
-    Delete(FGenericName, 2, 1);
+    FGenericName := 'T' + aName + 'List';
+    if aName[1] = 'I' then
+    begin
+      Delete(FGenericName, 2, 1);
+    end;
   end;
 end;
 
