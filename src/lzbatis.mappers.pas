@@ -412,6 +412,21 @@ begin
         mapper.Fields.Add(mapperField);
       end;
 
+      mapperMethod := TOMMethod.Create('getAll');
+      mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'All');
+
+      mapper.Methods.Add(mapperMethod);
+      mapper.Fields.Add(mapperField);
+
+      mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
+      mapperField.TypeName    := 'IZPreparedStatement';
+      mapperField.Visibility  := vlProtected;
+      mapperField.InitializiationValue := generaSelectSQLPerPrimaryKey(cursor);
+      mapperMethod.Visibility := vlPublic;
+      mapperMethod.SetterOf   := mapperField;
+      mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
+      mapperMethod.isVector   := True;
+
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('getOne');
