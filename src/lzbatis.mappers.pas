@@ -47,6 +47,7 @@ type
   protected
     FCompliationUnits: TOMCompilationUnits;
     // SQL
+    function generaSelectALL(tabella: TConfigurationTable): string;
     function generaSelectSQLPerPrimaryKey(tabella: TConfigurationTable): string;
     function generaUpdateSQLPerPrimaryKey(tabella: TConfigurationTable): string;
     function generaDeleteSQLPerPrimaryKey(tabella: TConfigurationTable): string;
@@ -411,7 +412,7 @@ begin
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
       end;
-
+      // GetAll
       mapperMethod := TOMMethod.Create('getAll');
       mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'All');
 
@@ -421,12 +422,12 @@ begin
       mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
       mapperField.TypeName    := 'IZPreparedStatement';
       mapperField.Visibility  := vlProtected;
-      mapperField.InitializiationValue := generaSelectSQLPerPrimaryKey(cursor);
+      mapperField.InitializiationValue := generaSelectALL(cursor);
       mapperMethod.Visibility := vlPublic;
       mapperMethod.SetterOf   := mapperField;
       mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
       mapperMethod.isVector   := True;
-
+      // GetAll
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('getOne');
@@ -580,6 +581,23 @@ begin
     Exit;
   end;
   FFileNameInput := AValue;
+end;
+
+function TMapperGenerator.generaSelectALL(tabella: TConfigurationTable): string;
+var
+  colonna: TConfigurationColumn;
+begin
+  Result := 'SELECT ';
+  for colonna in tabella.Columns do
+  begin
+    if tabella.Columns.IndexOf(colonna) > 0 then
+    begin
+      Result += ',';
+    end;
+    Result += colonna.ColumnName;
+  end;
+  Result += ' FROM ';
+  Result += tabella.TableName;
 end;
 
 function TConfigReader.leggiColonna(node: TDOMNode): TConfigurationColumn;
