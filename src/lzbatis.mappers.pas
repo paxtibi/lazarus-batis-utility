@@ -160,22 +160,35 @@ begin
         begin
           continue;
         end;
-        columnResultSet := FConnection.GetMetadata.GetColumns('', '', table.TableName, '%');
-        while columnResultSet.Next do
-        begin
-          column := table.getColumnByName(columnResultSet.GetStringByName('COLUMN_NAME'));
-          if column = nil then
+
+        try
+          columnResultSet := FConnection.GetMetadata.GetColumns('', '', table.TableName, '%');
+          while columnResultSet.Next do
           begin
-            column := TConfigurationColumn.Create;
-            table.Columns.Add(column);
+            column := table.getColumnByName(columnResultSet.GetStringByName('COLUMN_NAME'));
+            if column = nil then
+            begin
+              column := TConfigurationColumn.Create;
+              table.Columns.Add(column);
+            end;
+            column.ModelType := aContext.findTypeHandler(SQLTypeName[TZSQLType(columnResultSet.GetIntByName('DATA_TYPE'))]).Model;
+            column.ColumnType := columnResultSet.GetStringByName('TYPE_NAME');
+            column.ModelName := aContext.findTypeHandler(columnResultSet.GetStringByName('COLUMN_NAME')).Model;
+            column.ColumnName := columnResultSet.GetStringByName('COLUMN_NAME');
+            column.DefaultVale := columnResultSet.GetStringByName('COLUMN_DEF');
+            DebugLn(tableName, ':', column.ColumnName, ' -> ', column.ModelName, '(', column.ColumnType, ' -> ', column.ModelType, ') <-', column.DefaultVale);
           end;
-          column.ModelType := aContext.findTypeHandler(SQLTypeName[TZSQLType(columnResultSet.GetIntByName('DATA_TYPE'))]).Model;
-          column.ColumnType := columnResultSet.GetStringByName('TYPE_NAME');
-          column.ModelName := aContext.findTypeHandler(columnResultSet.GetStringByName('COLUMN_NAME')).Model;
-          column.ColumnName := columnResultSet.GetStringByName('COLUMN_NAME');
-          column.DefaultVale := columnResultSet.GetStringByName('COLUMN_DEF');
-          DebugLn(tableName, ':', column.ColumnName, ' -> ', column.ModelName, '(', column.ColumnType, ' -> ', column.ModelType, ') <-', column.DefaultVale);
+
+        except
+          on e: exception do begin
+             DebugLn('*** ERROR:');
+             DebugLn('procedure TConfigDatabaseCompleter.completaConfigurazione(const aContext: TConfigurationContext);');
+             DebugLn(e.Message);
+             DebugLn('<< *** ERROR');
+          end;
         end;
+
+
       end;
       columnResultSet := FConnection.GetMetadata.GetPrimaryKeys('', '', tableName);
       while columnResultSet.Next do
