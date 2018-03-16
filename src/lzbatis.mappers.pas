@@ -143,14 +143,14 @@ begin
     if tableResultSet.GetStringByName('TABLE_TYPE') = 'TABLE' then
     begin
       tableName := tableResultSet.GetStringByName('TABLE_NAME');
-      table     := aContext.getTable(tableName);
+      table := aContext.getTable(tableName);
       if table = nil then
       begin
         table := TConfigurationTable.Create;
         table.TableName := tableName;
         aContext.Tables.Add(table);
-        table.ImplName   := 'T' + CapCase(tableName);
-        table.IntfName   := 'I' + CapCase(tableName);
+        table.ImplName := 'T' + CapCase(tableName);
+        table.IntfName := 'I' + CapCase(tableName);
         table.MapperName := 'T' + CapCase(tableName) + 'Mapper';
         table.CompilationUnitName := tableName;
       end;
@@ -169,10 +169,10 @@ begin
             column := TConfigurationColumn.Create;
             table.Columns.Add(column);
           end;
-          column.ModelType   := aContext.findTypeHandler(SQLTypeName[TZSQLType(columnResultSet.GetIntByName('DATA_TYPE'))]).Model;
-          column.ColumnType  := columnResultSet.GetStringByName('TYPE_NAME');
-          column.ModelName   := aContext.findTypeHandler(columnResultSet.GetStringByName('COLUMN_NAME')).Model;
-          column.ColumnName  := columnResultSet.GetStringByName('COLUMN_NAME');
+          column.ModelType := aContext.findTypeHandler(SQLTypeName[TZSQLType(columnResultSet.GetIntByName('DATA_TYPE'))]).Model;
+          column.ColumnType := columnResultSet.GetStringByName('TYPE_NAME');
+          column.ModelName := aContext.findTypeHandler(columnResultSet.GetStringByName('COLUMN_NAME')).Model;
+          column.ColumnName := columnResultSet.GetStringByName('COLUMN_NAME');
           column.DefaultVale := columnResultSet.GetStringByName('COLUMN_DEF');
           DebugLn(tableName, ':', column.ColumnName, ' -> ', column.ModelName, '(', column.ColumnType, ' -> ', column.ModelType, ') <-', column.DefaultVale);
         end;
@@ -180,12 +180,19 @@ begin
       columnResultSet := FConnection.GetMetadata.GetPrimaryKeys('', '', tableName);
       while columnResultSet.Next do
       begin
-        table.PrimaryKey.Columns.Add(table.getColumnByName(columnResultSet.GetStringByName('COLUMN_NAME')));
+        column := table.getColumnByName(columnResultSet.GetStringByName('COLUMN_NAME'));
+        if (column <> nil) then
+          table.PrimaryKey.Columns.Add(column);
       end;
       DebugLnEnter(table.TableName, ' key columns count ', table.PrimaryKey.Columns.Count.ToString);
-      for column in table.PrimaryKey.Columns do
-      begin
-        DebugLn(column.ColumnName);
+      try
+        for column in table.PrimaryKey.Columns do
+        begin
+          DebugLn(column.ColumnName);
+        end;
+      except
+        on e: Exception do
+          DebugLn('ERROR:', E.Message);
       end;
       DebugLnExit('key columns');
     end;
@@ -224,7 +231,7 @@ begin
     modelSet.SetterOf := field;
     modelGet.SetterOf := field;
 
-    field.Visibility    := vlProtected;
+    field.Visibility := vlProtected;
     modelGet.Visibility := vlPublic;
     modelSet.Visibility := vlPublic;
     if target is TOMInterface then
@@ -391,7 +398,7 @@ begin
       aContext.addNamedItem(mapper);
       for configMethod in cursor.MapperConfiguration.methods do
       begin
-        mapperField  := TOMField.Create('F' + CapCase(configMethod.MethodName));
+        mapperField := TOMField.Create('F' + CapCase(configMethod.MethodName));
         mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
         mapperField.TypeName := 'IZPreparedStatement';
         mapperField.Visibility := vlProtected;
@@ -414,34 +421,34 @@ begin
       end;
       // GetAll
       mapperMethod := TOMMethod.Create('getAll');
-      mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'All');
+      mapperField := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'All');
 
       mapper.Methods.Add(mapperMethod);
       mapper.Fields.Add(mapperField);
 
       mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-      mapperField.TypeName    := 'IZPreparedStatement';
-      mapperField.Visibility  := vlProtected;
+      mapperField.TypeName := 'IZPreparedStatement';
+      mapperField.Visibility := vlProtected;
       mapperField.InitializiationValue := generaSelectALL(cursor);
       mapperMethod.Visibility := vlPublic;
-      mapperMethod.SetterOf   := mapperField;
+      mapperMethod.SetterOf := mapperField;
       mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
-      mapperMethod.isVector   := True;
+      mapperMethod.isVector := True;
       // GetAll
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('getOne');
-        mapperField  := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'One');
+        mapperField := TOMField.Create('FSelect' + CapCase(cursor.IntfName) + 'One');
 
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
 
         mapperField.ReferencedType := aContext.getNamedItem('IZPreparedStatement');
-        mapperField.TypeName    := 'IZPreparedStatement';
-        mapperField.Visibility  := vlProtected;
+        mapperField.TypeName := 'IZPreparedStatement';
+        mapperField.Visibility := vlProtected;
         mapperField.InitializiationValue := generaSelectSQLPerPrimaryKey(cursor);
         mapperMethod.Visibility := vlPublic;
-        mapperMethod.SetterOf   := mapperField;
+        mapperMethod.SetterOf := mapperField;
         mapperMethod.ReturnType := aContext.getNamedItem(cursor.IntfName);
         for confColumn in cursor.PrimaryKey.Columns do
         begin
@@ -455,7 +462,7 @@ begin
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('save');
-        mapperField  := TOMField.Create('FUpdate' + CapCase(cursor.IntfName));
+        mapperField := TOMField.Create('FUpdate' + CapCase(cursor.IntfName));
 
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
@@ -476,7 +483,7 @@ begin
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('remove');
-        mapperField  := TOMField.Create('FDelete' + CapCase(cursor.IntfName));
+        mapperField := TOMField.Create('FDelete' + CapCase(cursor.IntfName));
 
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
@@ -497,7 +504,7 @@ begin
       if cursor.PrimaryKey.Columns.Count > 0 then
       begin
         mapperMethod := TOMMethod.Create('put');
-        mapperField  := TOMField.Create('FInsert' + CapCase(cursor.IntfName));
+        mapperField := TOMField.Create('FInsert' + CapCase(cursor.IntfName));
 
         mapper.Methods.Add(mapperMethod);
         mapper.Fields.Add(mapperField);
@@ -603,7 +610,7 @@ end;
 function TConfigReader.leggiColonna(node: TDOMNode): TConfigurationColumn;
 begin
   DebugLnEnter('Config.Context.Table.Column');
-  Result      := TConfigurationColumn.Create;
+  Result := TConfigurationColumn.Create;
   Result.ColumnName := node.attr('column-name');
   Result.ColumnType := node.attr('column-type');
   Result.ModelName := node.attr('model-name');
@@ -634,7 +641,7 @@ begin
     else
     if LowerCase(n.NodeName) = 'return' then
     begin
-      Result.ResultName     := n.attr('type');
+      Result.ResultName := n.attr('type');
       Result.ResultGenerics := n.hasAttr('generics');
     end;
   end;
@@ -681,7 +688,7 @@ var
   n: TDOMNode;
 begin
   DebugLnEnter('Config.Context.Table');
-  Result      := TConfigurationTable.Create;
+  Result := TConfigurationTable.Create;
   Result.TableName := node.attr('table-name');
   Result.Skip := uppercase(node.attr('skip')) = 'TRUE';
   Result.MapperName := node.attr('mapper-name');
@@ -831,7 +838,7 @@ end;
 function TConfigReader.leggiConnessione(node: TDOMNode): TConfigurationConnection;
 begin
   DebugLnEnter('Config.Context.Connection');
-  Result     := TConfigurationConnection.Create;
+  Result := TConfigurationConnection.Create;
   Result.Url := node.attr('connection-url');
   Result.UserName := node.attr('username');
   Result.Password := node.attr('password');

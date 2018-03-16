@@ -117,7 +117,7 @@ begin
   inherited Create(TheOwner);
   StopOnException := True;
   FOverride := False;
-  FTables   := TStringList.Create;
+  FTables := TStringList.Create;
   FContexts := TStringList.Create;
   FPrepare.active := False;
   FReverse.active := False;

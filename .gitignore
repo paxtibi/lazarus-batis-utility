@@ -1,1 +1,4 @@
 i386-win32
+src/backup/lzbatis.application.pas
+src/backup/lzbatis.mappers.pas
+pck/backup/lzBatisCli.lps
