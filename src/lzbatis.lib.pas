@@ -79,10 +79,12 @@ type
     property Session: IDatabaseSession read FSession write SetSession;
   end;
 
+
 procedure registerMapper(Name: string; mapper: TBaseMapper);
 function getMapper(Name: string): TBaseMapper;
 
 implementation
+
 
 type
   { TMapperRepository }
@@ -117,6 +119,7 @@ begin
   end;
   Result := singletonRegistry.getMapper(Name);
 end;
+
 
 { TMapperRepository }
 

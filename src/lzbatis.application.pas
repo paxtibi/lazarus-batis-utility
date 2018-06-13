@@ -105,6 +105,7 @@ begin
     Writeln(' -overwrite (optional) If specified, override target mapper file. Else preserve older file.');
     Writeln(' -contextids context1,context2,...(optional)');
     Writeln(' -prepare: Prepare the xml file configuration. Use -configfile parameter as target additional parmeter is required. "connectionurl" "username" "password" became mandatory if -prepare is provided as parameter.');
+    Writeln(' -reverse: Reverse Database. Use -configfile parameter as target additional parmeter is required. "connectionurl" "username" "password" became mandatory if -reverse is provided as parameter.');
     //Writeln(' -tables table1, table2,... (optional)');
   end;
   Terminate;

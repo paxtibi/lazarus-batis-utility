@@ -180,14 +180,14 @@ begin
           end;
 
         except
-          on e: exception do begin
-             DebugLn('*** ERROR:');
-             DebugLn('procedure TConfigDatabaseCompleter.completaConfigurazione(const aContext: TConfigurationContext);');
-             DebugLn(e.Message);
-             DebugLn('<< *** ERROR');
+          on e: Exception do
+          begin
+            DebugLn('*** ERROR:');
+            DebugLn('procedure TConfigDatabaseCompleter.completaConfigurazione(const aContext: TConfigurationContext);');
+            DebugLn(e.Message);
+            DebugLn('<< *** ERROR');
           end;
         end;
-
 
       end;
       columnResultSet := FConnection.GetMetadata.GetPrimaryKeys('', '', tableName);
