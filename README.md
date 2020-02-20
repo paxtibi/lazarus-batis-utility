@@ -1,6 +1,10 @@
 # lazarus-batis-utility
 Database Entity to Objects <-> Object to Database Entity 
--- obsolete: Planning new release 
+
+```
+obsolete: Planning new release 
+```
+
 # IT-it
 Partendo da un file di configurazione in formato xml, il programma si connette al database designato e genera le classi entity per mappare le entità di relazionali e i relativi mapper per gestire la persistenza di queste entità.
 # EN-us
