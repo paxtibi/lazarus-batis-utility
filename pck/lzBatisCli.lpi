@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <PathDelim Value="\"/>
     <General>
       <Flags>
@@ -24,14 +24,24 @@
     </PublishOptions>
     <RunParams>
       <local>
-        <FormatVersion Value="1"/>
-        <CommandLineParams Value="-configfile employee.xml -override"/>
+        <CommandLineParams Value="-configfile ..\riconciliazione.xml  -override"/>
       </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default">
+          <local>
+            <CommandLineParams Value="-configfile ..\riconciliazione.xml  -override"/>
+          </local>
+        </Mode0>
+      </Modes>
     </RunParams>
-    <RequiredPackages Count="1">
+    <RequiredPackages Count="2">
       <Item1>
-        <PackageName Value="zdbc"/>
+        <PackageName Value="LazUtils"/>
       </Item1>
+      <Item2>
+        <PackageName Value="zdbc"/>
+      </Item2>
     </RequiredPackages>
     <Units Count="9">
       <Unit0>

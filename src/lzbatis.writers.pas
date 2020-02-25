@@ -39,6 +39,9 @@ type
     property CurrentContext: TConfigurationContext read FCurrentContext write SetCurrentContext;
   end;
 
+var
+  PreserveNameTypes: TStringList;
+
 implementation
 
 uses
@@ -341,7 +344,9 @@ begin
   begin
     if field.InitializiationValue <> '' then
     begin
-      query := ReplaceRegExpr('\$\{(\S*)\}', field.InitializiationValue, '?', True);
+      query := ReplaceRegExpr('\$\{([a-zA-Z0-9._])*\}', field.InitializiationValue, '?', True);
+      query := ReplaceRegExpr('\n', query, ' ', True);
+      query := ReplaceRegExpr('\s\s+', query, ' ', True);
       FTarget.print('  ').print(field.Name).print(' := createPreparedStatement(').print(QuotedStr(query)).print(');').println();
     end;
   end;
@@ -360,75 +365,10 @@ var
   isFunction: boolean = False;
   idx: integer = 1;
   entityVariableName: string = 'result';
-begin
-  re := TRegExpr.Create('\$\{(\S*)\}');
-  for method in entity.Methods do
-  begin
-    FTarget.println();
-    if (method.ReturnType = nil) and (method.ResultName <> '') then
-    begin
-      method.ReturnType := cu.getInterfaceByName(method.ResultName);
-    end;
-    if (method.ReturnType = nil) and (method.ResultName <> '') then
-    begin
-      method.ReturnType := cu.getClassByName(method.ResultName);
-    end;
-    if (method.ReturnType = nil) and (method.ResultName = '') then
-    begin
-      isFunction    := False;
-      executeMethod := 'ExecuteUpdatePrepared';
-      FTarget.print('procedure');
-    end
-    else
-    begin
-      isFunction    := True;
-      executeMethod := 'ExecuteQueryPrepared';
-      FTarget.print('function');
-    end;
-    FTarget.print(' ').print(entity.Name).print('.').print(method.Name).print('(');
-    for Parameter in method.Parameters do
-    begin
-      FTarget.print(Parameter.Name).print(':').print(Parameter.ParameterTypeName);
-      if (method.Parameters.IndexOf(Parameter)) < (method.Parameters.Count - 1) then
-      begin
-        FTarget.print(';');
-      end;
-    end;
-    FTarget.print(')');
-    if (method.ReturnType <> nil) or (method.ResultName <> '') then
-    begin
-      if method.ReturnType <> nil then
-      begin
-        resultName := method.ReturnType.Name;
-      end
-      else
-      if (method.ResultName <> '') then
-      begin
-        resultName := method.ResultName;
-      end;
-      if method.isVector then
-      begin
-        Delete(resultName, 1, 1);
-        resultName := 'T' + resultName + 'List';
-      end;
-      FTarget.print(':').print(ResultName);
-    end;
-    FTarget.print(';');
-    FTarget.println();
-    if isFunction then
-    begin
-      FTarget.print('var').println();
-      FTarget.print('  rs : IZResultSet;').println();
-      if method.isVector then
-      begin
-        FTarget.print('  entity: ').print(method.ReturnType.Name).print(';').println();
-      end;
-    end;
-    FTarget.print('Begin').println();
-    if method.isVector then
-    begin
 
-    end;
+
+  procedure printPrepareCall(method: TOMMethod);
+  begin
     re.InputString := method.SetterOf.InitializiationValue;
     re.Compile;
     idx := 1;
@@ -439,16 +379,36 @@ begin
         Inc(idx);
       until re.ExecNext = False;
     end;
+  end;
+
+  procedure printCaptureScalarResult();
+  begin
     FTarget.print('  ');
-    if isFunction then
+    if not method.isVector then
     begin
-      FTarget.print('rs := ');
-    end;
-    FTarget.print(method.SetterOf.Name).print('.').print(executeMethod).print(';').println();
-    if (method.ReturnType = nil) and (method.ResultName <> '') then
+      FTarget.print('if rs.next then').println();
+      FTarget.print('    ').print('result := rs.');
+      try
+        FTarget.print(FCurrentContext.findTypeHandler(method.ResultName).GetMethod);
+      except
+
+      end;
+      FTarget.print('(1);').println();
+    end
+    else
     begin
-      method.ReturnType := cu.getInterfaceByName(method.ResultName);
+      FTarget.print('while rs.next do').println();
+      FTarget.print('    ').print('result.add(rs.get');
+      try
+        FTarget.print(FCurrentContext.findTypeHandler(method.ResultName).GetMethod);
+      except
+      end;
+      FTarget.print('(1));').println();
     end;
+  end;
+
+  procedure printCaptureObjectResult();
+  begin
     if (method.ReturnType is TOMInterface) then
     begin
       if (method.isVector) then
@@ -501,10 +461,109 @@ begin
       FTarget.print('    ').print(entityVariableName).print('.state := edSyncronized;').println;
       FTarget.print('  end;').println;
     end;
-    FTarget.print('End;').println();
-    FTarget.flush();
   end;
+
+begin
+  re := TRegExpr.Create('\$\{([a-zA-Z0-9._]*)\}');
+  for method in entity.Methods do
+  begin
+    FTarget.println();
+    resultName := method.ResultName;
+    if (method.ReturnType = nil) and (method.ResultName <> '') then
+    begin
+      method.ReturnType := cu.getInterfaceByName(method.ResultName);
+    end;
+    if (method.ReturnType = nil) and (method.ResultName <> '') then
+    begin
+      method.ReturnType := cu.getClassByName(method.ResultName);
+    end;
+    if (method.ReturnType = nil) and (method.ResultName = '') then
+    begin
+      isFunction := False;
+      executeMethod := 'ExecuteUpdatePrepared';
+      FTarget.print('procedure');
+    end
+    else
+    begin
+      isFunction := True;
+      executeMethod := 'ExecuteQueryPrepared';
+      FTarget.print('function');
+    end;
+    FTarget.print(' ').print(entity.Name).print('.').print(method.Name).print('(');
+    for Parameter in method.Parameters do
+    begin
+      FTarget.print(Parameter.Name).print(':').print(Parameter.ParameterTypeName);
+      if (method.Parameters.IndexOf(Parameter)) < (method.Parameters.Count - 1) then
+      begin
+        FTarget.print(';');
+      end;
+    end;
+    FTarget.print(')');
+    if (method.ReturnType <> nil) or (method.ResultName <> '') then
+    begin
+      if method.ReturnType <> nil then
+      begin
+        resultName := method.ReturnType.Name;
+      end
+      else
+      if (method.ResultName <> '') then
+      begin
+        resultName := method.ResultName;
+      end;
+      if method.isVector then
+      begin
+        Writeln(resultName);
+        if PreserveNameTypes.IndexOf(lowercase(resultName)) < 0 then
+          Delete(resultName, 1, 1);
+        resultName := 'T' + resultName + 'List';
+        Writeln(resultName);
+      end;
+      FTarget.print(':').print(ResultName);
+    end;
+    FTarget.print(';');
+    FTarget.println();
+    if isFunction then
+    begin
+      FTarget.print('var').println();
+      FTarget.print('  rs : IZResultSet;').println();
+      if method.isVector then
+      begin
+        FTarget.print('  entity: ');
+        if method.ReturnType <> nil then
+          FTarget.print(method.ReturnType.Name)
+        else
+          FTarget.print(method.ResultName);
+        FTarget.print(';').println();
+      end;
+    end;
+    FTarget.print('Begin').println();
+    if method.isVector then
+    begin
+
+    end;
+    printPrepareCall(method);
+    FTarget.print('  ');
+    if isFunction then
+      FTarget.print('rs := ');
+    FTarget.print(method.SetterOf.Name).print('.').print(executeMethod).print(';').println();
+    if (method.ReturnType = nil) and (method.ResultName <> '') then
+    begin
+      method.ReturnType := cu.getInterfaceByName(method.ResultName);
+    end;
+    if isFunction then
+    begin
+      if method.isScalar then
+      begin
+        printCaptureScalarResult();
+      end
+      else
+        printCaptureObjectResult();
+    end;
+    FTarget.print('End;').println();
+  end;
+  FTarget.flush();
 end;
+
 
 procedure TUnitWriter.generateMapperMethods(cu: TOMCompilationUnit);
 var
@@ -593,7 +652,8 @@ begin
       end;
       if method.isVector then
       begin
-        Delete(resultName, 1, 1);
+        if PreserveNameTypes.IndexOf(lowercase(resultName)) < 0 then
+          Delete(resultName, 1, 1);
         resultName := 'T' + resultName + 'List';
       end;
       FTarget.print(':').print(ResultName);
@@ -633,6 +693,33 @@ end;
 
 initialization
 
+  PreserveNameTypes := TStringList.Create;
+  PreserveNameTypes.Add('string');
+  PreserveNameTypes.Add('widestring');
+  PreserveNameTypes.Add('unicodestring');
+  PreserveNameTypes.Add('rawbytestring');
+  PreserveNameTypes.Add('ansistring');
+
+  PreserveNameTypes.Add('boolean');
+
+  PreserveNameTypes.Add('integer');
+  PreserveNameTypes.Add('longint');
+  PreserveNameTypes.Add('int64');
+  PreserveNameTypes.Add('int32');
+  PreserveNameTypes.Add('int8');
+  PreserveNameTypes.Add('carindal');
+  PreserveNameTypes.Add('uint64');
+  PreserveNameTypes.Add('uint32');
+  PreserveNameTypes.Add('uint16');
+  PreserveNameTypes.Add('uint8');
+
+  PreserveNameTypes.Add('single');
+  PreserveNameTypes.Add('double');
+  PreserveNameTypes.Add('extended');
+
+
 finalization
+
+  FreeAndNil(PreserveNameTypes);
 
 end.

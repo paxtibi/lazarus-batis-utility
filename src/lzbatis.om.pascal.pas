@@ -95,6 +95,7 @@ type
   TOMMethod = class(TOMVisibleItem)
   private
     FBody: string;
+    FisScalar: boolean;
     FVector: boolean;
     FParameters: TOMParameters;
     FResultName: string;
@@ -102,6 +103,7 @@ type
     FSetterOf: TOMField;
     function GetParameters: TOMParameters;
     procedure SetBody(AValue: string);
+    procedure SetisScalar(AValue: boolean);
     procedure SetVector(AValue: boolean);
     procedure SetParameters(AValue: TOMParameters);
     procedure SetResultName(AValue: string);
@@ -116,6 +118,7 @@ type
     property SetterOf: TOMField read FSetterOf write SetSetterOf;
     property Body: string read FBody write SetBody;
     property isVector: boolean read FVector write SetVector;
+    property isScalar: boolean read FisScalar write SetisScalar;
   end;
 
   { TOMProperty }
@@ -387,7 +390,7 @@ end;
 
 constructor TOMAggregateItem.Create;
 begin
-  FFields  := nil;
+  FFields := nil;
   FMethods := nil;
 end;
 
@@ -483,6 +486,13 @@ begin
   FBody := AValue;
 end;
 
+procedure TOMMethod.SetisScalar(AValue: boolean);
+begin
+  if FisScalar = AValue then
+    Exit;
+  FisScalar := AValue;
+end;
+
 procedure TOMMethod.SetVector(AValue: boolean);
 begin
   if FVector = AValue then
@@ -521,7 +531,7 @@ end;
 constructor TOMMethod.Create;
 begin
   FParameters := nil;
-  FVector     := False;
+  FVector := False;
 end;
 
 destructor TOMMethod.Destroy;

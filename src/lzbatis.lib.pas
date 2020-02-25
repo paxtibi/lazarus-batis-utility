@@ -69,7 +69,9 @@ type
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: int64); overload;
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: single); overload;
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: double); overload;
+    {$IFNDEF CPU64}
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: extended); overload;
+    {$ENDIF}
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: boolean); overload;
     procedure setParameter(targetStatement: IZPreparedStatement; index: integer; Value: TDateTime); overload;
   public
@@ -196,10 +198,13 @@ begin
   targetStatement.SetDouble(index, Value);
 end;
 
+{$IFNDEF CPU64}
 procedure TBaseMapper.setParameter(targetStatement: IZPreparedStatement; index: integer; Value: extended);
 begin
   targetStatement.SetBigDecimal(index, Value);
 end;
+
+{$ENDIF}
 
 procedure TBaseMapper.setParameter(targetStatement: IZPreparedStatement; index: integer; Value: boolean);
 begin

@@ -1,3 +1,4 @@
-i386-win32
 backup
 bin/
+lib/
+models/

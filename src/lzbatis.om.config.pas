@@ -100,6 +100,7 @@ type
 
   TConfigurationTable = class
   private
+    FbaseMethods: boolean;
     FColumns: TConfigurationColumns;
     FCompilationUnitName: string;
     FForeingKey: TConfigurationTableForeingKeys;
@@ -114,6 +115,7 @@ type
     function GetForeingKey: TConfigurationTableForeingKeys;
     function getMapper: TConfigurationMapper;
     function GetPrimaryKey: TConfigurationTablePrimaryKey;
+    procedure SetbaseMethods(AValue: boolean);
     procedure SetColumns(AValue: TConfigurationColumns);
     procedure SetCompilationUnitName(AValue: string);
     procedure SetForeingKey(AValue: TConfigurationTableForeingKeys);
@@ -136,6 +138,7 @@ type
     property MapperConfiguration: TConfigurationMapper read getMapper;
     property PrimaryKey: TConfigurationTablePrimaryKey read GetPrimaryKey;
     property ForeingKey: TConfigurationTableForeingKeys read GetForeingKey;
+    property baseMethods: boolean read FbaseMethods write SetbaseMethods;
   end;
 
   { TConfigurationParameter }
@@ -160,11 +163,13 @@ type
     FParameters: TConfigurationParameters;
     FResultGenerics: boolean;
     FResultName: string;
+    FScalarValue: boolean;
     function GetParameters: TConfigurationParameters;
     procedure SetBodyMethod(AValue: string);
     procedure SetMethodName(AValue: string);
     procedure SetResultGenerics(AValue: boolean);
     procedure SetResultName(AValue: string);
+    procedure SetScalarValue(AValue: boolean);
   public
     constructor Create;
     destructor Destroy; override;
@@ -173,6 +178,7 @@ type
     property BodyMethod: string read FBodyMethod write SetBodyMethod;
     property ResultName: string read FResultName write SetResultName;
     property ResultGenerics: boolean read FResultGenerics write SetResultGenerics;
+    property ScalarValue: boolean read FScalarValue write SetScalarValue;
   end;
 
   TConfigurationMapper = class
@@ -383,9 +389,17 @@ begin
   FResultName := AValue;
 end;
 
+procedure TConfigurationMapperMethod.SetScalarValue(AValue: boolean);
+begin
+  if FScalarValue = AValue then
+    Exit;
+  FScalarValue := AValue;
+end;
+
 constructor TConfigurationMapperMethod.Create;
 begin
   FResultGenerics := False;
+  FScalarValue := False;
 end;
 
 destructor TConfigurationMapperMethod.Destroy;
@@ -505,6 +519,13 @@ begin
     FPrimaryKey := TConfigurationTablePrimaryKey.Create;
   end;
   Result := FPrimaryKey;
+end;
+
+procedure TConfigurationTable.SetbaseMethods(AValue: boolean);
+begin
+  if FbaseMethods = AValue then
+    Exit;
+  FbaseMethods := AValue;
 end;
 
 procedure TConfigurationTable.SetImplName(AValue: string);
@@ -738,7 +759,7 @@ constructor TConfigurationContext.Create(aOwner: TComponent);
 begin
   inherited Create(aOwner);
   FZdbcConnection := nil;
-  FNamedItems     := TOMNamedItems.Create(False);
+  FNamedItems := TOMNamedItems.Create(False);
 end;
 
 destructor TConfigurationContext.Destroy;
